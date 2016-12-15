@@ -70,6 +70,7 @@ if __name__ == '__main__':
     print("clicked")
     numbers = list(range(1, 482))
     numbers.remove(24)
+    numbers.remove(50)
     for number in numbers:
         print(number)
         elem_servicio = chrome.find_element_by_xpath(
