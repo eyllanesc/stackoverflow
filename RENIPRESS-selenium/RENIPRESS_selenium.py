@@ -66,7 +66,7 @@ if __name__ == '__main__':
     elem_estado = chrome.find_element_by_xpath('//*[@id="cmb_estado"]/option[1]')
     elem_estado.click()  # para tener a eess activos y no activos
     print("clicked")
-    numbers = list(range(2, 482))
+    numbers = list(range(1, 482))
     numbers.remove(24)
     for number in numbers:
         print(number)
