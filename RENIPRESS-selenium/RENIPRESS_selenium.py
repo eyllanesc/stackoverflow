@@ -3,9 +3,9 @@ import os
 import shutil
 import time
 from time import sleep
+
+import sys
 from selenium import webdriver
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 
 def clear(directory):
@@ -42,6 +42,8 @@ def save(input_dir, output_dir, number, timeout=50):
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
+    print("saved")
+
     for src in glob.glob(input_dir + "/*.xls"):
         dst = output_dir + "/" + str(number) + ".xls"
         print(dst)
@@ -74,12 +76,15 @@ if __name__ == '__main__':
             '//*[@id="div-cabecera-buscar"]/div[2]/div[1]/div[3]/div[3]/div/select/option[{number}]'.format(number=number))
         elem_servicio.click()
         print(number)
+        try:
+            elem_buscar = chrome.find_element_by_xpath('//*[@id="btnBuscar"]/i')
+            elem_buscar.click()  # para tener mostrar la base seleccionada
 
-        elem_buscar = chrome.find_element_by_xpath('//*[@id="btnBuscar"]/i')
-        elem_buscar.click()  # para tener mostrar la base seleccionada
+            time.sleep(5)  # Let the user actually see something! (5 seconds)
+            chrome.execute_script("document.getElementById('datable-grilla-establecimientos-renipress_btnExpAux').click();")
+            save(location, output_dr, number, timeout=500)
 
-        time.sleep(5)  # Let the user actually see something! (5 seconds)
-        chrome.execute_script("document.getElementById('datable-grilla-establecimientos-renipress_btnExpAux').click();")
-        save(location, output_dr, number)
+        except:
+            print(sys.exc_info()[0])
 
-    # chrome.quit()
+    chrome.quit()
