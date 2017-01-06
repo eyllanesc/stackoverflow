@@ -30,9 +30,7 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../HelloWorldLib/lib/release/ -lHelloWorldLib
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../HelloWorldLib/lib/debug/ -lHelloWorldLib
-else:unix: LIBS += -L$$PWD/../HelloWorldLib/lib/ -lHelloWorldLib
+LIBS += -L$$PWD/../HelloWorldLib/lib/ -lHelloWorldLib
 
 INCLUDEPATH += $$PWD/../HelloWorldLib/include
 DEPENDPATH += $$PWD/../HelloWorldLib/include

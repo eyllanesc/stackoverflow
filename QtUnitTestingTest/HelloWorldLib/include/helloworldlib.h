@@ -1,11 +1,9 @@
 #ifndef HELLOWORLDLIB_H
 #define HELLOWORLDLIB_H
 
-#include "helloworldlib_global.h"
-
 #include <QDebug>
 
-class HELLOWORLDLIBSHARED_EXPORT HelloWorldLib: public QObject
+class HelloWorldLib: public QObject
 {
     Q_OBJECT
 

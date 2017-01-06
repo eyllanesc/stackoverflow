@@ -8,6 +8,7 @@ QT       -= gui
 
 TARGET = HelloWorldLib
 TEMPLATE = lib
+CONFIG += staticlib
 
 DEFINES += HELLOWORLDLIB_LIBRARY
 
@@ -26,8 +27,7 @@ INCLUDEPATH += $$PWD/include
 
 SOURCES += src/helloworldlib.cpp
 
-HEADERS += include/helloworldlib.h\
-        include/helloworldlib_global.h
+HEADERS += include/helloworldlib.h
 
 unix {
     target.path = /usr/lib

@@ -3,9 +3,8 @@
 
 #include <helloworldlib.h>
 
-#include <helloworldlib.h>
-
 #include <QDebug>
+#include <QString>
 
 class HelloWorldTestTest : public QObject
 {
