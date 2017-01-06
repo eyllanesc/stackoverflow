@@ -18,17 +18,11 @@ public:
         return true;
     }
 
-    QString data = "";
-
 public slots:
     void someSlot()
     {
-        data = "aa";
         qDebug() << "test";
-        emit ok();
     }
-signals:
-    void ok();
 
 };
 
