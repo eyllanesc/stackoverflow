@@ -5,3 +5,4 @@ SUBDIRS += \
     HelloWorldUI \
     HelloWorldTest
 
+CONFIG += ordered
