@@ -87,7 +87,7 @@ class FilterTableWidget(QTableWidget):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     w = FilterTableWidget()
-    with open("Rts.csv", "rb") as inpfil:
+    with open("../Rts.csv", "rb") as inpfil:
         reader = csv.reader(inpfil, delimiter=',')
         csheader = reader.next()
         ncol = len(csheader)
