@@ -56,8 +56,9 @@ class FilterTableWidget(QTableWidget):
         self.menu.exec_(QPoint(posX, posY))
 
     def onClickedElement(self):
-    	self.checkBoxSelect.setChecked(False)
-
+    	if self.checkBoxSelect.isChecked(): 
+    		self.checkBoxSelect.setChecked(False)
+    		
 
     def onSelect(self, state):
         for checkbox in self.checkBoxs:
