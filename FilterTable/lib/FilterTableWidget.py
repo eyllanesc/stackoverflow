@@ -21,12 +21,12 @@ class FilterTableWidget(QTableWidget):
 
         self.checkBoxs = []
 
-        checkBox = QCheckBox("Select all", self.menu)
+        self.checkBoxSelect = QCheckBox("Select all", self.menu)
         checkableAction = QWidgetAction(self.menu)
-        checkableAction.setDefaultWidget(checkBox)
+        checkableAction.setDefaultWidget(self.checkBoxSelect)
         self.menu.addAction(checkableAction)
-        checkBox.setChecked(True)
-        checkBox.stateChanged.connect(self.onSelect)
+        self.checkBoxSelect.setChecked(True)
+        self.checkBoxSelect.stateChanged.connect(self.onSelect)
 
         for i in range(self.rowCount()):
             if not self.isRowHidden(i):
@@ -35,6 +35,7 @@ class FilterTableWidget(QTableWidget):
                     data_unique.append(item.text())
                     checkBox = QCheckBox(item.text(), self.menu)
                     checkBox.setChecked(True)
+                    checkBox.stateChanged.connect(self.onClickedElement)
                     checkableAction = QWidgetAction(self.menu)
                     checkableAction.setDefaultWidget(checkBox)
                     self.menu.addAction(checkableAction)
@@ -54,6 +55,10 @@ class FilterTableWidget(QTableWidget):
         posX = headerPos.x() + self.horizontalHeader.sectionPosition(index)
         self.menu.exec_(QPoint(posX, posY))
 
+    def onClickedElement(self):
+    	self.checkBoxSelect.setChecked(False)
+
+
     def onSelect(self, state):
         for checkbox in self.checkBoxs:
             checkbox.setChecked(Qt.Checked == state)
@@ -66,10 +71,6 @@ class FilterTableWidget(QTableWidget):
         self.filterdata()
         self.menu.close()
 
-    def clearFilter(self):
-        for i in range(w.rowCount()):
-            self.setRowHidden(i, False)
-
     def filterdata(self):
 
         columnsShow = dict([(i, True) for i in range(self.rowCount())])
@@ -77,9 +78,10 @@ class FilterTableWidget(QTableWidget):
         for i in range(self.rowCount()):
             for j in range(self.columnCount()):
                 item = self.item(i, j)
-                if self.keywords[j]:
-                    if item.text() not in self.keywords[j]:
-                        columnsShow[i] = False
+                if j in self.keywords:
+	                if self.keywords[j]:
+	                    if item.text() not in self.keywords[j]:
+	                        columnsShow[i] = False
         for key, value in columnsShow.iteritems():
             self.setRowHidden(key, not value)
 
