@@ -129,7 +129,7 @@ class Filter_window(QtGui.QWidget, filter_class):
                     rowdata = []
                     for column2 in range(self.filterall.columnCount()):
                         item2 = self.filterall.item(row2, column2)
-                        rowdata.append(unicode(item2.text()).encode('utf8') if item2 else '')
+                        rowdata.append(unicode(item2.text()).encode('utf8'))
                     writer.writerow(rowdata)
                 print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", rowdata, "&&&&&&&&&&&&&&", row2)
 
