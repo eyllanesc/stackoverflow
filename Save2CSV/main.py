@@ -131,7 +131,7 @@ class Filter_window(QtGui.QWidget, filter_class):
                         item2 = self.filterall.item(row2, column2)
                         rowdata.append(unicode(item2.text()).encode('utf8'))
                     writer.writerow(rowdata)
-                print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", rowdata, "&&&&&&&&&&&&&&", row2)
+                    print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", rowdata, "&&&&&&&&&&&&&&", row2)
 
 
 if __name__ == '__main__':
