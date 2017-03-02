@@ -28,6 +28,7 @@ QPoint CSprite2D::getPos() const
 void CSprite2D::setPos(const QPoint &pos)
 {
     mPos = pos;
+    emit onChanged();
 }
 
 void CSprite2D::paint(QPainter *painter, QPaintEvent *event)

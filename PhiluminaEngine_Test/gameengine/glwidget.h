@@ -5,20 +5,38 @@
 #include <QOpenGLWidget>
 #include "nodes/2d/sprite/csprite2d.h"
 
+/**
+ * @brief
+ *
+ */
 class GLWidget : public QOpenGLWidget
 {
     Q_OBJECT
 public:
+    /**
+     * @brief
+     *
+     * @param parent
+     */
     GLWidget(QWidget *parent);
-    CSprite2D *sprite;
+    CSprite2D *sprite; /**< TODO: describe */
 
 public slots:
+    /**
+     * @brief
+     *
+     */
     void animate();
 
 protected:
+    /**
+     * @brief
+     *
+     * @param event
+     */
     void paintEvent(QPaintEvent *event) override;
 private:
-    int direction = 1;
+    int direction = 1; /**< TODO: describe */
 };
 
 #endif // GLWIDGET_H
