@@ -67,6 +67,11 @@ public:
     void paint(QPainter *painter, QPaintEvent *event);
 
     QColor color() const;
+    /**
+     * @brief
+     *
+     * @param color
+     */
     void setColor(const QColor &color);
 
 private:
