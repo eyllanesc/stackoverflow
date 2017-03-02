@@ -6,7 +6,7 @@ GLWidget::GLWidget(QWidget *parent):QOpenGLWidget(parent)
     sprite = new CSprite2D(this);
     QTimer *timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &GLWidget::animate);
-    connect(sprite, &CSprite2D::onChanged, this, [this]{update();});
+    connect(sprite, &CSprite2D::onChanged, [this]{update();});
     timer->start(50);
 }
 
