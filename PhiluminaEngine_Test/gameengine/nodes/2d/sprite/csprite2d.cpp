@@ -49,4 +49,5 @@ void CSprite2D::paint(QPainter *painter, QPaintEvent *event)
     QBrush brush(mColor);
     painter->setBrush(brush);
     painter->drawEllipse(mPos, 30, 30);
+    painter->drawText(mPos, mName);
 }

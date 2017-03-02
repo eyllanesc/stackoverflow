@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
         sprite->setColor(QColor(qrand()% 256, qrand()% 256, qrand()% 256));
         ui->openGLWidget->addSprite(sprite);
     }
+
 }
 
 MainWindow::~MainWindow()
