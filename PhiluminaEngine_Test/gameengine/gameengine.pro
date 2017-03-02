@@ -9,9 +9,11 @@ FORMS += \
 
 HEADERS += \
     mainwindow.h \
-    nodes/2d/sprite/csprite2d.h
+    nodes/2d/sprite/csprite2d.h \
+    glwidget.h
 
 SOURCES += \
     mainwindow.cpp \
     main.cpp \
-    nodes/2d/sprite/csprite2d.cpp
+    nodes/2d/sprite/csprite2d.cpp \
+    glwidget.cpp

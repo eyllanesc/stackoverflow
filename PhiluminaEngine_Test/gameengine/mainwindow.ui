@@ -214,11 +214,6 @@
               <string>test</string>
              </property>
             </item>
-            <item>
-             <property name="text">
-              <string>New Item</string>
-             </property>
-            </item>
            </widget>
           </item>
          </layout>
@@ -226,7 +221,7 @@
        </layout>
       </item>
       <item row="1" column="1">
-       <widget class="QOpenGLWidget" name="openGLWidget">
+       <widget class="GLWidget" name="openGLWidget">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -277,6 +272,13 @@
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>GLWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header>glwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
  <slots>

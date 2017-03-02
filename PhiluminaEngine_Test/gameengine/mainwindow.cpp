@@ -11,9 +11,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    //connects all the objects with the needed slots
-    //connect(ui->treeWidget, &QTreeWidget::clicked, this, &QMainWindow::close);
     connect(ui->treeWidget, &QTreeWidget::clicked, this, &QMainWindow::close);
 }
 

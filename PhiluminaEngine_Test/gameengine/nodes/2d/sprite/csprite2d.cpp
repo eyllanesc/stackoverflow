@@ -1,30 +1,43 @@
 ﻿#include "csprite2d.h"
 
-CSprite2D::CSprite2D()
+CSprite2D::CSprite2D(QObject *parent):QObject(parent)
 {
-    //puts the sprite onto the openGl Panel
+    mPos = QPoint(10, 10);
 }
 
-CSprite2D::~CSprite2D() {
-    //removes the sprite off the panel
+CSprite2D::~CSprite2D()
+{
+
 }
 
-void CSprite2D::compile() {
-    //puts the (translated) picture and the position/tilting info into the output which gets interpreted
+QString CSprite2D::getName() const
+{
+    return mName;
 }
 
-void CSprite2D::setPos(int posX, int posY) {
-    Q_UNUSED(posX)
-    Q_UNUSED(posY)
-    //sets the position on the openGl Panel (using the this-pointer)
+void CSprite2D::setName(const QString &name)
+{
+    mName = name;
 }
 
-int CSprite2D::getPosX () {
-	return 0;
-   //returns the position of the sprite on the X-Axis (using the this-pointer)
+QPoint CSprite2D::getPos() const
+{
+    return mPos;
 }
 
-int CSprite2D::getPosY () {
-	return 0;
-    //returns the position of the sprite on the Y-Axis (this-pointer)
+void CSprite2D::setPos(const QPoint &pos)
+{
+    mPos = pos;
+}
+
+void CSprite2D::paint(QPainter *painter, QPaintEvent *event)
+{
+    const QRect & rect = event->rect();
+    //painter->eraseRect(rect);
+    painter->fillRect(rect, QBrush(QColor(0, 0, 0)));
+    QPen pen(Qt::white);
+    painter->setPen(pen);
+    QBrush brush(QColor(20, 80, 100));
+    painter->setBrush(brush);
+    painter->drawEllipse(mPos, 30, 30);
 }

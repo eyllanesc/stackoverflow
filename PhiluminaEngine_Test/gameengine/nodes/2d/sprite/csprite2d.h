@@ -3,24 +3,33 @@
 
 #include <QString>
 #include <QObject>
+#include <QPainter>
+#include <QPaintEvent>
 
 
 class CSprite2D: public QObject
 {
+    Q_OBJECT
+
+    Q_PROPERTY(QPoint pos READ getPos WRITE setPos)
+    Q_PROPERTY(QString name READ getName WRITE setName)
 
 public:
-    CSprite2D();
+    CSprite2D(QObject *parent=0);
     ~CSprite2D();
-    void compile();
-    void setPos(int posX, int posY);
-    int getPosX();
-    int getPosY();
-    QString getName();
-    void setName (QString name);
+
+    QString getName() const;
+    void setName(const QString &name);
+
+    QPoint getPos() const;
+    void setPos(const QPoint &pos);
+
+    void paint(QPainter *painter, QPaintEvent *event);
+
 private:
-    QString name;
-    int posY;
-    int posX;
+    QString mName;
+    QPoint mPos;
+
 };
 
 #endif // CSPRITE2D_H
