@@ -15,8 +15,9 @@ class CSprite2D: public QObject
 {
     Q_OBJECT
 
-    Q_PROPERTY(QPoint pos READ getPos WRITE setPos)
-    Q_PROPERTY(QString name READ getName WRITE setName)
+    Q_PROPERTY(QPoint pos READ pos WRITE setPos)
+    Q_PROPERTY(QString name READ name WRITE setName)
+    Q_PROPERTY(QColor color READ color WRITE setColor)
 
 public:
     /**
@@ -36,7 +37,7 @@ public:
      *
      * @return QString
      */
-    QString getName() const;
+    QString name() const;
     /**
      * @brief
      *
@@ -49,7 +50,7 @@ public:
      *
      * @return QPoint
      */
-    QPoint getPos() const;
+    QPoint pos() const;
     /**
      * @brief
      *
@@ -65,9 +66,13 @@ public:
      */
     void paint(QPainter *painter, QPaintEvent *event);
 
+    QColor color() const;
+    void setColor(const QColor &color);
+
 private:
     QString mName; /**< TODO: describe */
     QPoint mPos; /**< TODO: describe */
+    QColor mColor;
 
 signals:
     /**

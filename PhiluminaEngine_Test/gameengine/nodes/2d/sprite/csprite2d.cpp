@@ -10,7 +10,7 @@ CSprite2D::~CSprite2D()
 
 }
 
-QString CSprite2D::getName() const
+QString CSprite2D::name() const
 {
     return mName;
 }
@@ -20,7 +20,7 @@ void CSprite2D::setName(const QString &name)
     mName = name;
 }
 
-QPoint CSprite2D::getPos() const
+QPoint CSprite2D::pos() const
 {
     return mPos;
 }
@@ -31,14 +31,22 @@ void CSprite2D::setPos(const QPoint &pos)
     emit onChanged();
 }
 
+QColor CSprite2D::color() const
+{
+    return mColor;
+}
+
+void CSprite2D::setColor(const QColor &color)
+{
+    mColor = color;
+}
+
 void CSprite2D::paint(QPainter *painter, QPaintEvent *event)
 {
-    const QRect & rect = event->rect();
-    //painter->eraseRect(rect);
-    painter->fillRect(rect, QBrush(QColor(0, 0, 0)));
+    Q_UNUSED(event)
     QPen pen(Qt::white);
     painter->setPen(pen);
-    QBrush brush(QColor(20, 80, 100));
+    QBrush brush(mColor);
     painter->setBrush(brush);
     painter->drawEllipse(mPos, 30, 30);
 }

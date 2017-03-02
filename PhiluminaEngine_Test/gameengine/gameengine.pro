@@ -17,3 +17,5 @@ SOURCES += \
     main.cpp \
     nodes/2d/sprite/csprite2d.cpp \
     glwidget.cpp
+
+QMAKE_CXXFLAGS += -std=c++11

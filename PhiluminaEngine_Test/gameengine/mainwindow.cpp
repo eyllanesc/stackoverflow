@@ -5,6 +5,7 @@
 #include <QTreeWidget>
 #include <QDebug>
 #include <QModelIndex>
+#include <QTime>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,6 +13,15 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->treeWidget, &QTreeWidget::clicked, this, &QMainWindow::close);
+
+    qsrand(static_cast<quint64>(QTime::currentTime().msecsSinceStartOfDay()));
+
+    for(int i = 0; i < 10; i++){
+        CSprite2D* sprite = new CSprite2D(this);
+        sprite->setName(QString::number(i));
+        sprite->setColor(QColor(qrand()% 256, qrand()% 256, qrand()% 256));
+        ui->openGLWidget->addSprite(sprite);
+    }
 }
 
 MainWindow::~MainWindow()

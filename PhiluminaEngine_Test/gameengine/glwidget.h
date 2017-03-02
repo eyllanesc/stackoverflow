@@ -19,7 +19,7 @@ public:
      * @param parent
      */
     GLWidget(QWidget *parent);
-    CSprite2D *sprite; /**< TODO: describe */
+    void addSprite(CSprite2D *sprite);
 
 public slots:
     /**
@@ -37,6 +37,7 @@ protected:
     void paintEvent(QPaintEvent *event) override;
 private:
     int direction = 1; /**< TODO: describe */
+    QList<CSprite2D*> sprites;
 };
 
 #endif // GLWIDGET_H
