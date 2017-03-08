@@ -15,7 +15,7 @@ bool PlainTextEdit::event(QEvent *event)
         QTextCursor cursor = cursorForPosition(helpEvent->pos());
         cursor.select(QTextCursor::WordUnderCursor);
         if (!cursor.selectedText().isEmpty())
-            QToolTip::showText(helpEvent->globalPos(), cursor.selectedText());
+            QToolTip::showText(helpEvent->globalPos(), /*your text*/QString("%1 %2").arg(cursor.selectedText()).arg(cursor.selectedText().length()) );
         else
             QToolTip::hideText();
         return true;
