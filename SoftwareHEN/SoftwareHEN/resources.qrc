@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>Resources/abrir.png</file>
+        <file>Resources/ayuda.png</file>
+        <file>Resources/cerrar.png</file>
+        <file>Resources/nuevo.png</file>
+        <file>Resources/Save-icon.png</file>
+        <file>Resources/SAVE.png</file>
+        <file>Resources/SAVEAS.ico</file>
+        <file>Resources/Clean.png</file>
+        <file>Resources/copiar.png</file>
+        <file>Resources/cut.png</file>
+        <file>Resources/pegar.png</file>
+        <file>Resources/Presentación.png</file>
+        <file>Resources/Redo-ico.png</file>
+        <file>Resources/Undo.png</file>
+        <file>Resources/NuevaPresentacion.png</file>
+        <file>Resources/workspace.png</file>
+        <file>Resources/custom.png</file>
+        <file>Resources/plots.png</file>
+        <file>Resources/table-icon-png-2.png</file>
+    </qresource>
+</RCC>
