@@ -52,7 +52,7 @@ TablaDatos::TablaDatos(QWidget *parent) :
             file_path = file_name;
             if (file_path.contains(".csv")){
                 if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
-//                    int lineindex=0;
+                    //                    int lineindex=0;
                     int Properties;
                     int contadorlines=1; // file line counter
                     QTextStream in(&file);
@@ -164,7 +164,7 @@ TablaDatos::TablaDatos(QWidget *parent) :
                     QVector<QString> vec;
                     qDebug() << Almacenador;
                     foreach( QString str, Almacenador) {
-                      vec.push_back(str);
+                        vec.push_back(str);
                     }
                     /*qDebug() << vec;
                     qDebug() << vec[0];*/
@@ -196,9 +196,7 @@ TablaDatos::TablaDatos(QWidget *parent) :
                             //ui->Workspace->setItem(r,c,new QTableWidgetItem (value));
                         }
                     }
-
                     connect(ui->Workspace, &QTableWidget::cellChanged,this, &TablaDatos::on_Workspace_cellChanged);
-                    connect(ui->Workspace, &QTableWidget::itemClicked, this, &TablaDatos::on_Workspace_itemClicked);
                 }
             }
         }
@@ -220,7 +218,7 @@ void TablaDatos::on_Addcorrientes_clicked()
     int TempU = ui->TcomboBox->currentIndex();
     int FilmU = ui->FcomboBox->currentIndex();
     int WcpU  = ui->WcomboBox->currentIndex();
-        //int wcp = WCP.toInt(), tt = TT.toInt(), to = TO.toInt(), fc=FC.toInt();
+    //int wcp = WCP.toInt(), tt = TT.toInt(), to = TO.toInt(), fc=FC.toInt();
     if(Analisis==0){ // select one
         QMessageBox::warning(this,tr("Error"),tr("Select a type of analysis."));
         return;
@@ -338,7 +336,7 @@ void TablaDatos::on_AddnewpushButton_clicked()
     int TempU = ui->TcomboBox->currentIndex();
     int FilmU = ui->FcomboBox->currentIndex();
     int WcpU  = ui->WcomboBox->currentIndex();
-        //int wcp = WCP.toInt(), tt = TT.toInt(), to = TO.toInt(), fc=FC.toInt();
+    //int wcp = WCP.toInt(), tt = TT.toInt(), to = TO.toInt(), fc=FC.toInt();
     if (TempU==0 || FilmU==0 || WcpU==0 )
     {
         QMessageBox::warning(this,tr("Error"),tr("Missing units"));
@@ -349,140 +347,11 @@ void TablaDatos::on_AddnewpushButton_clicked()
 
 void TablaDatos::on_SavepushButton_clicked()  //SAVE
 {
-        //ACCION DE GUARDAR ARCHIVO .CSV
-        if (file_path == "")
-        { // es decir no se ha guardado entonces se tiene guardar por primera vez
-            QString file_name = QFileDialog::getSaveFileName(this,"Save the file");
-            QFile csvFile(file_name+".csv");
-            file_path = file_name;
-            if (csvFile.open(QIODevice::WriteOnly|QIODevice::Truncate))
-            {
-                QTextStream data(&csvFile );
-                QStringList strList;
-                int Analisis = ui->TypeAnalysis->currentIndex();
-                int Tcombo = ui->TcomboBox->currentIndex();
-                int Wcombo = ui->WcomboBox->currentIndex();
-                int Fcombo = ui->FcomboBox->currentIndex();
-                bool SI = ui->SIradioButton->isChecked();
-                bool SIS = ui->SISradioButton->isChecked();
-                QString TCOMBO = QString::number(Tcombo);
-                QString WCOMBO = QString::number(Wcombo);
-                QString FCOMBO = QString::number(Fcombo);
-                QString MSI = QString::number(SI);
-                QString MSIS = QString::number(SIS);
-                QString ANALISIS = QString::number(Analisis);
-                if(Analisis==0){//selecc one
-                    return;
-                }else if(Analisis==1){ // tabla problema
-                    strList << ANALISIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << MSI;
-                    strList << MSIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << TCOMBO;
-                    strList << WCOMBO;
-                    data << strList.join(",")+"\n";
-                }else if(Analisis>=2){ // ara
-                    strList << ANALISIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << MSI;
-                    strList << MSIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << TCOMBO;
-                    strList << WCOMBO;
-                    strList << FCOMBO;
-                    data << strList.join(",")+"\n";
-                }
-                strList.clear();
-                for( int r = 0; r < ui->Workspace->rowCount(); ++r )
-                {
-                    strList.clear();
-                    for( int c = 0; c < ui->Workspace->columnCount(); ++c )
-                    {   QTableWidgetItem* item = ui->Workspace->item(r,c);        //Load items
-                        if (!item || item->text().isEmpty())                        //Test if there is something at item(r,c)
-                        {
-                            ui->Workspace->setItem(r,c,new QTableWidgetItem("0"));//IF there is nothing write 0
-                        }
-                        strList << ui->Workspace->item( r, c )->text();
-                    }
-                    data << strList.join( "," )+"\n";
-                }
-                csvFile.close();
-            }
-        }
-        else
-        {
-            QFile csvFile(file_path+".csv");
-            if (csvFile.open(QIODevice::WriteOnly|QIODevice::Truncate))
-            {
-                QTextStream data(&csvFile );
-                QStringList strList;
-                int Analisis = ui->TypeAnalysis->currentIndex();
-                int Tcombo = ui->TcomboBox->currentIndex();
-                int Wcombo = ui->WcomboBox->currentIndex();
-                int Fcombo = ui->FcomboBox->currentIndex();
-                bool SI = ui->SIradioButton->isChecked();
-                bool SIS = ui->SISradioButton->isChecked();
-                QString TCOMBO = QString::number(Tcombo);
-                QString WCOMBO = QString::number(Wcombo);
-                QString FCOMBO = QString::number(Fcombo);
-                QString MSI = QString::number(SI);
-                QString MSIS = QString::number(SIS);
-                QString ANALISIS = QString::number(Analisis);
-                if(Analisis==0){//selecc one
-                    return;
-                }else if(Analisis==1){ // tabla problema
-                    strList << ANALISIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << MSI;
-                    strList << MSIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << TCOMBO;
-                    strList << WCOMBO;
-                    data << strList.join(",")+"\n";
-                }else if(Analisis>=2){ // ara
-                    strList << ANALISIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << MSI;
-                    strList << MSIS;
-                    data << strList.join(",")+"\n";
-                    strList.clear();
-                    strList << TCOMBO;
-                    strList << WCOMBO;
-                    strList << FCOMBO;
-                    data << strList.join(",")+"\n";
-                }
-                strList.clear();
-                for( int r = 0; r < ui->Workspace->rowCount(); ++r )
-                {
-                    strList.clear();
-                    for( int c = 0; c < ui->Workspace->columnCount(); ++c )
-                    {   QTableWidgetItem* item = ui->Workspace->item(r,c);        //Load items
-                        if (!item || item->text().isEmpty())                        //Test if there is something at item(r,c)
-                        {
-                            ui->Workspace->setItem(r,c,new QTableWidgetItem("0"));//IF there is nothing write 0
-                        }
-                        strList << ui->Workspace->item( r, c )->text();
-                    }
-                    data << strList.join( "," )+"\n";
-                }
-                csvFile.close();
-            }
-        }
-}
-
-void TablaDatos::on_SavepushButton_2_clicked()  //SAVE AS
-{
-        //ACCION DE GUARDAR ARCHIVO .CSV
+    //ACCION DE GUARDAR ARCHIVO .CSV
+    if (file_path == "")
+    { // es decir no se ha guardado entonces se tiene guardar por primera vez
         QString file_name = QFileDialog::getSaveFileName(this,"Save the file");
-        QFile csvFile(file_name + ".csv" );
+        QFile csvFile(file_name+".csv");
         file_path = file_name;
         if (csvFile.open(QIODevice::WriteOnly|QIODevice::Truncate))
         {
@@ -542,6 +411,135 @@ void TablaDatos::on_SavepushButton_2_clicked()  //SAVE AS
             }
             csvFile.close();
         }
+    }
+    else
+    {
+        QFile csvFile(file_path+".csv");
+        if (csvFile.open(QIODevice::WriteOnly|QIODevice::Truncate))
+        {
+            QTextStream data(&csvFile );
+            QStringList strList;
+            int Analisis = ui->TypeAnalysis->currentIndex();
+            int Tcombo = ui->TcomboBox->currentIndex();
+            int Wcombo = ui->WcomboBox->currentIndex();
+            int Fcombo = ui->FcomboBox->currentIndex();
+            bool SI = ui->SIradioButton->isChecked();
+            bool SIS = ui->SISradioButton->isChecked();
+            QString TCOMBO = QString::number(Tcombo);
+            QString WCOMBO = QString::number(Wcombo);
+            QString FCOMBO = QString::number(Fcombo);
+            QString MSI = QString::number(SI);
+            QString MSIS = QString::number(SIS);
+            QString ANALISIS = QString::number(Analisis);
+            if(Analisis==0){//selecc one
+                return;
+            }else if(Analisis==1){ // tabla problema
+                strList << ANALISIS;
+                data << strList.join(",")+"\n";
+                strList.clear();
+                strList << MSI;
+                strList << MSIS;
+                data << strList.join(",")+"\n";
+                strList.clear();
+                strList << TCOMBO;
+                strList << WCOMBO;
+                data << strList.join(",")+"\n";
+            }else if(Analisis>=2){ // ara
+                strList << ANALISIS;
+                data << strList.join(",")+"\n";
+                strList.clear();
+                strList << MSI;
+                strList << MSIS;
+                data << strList.join(",")+"\n";
+                strList.clear();
+                strList << TCOMBO;
+                strList << WCOMBO;
+                strList << FCOMBO;
+                data << strList.join(",")+"\n";
+            }
+            strList.clear();
+            for( int r = 0; r < ui->Workspace->rowCount(); ++r )
+            {
+                strList.clear();
+                for( int c = 0; c < ui->Workspace->columnCount(); ++c )
+                {   QTableWidgetItem* item = ui->Workspace->item(r,c);        //Load items
+                    if (!item || item->text().isEmpty())                        //Test if there is something at item(r,c)
+                    {
+                        ui->Workspace->setItem(r,c,new QTableWidgetItem("0"));//IF there is nothing write 0
+                    }
+                    strList << ui->Workspace->item( r, c )->text();
+                }
+                data << strList.join( "," )+"\n";
+            }
+            csvFile.close();
+        }
+    }
+}
+
+void TablaDatos::on_SavepushButton_2_clicked()  //SAVE AS
+{
+    //ACCION DE GUARDAR ARCHIVO .CSV
+    QString file_name = QFileDialog::getSaveFileName(this,"Save the file");
+    QFile csvFile(file_name + ".csv" );
+    file_path = file_name;
+    if (csvFile.open(QIODevice::WriteOnly|QIODevice::Truncate))
+    {
+        QTextStream data(&csvFile );
+        QStringList strList;
+        int Analisis = ui->TypeAnalysis->currentIndex();
+        int Tcombo = ui->TcomboBox->currentIndex();
+        int Wcombo = ui->WcomboBox->currentIndex();
+        int Fcombo = ui->FcomboBox->currentIndex();
+        bool SI = ui->SIradioButton->isChecked();
+        bool SIS = ui->SISradioButton->isChecked();
+        QString TCOMBO = QString::number(Tcombo);
+        QString WCOMBO = QString::number(Wcombo);
+        QString FCOMBO = QString::number(Fcombo);
+        QString MSI = QString::number(SI);
+        QString MSIS = QString::number(SIS);
+        QString ANALISIS = QString::number(Analisis);
+        if(Analisis==0){//selecc one
+            return;
+        }else if(Analisis==1){ // tabla problema
+            strList << ANALISIS;
+            data << strList.join(",")+"\n";
+            strList.clear();
+            strList << MSI;
+            strList << MSIS;
+            data << strList.join(",")+"\n";
+            strList.clear();
+            strList << TCOMBO;
+            strList << WCOMBO;
+            data << strList.join(",")+"\n";
+        }else if(Analisis>=2){ // ara
+            strList << ANALISIS;
+            data << strList.join(",")+"\n";
+            strList.clear();
+            strList << MSI;
+            strList << MSIS;
+            data << strList.join(",")+"\n";
+            strList.clear();
+            strList << TCOMBO;
+            strList << WCOMBO;
+            strList << FCOMBO;
+            data << strList.join(",")+"\n";
+        }
+        strList.clear();
+        for( int r = 0; r < ui->Workspace->rowCount(); ++r )
+        {
+            strList.clear();
+            for( int c = 0; c < ui->Workspace->columnCount(); ++c )
+            {   QTableWidgetItem* item = ui->Workspace->item(r,c);        //Load items
+                if (!item || item->text().isEmpty())                        //Test if there is something at item(r,c)
+                {
+                    ui->Workspace->setItem(r,c,new QTableWidgetItem("0"));//IF there is nothing write 0
+                }
+                strList << ui->Workspace->item( r, c )->text();
+            }
+            data << strList.join( "," )+"\n";
+        }
+        csvFile.close();
+    }
 }
 
 void TablaDatos::on_DeleteSelpushButton_clicked()
@@ -552,7 +550,7 @@ void TablaDatos::on_DeleteSelpushButton_clicked()
     }
     else
     {
-    ui->Workspace->removeRow(BORRARFILA);
+        ui->Workspace->removeRow(BORRARFILA);
     }
 }
 
@@ -944,11 +942,12 @@ void TablaDatos::on_Workspace_cellChanged(int row, int column)
     int c = ui->Workspace->columnCount();
     for(int i = 0; i < r ; i++){
         for(int j = 0; j < c ; j++){
-            qDebug()<< ui->Workspace->item(i, j);
-            if (ui->Workspace->item(i,j)->text() == "Empty"){
-               return;
-            }else if (ui->Workspace->item(i,j)->text() == "0"){
-               return;
+            //if(!ui->Workspace->item(i, j))
+                if (ui->Workspace->item(i,j)->text() == "Empty"){
+                    return;
+                }else if (ui->Workspace->item(i,j)->text() == "0"){
+                    return;
+
             }
         }
     }
