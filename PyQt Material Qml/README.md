@@ -114,6 +114,18 @@ if __name__ == '__main__':
 	
 ```
 
+Obtaining at the end the following structure:
+
+	.
+	├── main.py
+	├── main.qml
+	├── qtquickcontrols2.conf
+	├── README.md
+	├── resource.qrc
+	└── resource_rc.py
+
+
+
 Screenshot:
 
 ![Screenshot](img/Screenshot.png  "Screenshot")
