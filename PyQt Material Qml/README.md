@@ -1,6 +1,9 @@
 PyQt Material Qml
 ===========
 
+
+- PyQt 5.8
+
 You must create a file named qtquickcontrols2.conf with the following content:
 
 
