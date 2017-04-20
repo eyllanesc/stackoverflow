@@ -17,8 +17,6 @@ CameraFeed::CameraFeed(QWidget *parent) :
     ui->lineEdit->setText("video.avi");
     trigger = new QTimer(this);
     connect(trigger, &QTimer::timeout, this, &CameraFeed::processGui);
-    initCamera();
-    initVideo();
 }
 
 CameraFeed::~CameraFeed()
@@ -46,6 +44,8 @@ void CameraFeed::on_stop_clicked()
 void CameraFeed::on_record_clicked()
 {
     isRecorded = !isRecorded;
+    if(isRecorded)
+    	initVideo();
 }
 
 void CameraFeed::initCamera()
