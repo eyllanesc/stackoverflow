@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef CAMERAFEED_H
+#define CAMERAFEED_H
 
 #include <QMainWindow>
 
@@ -43,4 +43,4 @@ private:
     bool isRecorded;
 };
 
-#endif // MAINWINDOW_H
+#endif // CAMERAFEED_H
