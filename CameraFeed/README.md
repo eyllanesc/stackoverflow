@@ -1,2 +1,2 @@
-CameraFedd
+CameraFeed
 ========
