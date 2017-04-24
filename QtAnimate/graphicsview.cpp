@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QPropertyAnimation>
 #include <QDebug>
+#include <QtMath>
 
 #include "ellipseobject.h"
 
@@ -21,34 +22,28 @@ GraphicsView::GraphicsView(QWidget *parent):QGraphicsView(parent)
     int p = 180;
     QPointF center(scene->sceneRect().center());
 
-    qreal R = 110.0;
-    qreal r = 90.0;
+    qreal r = 100.0;
+    qreal delta = 10.0;
 
     int number_of_items = 10;
 
-    QPainterPath path1, path2;
+    QPainterPath path;
 
-    path1.addEllipse(center, R, R);
-    path2.addEllipse(center, r, r);
+    path.addEllipse(center, r+delta, r+delta);
+    path.addEllipse(center, r-delta, r-delta);
 
-    scene->addPath(path1-path2, QPen(Qt::white), QBrush(Qt::green));
+    scene->addPath(path, QPen(Qt::white), QBrush(Qt::green));
 
-
-    QList<QPointF> points;
-
-    for(int i=0; i < p; i++){
-        points.append(0.5*(path1.pointAtPercent(1.0*i/(p-1)) + path2.pointAtPercent(1.0*i/(p-1))));
-    }
 
 
     for(int i=0; i < number_of_items; i++){
         EllipseObject *item = new EllipseObject;
         QPropertyAnimation *animation = new QPropertyAnimation(item, "pos");
-        for(int j = 0; j < points.count(); j++){
-            animation->setKeyValueAt( 1.0*j/(points.count()-1),
-                                      points[((i*(p/number_of_items) +j) % points.count())]);
+        for(int j = 0; j < p; j++){
+            animation->setKeyValueAt( 1.0*j/(p-1),
+                                       (r+ delta*sin(2*M_PI*j/p) )*QPointF(qSin(2*M_PI*i/number_of_items), qCos(2*M_PI*i/number_of_items)));
         }
-        animation->setDuration(5000);
+        animation->setDuration(2000);
         group->addAnimation(animation);
         scene->addItem(item);
     }
