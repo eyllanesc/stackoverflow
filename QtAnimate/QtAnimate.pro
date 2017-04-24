@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-04-23T12:53:52
+# Project created by QtCreator 2017-04-24T05:16:13
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = QtAnimate
+TARGET = untitled1
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -24,8 +24,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        widget.cpp \
+    graphicsview.cpp \
+    ellipseobject.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += widget.h \
+    graphicsview.h \
+    ellipseobject.h
 
-FORMS    += mainwindow.ui
+FORMS    += widget.ui
