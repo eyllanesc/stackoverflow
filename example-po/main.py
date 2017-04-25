@@ -38,14 +38,14 @@ class MainWindow(QtGui.QMainWindow):
 
         self.pushButton_EN = QtGui.QPushButton(self)
         self.pushButton_EN.setGeometry(QtCore.QRect(1000, 30, 75, 23))
-       	self.pushButton_EN.clicked.connect(lambda: self.esTranslate(MainWindow))
+       	self.pushButton_EN.clicked.connect(lambda: self.enTranslate(MainWindow))
         self.pushButton_IE = QtGui.QPushButton(self)
         self.pushButton_IE.setGeometry(QtCore.QRect(1100, 30, 75, 23))
         self.pushButton_IE.clicked.connect(lambda: self.ieTranslate(MainWindow))
-        self.ieTranslate(MainWindow)
+        self.enTranslate(MainWindow)
 
 
-    def esTranslate(self, MainWindow):
+    def enTranslate(self, MainWindow):
     	self.messages = gettext.translation('messages', localedir='locale', languages=['en'])
     	self.messages.install()
     	self.retranslateUi(MainWindow)
