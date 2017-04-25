@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-04-25 02:12-0500\n"
+"POT-Creation-Date: 2017-04-25 02:33-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,15 +15,15 @@ msgstr ""
 "Generated-By: pygettext.py 1.5\n"
 
 
-#: messages.py:60
+#: main.py:60
 msgid "English"
 msgstr ""
 
-#: messages.py:61
+#: main.py:61
 msgid "Irish"
 msgstr ""
 
-#: messages.py:62
+#: main.py:62
 msgid "Don't have an account?"
 msgstr ""
 

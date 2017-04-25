@@ -44,14 +44,14 @@ class MainWindow(QtGui.QMainWindow):
         self.pushButton_IE.clicked.connect(lambda: self.ieTranslate(MainWindow))
         self.enTranslate(MainWindow)
 
-
     def enTranslate(self, MainWindow):
-    	self.messages = gettext.translation('messages', localedir='locale', languages=['en'])
-    	self.messages.install()
-    	self.retranslateUi(MainWindow)
+    	self.translate('en', MainWindow)
 
     def ieTranslate(self, MainWindow):
-    	self.messages = gettext.translation('messages', localedir='locale', languages=['ie'])
+    	self.translate('ie', MainWindow)
+
+    def translate(self, lang, MainWindow):
+    	self.messages = gettext.translation('messages', localedir='locale', languages=[lang])
     	self.messages.install()
     	self.retranslateUi(MainWindow)
 

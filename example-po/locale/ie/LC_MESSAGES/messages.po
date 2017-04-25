@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-04-25 02:12-0500\n"
-"PO-Revision-Date: 2017-04-25 02:13-0500\n"
+"POT-Creation-Date: 2017-04-25 02:34-0500\n"
+"PO-Revision-Date: 2017-04-25 02:35-0500\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Plural-Forms: nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);\n"
 "Language: ga\n"
 
-#: messages.py:60
+#: main.py:60
 msgid "English"
 msgstr "Béarla"
 
-#: messages.py:61
+#: main.py:61
 msgid "Irish"
 msgstr "Gaeilge"
 
-#: messages.py:62
+#: main.py:62
 msgid "Don't have an account?"
 msgstr "Ná bhfuil cuntas?"
