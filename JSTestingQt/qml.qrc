@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>testJava.js</file>
+        <file>TestPage.html</file>
+    </qresource>
+</RCC>
