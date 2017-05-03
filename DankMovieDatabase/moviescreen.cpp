@@ -1,14 +1,11 @@
 #include "moviescreen.h"
 #include "ui_moviescreen.h"
-#include <QDebug>
-#include <QJsonDocument>
-#include <QJsonArray>
 #include <QJsonObject>
 #include <QLabel>
+
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
-#include <QEventLoop>
 
 MovieScreen::MovieScreen(QWidget *parent) :
     QWidget(parent),
@@ -32,17 +29,16 @@ void MovieScreen::setObject(const QJsonObject &value)
 {
     object = value;
     setInfo();
-
 }
 
 void MovieScreen::setInfo()
 {
     ui->title_label->setText(object["Title"].toString());
-    QNetworkAccessManager* netAccManager = new QNetworkAccessManager;
+    QNetworkAccessManager *manager = new QNetworkAccessManager;
     QNetworkRequest request(QUrl(object["Poster"].toString()));
 
-    QNetworkReply *reply = netAccManager->get(request);
-    connect(reply,SIGNAL(finished()),this, SLOT(setPoster()));
+    QNetworkReply *reply = manager->get(request);
+    connect(reply, &QNetworkReply::finished,this, &MovieScreen::setPoster);
     movie->start();
 }
 

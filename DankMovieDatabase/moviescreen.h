@@ -20,16 +20,17 @@ public:
 
     QJsonObject getObject() const;
     void setObject(const QJsonObject &value);
-    void setInfo();
+
 private slots:
     void setPoster();
-
 
 private:
 
     Ui::MovieScreen *ui;
     QJsonObject object;
     QMovie *movie;
+
+    void setInfo();
 
 };
 
