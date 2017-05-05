@@ -7,23 +7,22 @@ from LoadInput_GUI import *
 
 
 class LoadInput(QWidget):
-	def __init__(self, parent=None):
-		QWidget.__init__(self, parent)
-		self.LoadInputGUI = Ui_LoadInput()
-		self.LoadInputGUI.setupUi(self)
+    def __init__(self, parent=None):
+        QWidget.__init__(self, parent)
+        self.LoadInputGUI = Ui_LoadInput()
+        self.LoadInputGUI.setupUi(self)
 
 
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent)
-        MainWindow = QtWidgets.QMainWindow()
         self.MainUi = Ui_MainWindow()
         self.MainUi.setupUi(self)
 
         self.setUpMainUiFunction()
 
     def setUpMainUiFunction(self):
-        #Here is where all of the button functions will be definded
+        # Here is where all of the button functions will be definded
         self.MainUi.pushButton_2.clicked.connect(self.windowaction)
 
     def windowaction(self):
