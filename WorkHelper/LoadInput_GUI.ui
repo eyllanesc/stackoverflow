@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoadInput</class>
+ <widget class="QWidget" name="LoadInput">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>566</width>
+    <height>397</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QGroupBox" name="Load_Input_GroupBox">
+     <property name="title">
+      <string>Load Input</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <layout class="QHBoxLayout" name="Load_Input_Top_Userinputs_hoz">
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_Load_Name">
+          <property name="text">
+           <string>Load Name:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Load_Input_UserInput_Load_Name"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_Voltage">
+          <property name="text">
+           <string>Voltage:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Load_Input_UserInput_Voltage"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_Utility">
+          <property name="text">
+           <string>Utility:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="Load_Input_ComboBox_Utility"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="Load_Input_Top_UserInputs2_hoz">
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_Wattage">
+          <property name="text">
+           <string>Wattage:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Load_Input_UserInput_Wattage"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_Power_Factor">
+          <property name="text">
+           <string>Power Factor:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="Load_Input_UserInput_PowerFactor"/>
+        </item>
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_VA">
+          <property name="text">
+           <string>VA:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="Load_Input_Text_VALUE">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="Load_Input_Top_buttons_hoz">
+        <item>
+         <widget class="QPushButton" name="Load_Input_Button_Add_To_Window">
+          <property name="text">
+           <string>Add To Window</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Load_Input_Button_Modify_Load">
+          <property name="text">
+           <string>Modify Load</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Load_Input_Button_Remove_Load">
+          <property name="text">
+           <string>Remove Load</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="Load_Input_Table"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="Load_Input_Button_Send">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string>Send</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="Load_Input_Button_Close">
+     <property name="text">
+      <string>Close without sending</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
