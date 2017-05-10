@@ -2,5 +2,6 @@ var internalQmlObject = Qt.createQmlObject('import QtQuick 2.5; QtObject{ signal
                                            Qt.application,
                                            'InternalQmlObject');
 function runNow(){
-    internalQmlObject.someSignal(42);
+	console.log(internalQmlObject);
+    //internalQmlObject.someSignal(42);
 }

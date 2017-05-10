@@ -32,9 +32,9 @@ void QtDownload::downloadFinished(QNetworkReply *data) {
 }
 
 void QtDownload::download() {
-    QUrl url = QUrl::fromEncoded(this->target.toLocal8Bit());
+    QUrl url = QUrl::fromEncoded(this->target.toLocal8Bit()).scheme();
     QNetworkRequest request(url);
-    QNetworkReply *reply =manager.get(request);
+    QNetworkReply *reply = manager.get(request);
     QObject::connect(reply , SIGNAL(downloadProgress(qint64,qint64)), this, SLOT(downloadProgress(qint64,qint64)));
 }
 

@@ -60,7 +60,7 @@ if __name__ == '__main__':
     chromedriver = '/usr/bin/chromedriver'
     url = "http://app20.susalud.gob.pe:8080/registro-renipress-webapp/listadoEstablecimientosRegistrados.htm" \
           "?action=mostrarBuscar#"
-    chrome = webdriver.Chrome(chromedriver)
+    chrome = webdriver.PhantomJS("/usr/bin/phantomjs") #webdriver.Chrome(chromedriver)
     chrome.get(url)
     time.sleep(5)  # Let the user actually see something! (5 seconds)
     # Filtering

@@ -41,7 +41,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    QString filters("Video files (*.mp4);");
+    QString filters("Document files (*.pdf);");
     QString filename = QFileDialog::getSaveFileName(0, "Save file", QDir::currentPath(),
             filters);
     if(!filename.isEmpty()){
