@@ -12,7 +12,6 @@ SideBar::SideBar(QWidget *parent) :
     QWidget(parent), mCheckedAction(NULL), mOverAction(NULL)
 {
     setMouseTracking(true);
-    installEventFilter(this);
 }
 
 
