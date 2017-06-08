@@ -5,102 +5,51 @@
 #include <QSqlRecord>
 #include <QSqlResult>
 #include <QDebug>
+#include <QSqlQueryModel>
+#include <QSqlError>
 
 #include <sqlite3.h>
 
+int enable_spatialite(QSqlDatabase db){
 
-int enable_spatialite(){
-    QSqlDatabase db = QSqlDatabase::database();
     QVariant v = db.driver()->handle();
-
-    char sql[2048];
-    int ret;
-    char *err_msg = NULL;
-    char **results;
-    int rows;
-    int columns;
-
 
     if (v.isValid() && qstrcmp(v.typeName(), "sqlite3*")==0)
     {
-        // v.data() returns a pointer to the handle
 
         sqlite3 *db_handle = *static_cast<sqlite3 **>(v.data());
 
         if (db_handle != 0) {
 
+            sqlite3_initialize();
+
             sqlite3_enable_load_extension (db_handle, 1);
-            strcpy (sql, "SELECT load_extension('mod_spatialite')");
-            ret = sqlite3_exec (db_handle, sql, NULL, NULL, &err_msg);
-            if (ret != SQLITE_OK)
-            {
-                fprintf (stderr, "load_extension() error: %s\n", err_msg);
-                sqlite3_free (err_msg);
-                return 0;
-            }
-            fprintf(stderr, "\n\n**** SpatiaLite loaded as an extension ***\n\n");
 
+            QSqlQuery query;
 
-            strcpy (sql, "SELECT sqlite_version()");
-            ret =
-                    sqlite3_get_table (db_handle, sql, &results, &rows, &columns, &err_msg);
-            if (ret != SQLITE_OK)
-            {
-                fprintf (stderr, "Error: %s\n", err_msg);
-                sqlite3_free (err_msg);
-                return 0;
-            }
-            if (rows < 1)
-            {
-                fprintf (stderr,"Unexpected error: sqlite_version() not found ??????\n");
-                return 0;
-            }
-            else
-            {
-                for (int i = 1; i <= rows; i++)
-                {
-                    fprintf (stderr, "SQLite version: %s\n",
-                             results[(i * columns) + 0]);
-                }
-            }
-            sqlite3_free_table (results);
-            strcpy (sql, "SELECT spatialite_version()");
-            ret =
-                    sqlite3_get_table (db_handle, sql, &results, &rows, &columns, &err_msg);
-            if (ret != SQLITE_OK)
-            {
-                fprintf (stderr, "Error: %s\n", err_msg);
-                sqlite3_free (err_msg);
-                return 0;
-            }
-            if (rows < 1)
-            {
-                fprintf (stderr,"Unexpected error: spatialite_version() not found ??????\n");
-                return 0;
-            }
-            else
-            {
-                for (int i = 1; i <= rows; i++)
-                {
-                    fprintf (stderr, "SpatiaLite version: %s\n",
-                             results[(i * columns) + 0]);
-                }
-            }
-            sqlite3_free_table (results);
+            query.exec("SELECT load_extension('mod_spatialite')");
 
-            /* initializing SpatiaLite's metadata tables */
-            strcpy (sql, "SELECT InitSpatialMetadata(1)");
-            ret = sqlite3_exec (db_handle, sql, NULL, NULL, &err_msg);
-            if (ret != SQLITE_OK)
+            if (query.lastError() .isValid())
             {
-                fprintf (stderr, "InitSpatialMetadata() error: %s\n", err_msg);
-                sqlite3_free (err_msg);
+                qDebug() << "Error: cannot load the Spatialite extension (" << query.lastError().text()<<")";
                 return 0;
             }
 
+            qDebug()<<"**** SpatiaLite loaded as an extension ***";
+
+            query.exec("SELECT InitSpatialMetadata(1)");
+
+            if (query.lastError() .isValid())
+            {
+                qDebug() << "Error: cannot load the Spatialite extension (" << query.lastError().text()<<")";
+                return 0;
+            }
+            qDebug()<<"**** InitSpatialMetadata successful ***";
+
+            return 1;
         }
     }
-    return 1;
+    return 0;
 }
 
 
@@ -115,11 +64,7 @@ int main(int argc, char *argv[])
         qDebug()<<"not open";
     }
 
-    if(enable_spatialite()==1)
-
-        qDebug()<<"successful";
-    else
-        qDebug()<<"error";
+    qDebug()<<enable_spatialite(db);
 
     QSqlQuery query;
 
