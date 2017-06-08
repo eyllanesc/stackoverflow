@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 
     if(enable_spatialite()==1)
 
-        qDebug()<<"sucessfull";
+        qDebug()<<"successful";
     else
         qDebug()<<"error";
 
