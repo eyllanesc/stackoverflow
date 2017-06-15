@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>images/eventindicator.png</file>
+        <file>images/img001.png</file>
+        <file>images/img009.png</file>
+        <file>images/img029.png</file>
+        <file>images/img028.png</file>
+        <file>images/img030.png</file>
+        <file>images/img025.png</file>
+        <file>images/img026.png</file>
+        <file>images/img024.png</file>
+        <file>images/img023.png</file>
+        <file>images/img022.png</file>
+        <file>images/img020.png</file>
+        <file>images/img021.png</file>
+        <file>images/img019.png</file>
+        <file>images/img018.png</file>
+        <file>images/img010.png</file>
+        <file>images/img011.png</file>
+        <file>images/img012.png</file>
+        <file>images/img013.png</file>
+        <file>images/img015.png</file>
+        <file>images/img016.png</file>
+        <file>images/img017.png</file>
+        <file>images/img014.png</file>
+        <file>images/img008.png</file>
+        <file>images/img002.png</file>
+        <file>images/img003.png</file>
+        <file>images/img004.png</file>
+        <file>images/img005.png</file>
+        <file>images/img006.png</file>
+        <file>images/img007.png</file>
+        <file>images/img027.png</file>
+        <file>images/img031.png</file>
+    </qresource>
+</RCC>
