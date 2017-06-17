@@ -17,11 +17,8 @@ class Widget(QtWidgets.QWidget):
         vLayout.addLayout(hLayout)
         self.pandasTv = QtWidgets.QTableView(self)
         vLayout.addWidget(self.pandasTv)
-
         self.loadBtn.clicked.connect(self.loadFile)
-
         self.pandasTv.setSortingEnabled(True)
-
 
     def loadFile(self):
         fileName, _ = QtWidgets.QFileDialog.getOpenFileName(self, "Open File", "", "CSV Files (*.csv)");

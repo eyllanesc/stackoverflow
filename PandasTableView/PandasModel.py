@@ -7,9 +7,6 @@ class PandasModel(QtCore.QAbstractTableModel):
         QtCore.QAbstractTableModel.__init__(self, parent=parent)
         self._df = df
 
-    def setDataFrame(self, df):
-        self._df = df;
-
     def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
         if role != QtCore.Qt.DisplayRole:
             return QtCore.QVariant()
@@ -35,10 +32,6 @@ class PandasModel(QtCore.QAbstractTableModel):
 
         return QtCore.QVariant(str(self._df.ix[index.row(), index.column()]))
 
-    def flags(self, index):
-            flags = QtCore.QAbstractTableModel.flags(self, index)
-            return flags
-
     def setData(self, index, value, role):
         row = self._df.index[index.row()]
         col = self._df.columns[index.column()]
@@ -63,5 +56,5 @@ class PandasModel(QtCore.QAbstractTableModel):
         colname = self._df.columns.tolist()[column]
         self.layoutAboutToBeChanged.emit()
         self._df.sort_values(colname, ascending= order == QtCore.Qt.AscendingOrder, inplace=True)
-        self._df.reset_index(inplace=True, drop=True) # <-- this is the change
+        self._df.reset_index(inplace=True, drop=True)
         self.layoutChanged.emit()
