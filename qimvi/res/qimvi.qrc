@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="fugue">
+    <file>fugue-icons/application-resize-full.png</file>
+    <file>fugue-icons/image-resize.png</file>
+    <file>fugue-icons/color_gray.png</file>
+    <file>fugue-icons/image-crop.png</file>
+    <file>fugue-icons/disk.png</file>
+    <file>fugue-icons/disk--pencil.png</file>
+    <file>fugue-icons/image-sunset.png</file>
+    <file>fugue-icons/magnifier-zoom-in.png</file>
+    <file>fugue-icons/magnifier-zoom-out.png</file>
+    <file>fugue-icons/layer-resize.png</file>
+    <file>fugue-icons/layer-resize-actual.png</file>
+    <file>fugue-icons/layer-rotate.png</file>
+    <file>fugue-icons/layer-rotate-left.png</file>
+    <file>fugue-icons/arrow-curve-180-left.png</file>
+    <file>fugue-icons/arrow-curve.png</file>
+    <file>fugue-icons/door.png</file>
+    <file>fugue-icons/information.png</file>
+  </qresource>
+</RCC>
