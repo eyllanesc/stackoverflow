@@ -18,10 +18,13 @@ public:
     int radius() const;
     void setRadius(int radius);
 
+    void setHideRect(bool value);
+
 private:
     QRect mRect;
     int mRadius;
     Position mPosition;
+    bool hideRect;
 
 signals:
     void onClicked(Position pos);

@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
     page->setRect(QRect(200, 100, 200, 100));
     page->setRadius(10);
 
+    page->setHideRect(false);
+
     QObject::connect(page, &CustomPage::onClicked, [=](CustomPage::Position pos){
         switch (pos) {
         case CustomPage::topLeft:
