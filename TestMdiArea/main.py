@@ -30,19 +30,19 @@ class Win1(QMainWindow, Ui_MainWindow):
         self.CreateWindow()
 
     def CreateValveSimulator(self):
-        self.subwindow = QMdiSubWindow()
-        self.subwindow.setWidget(self.vs)
-        self.mdiArea.addSubWindow(self.subwindow)
-        self.subwindow.setFixedSize(500, 500)
+        subwindow = QMdiSubWindow()
+        subwindow.setWidget(self.vs)
+        self.mdiArea.addSubWindow(subwindow)
+        subwindow.setFixedSize(500, 500)
         # self.subwindow.close()
 
     def CreateWindow(self):
         w = HomeWindow()
-        w.pushButton.clicked.connect(self.vs.show)
-        self.subwindow = QMdiSubWindow()
-        self.subwindow.setWindowFlags(Qt.CustomizeWindowHint | Qt.Tool)
-        self.subwindow.setWidget(w)
-        self.mdiArea.addSubWindow(self.subwindow)
+        w.pushButton.clicked.connect(self.vs.showNormal)
+        subwindow = QMdiSubWindow()
+        subwindow.setWindowFlags(Qt.CustomizeWindowHint | Qt.Tool)
+        subwindow.setWidget(w)
+        self.mdiArea.addSubWindow(subwindow)
 
 
 if __name__ == '__main__':
