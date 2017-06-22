@@ -26,6 +26,7 @@ class Win1(QMainWindow, Ui_MainWindow):
         QMainWindow.__init__(self, parent=parent)
         self.setupUi(self)
         self.vs = ValveSim()
+        self.hw = HomeWindow()
         self.CreateValveSimulator()
         self.CreateWindow()
 
@@ -37,11 +38,11 @@ class Win1(QMainWindow, Ui_MainWindow):
         # self.subwindow.close()
 
     def CreateWindow(self):
-        w = HomeWindow()
-        w.pushButton.clicked.connect(self.vs.showNormal)
+        
+        self.hw.pushButton.clicked.connect(self.vs.showNormal)
         subwindow = QMdiSubWindow()
         subwindow.setWindowFlags(Qt.CustomizeWindowHint | Qt.Tool)
-        subwindow.setWidget(w)
+        subwindow.setWidget(self.hw)
         self.mdiArea.addSubWindow(subwindow)
 
 
