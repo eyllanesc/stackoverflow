@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/12.png</file>
+        <file>icon/abs.png</file>
+        <file>icon/aotoY.png</file>
+        <file>icon/color.png</file>
+        <file>icon/cursor.png</file>
+        <file>icon/dark.png</file>
+        <file>icon/delete.png</file>
+        <file>icon/exit.png</file>
+        <file>icon/fluo.png</file>
+        <file>icon/help.png</file>
+        <file>icon/initial.png</file>
+        <file>icon/kinetics.png</file>
+        <file>icon/marks.png</file>
+        <file>icon/move.png</file>
+        <file>icon/net.png</file>
+        <file>icon/peak.png</file>
+        <file>icon/raman.png</file>
+        <file>icon/ref.png</file>
+        <file>icon/reflect.png</file>
+        <file>icon/scale.png</file>
+        <file>icon/screenshot.png</file>
+        <file>icon/spec.png</file>
+        <file>icon/start.png</file>
+        <file>icon/stop.png</file>
+        <file>icon/tools.png</file>
+        <file>icon/trans.png</file>
+        <file>icon/zoom.png</file>
+    </qresource>
+</RCC>
