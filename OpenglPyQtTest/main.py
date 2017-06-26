@@ -14,18 +14,14 @@ class mainWindow(QMainWindow):
     def __init__(self, *args):
         super(mainWindow, self).__init__(*args)
         loadUi('minimal.ui', self)
-        self.flag = True
 
     def setupUI(self):
     	self.openGLWidget.initializeGL()
     	self.openGLWidget.resizeGL(651,551)
     	self.openGLWidget.paintGL = self.paintGL
     	timer = QTimer(self)
-    	timer.timeout.connect(self.func_test) 
+    	timer.timeout.connect(self.openGLWidget.update) 
     	timer.start(1000)
-
-    def func_test(self):
-    	self.openGLWidget.update()
 
     def paintGL(self):
     	glClear(GL_COLOR_BUFFER_BIT)
