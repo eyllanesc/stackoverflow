@@ -12,6 +12,12 @@ public:
 
 protected:
     void showEvent(QShowEvent * event);
+    void resizeEvent(QResizeEvent *event);
+
+    QList<QGraphicsTextItem*> textItems;
+
+private:
+    void drawLabels();
 };
 
 #endif // CHARTVIEW_H

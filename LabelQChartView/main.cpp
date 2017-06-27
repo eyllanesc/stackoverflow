@@ -16,7 +16,6 @@ int main(int argc, char *argv[])
     series->append(7, 4);
     series->append(10, 5);
 
-
     QChart *chart = new QChart();
     chart->legend()->hide();
     chart->addSeries(series);
