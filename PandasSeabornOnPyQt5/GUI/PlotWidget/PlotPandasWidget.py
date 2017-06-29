@@ -16,12 +16,12 @@ from PyQt5 import QtWidgets, QtCore
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
+sns.set(color_codes=True)
+
 
 class MyMplCanvas(FigureCanvas):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         self.fig = Figure(figsize=(width, height), dpi=dpi)
-
-        self.compute_initial_figure()
 
         FigureCanvas.__init__(self, self.fig)
         self.setParent(parent)
@@ -31,8 +31,8 @@ class MyMplCanvas(FigureCanvas):
                                    QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
 
-    def compute_initial_figure(self):
-        pass
+    def minimumSizeHint(self):
+        return QtCore.QSize(800, 200)
 
 
 class RegressionPlot(MyMplCanvas):
@@ -58,5 +58,15 @@ class RegressionPlot(MyMplCanvas):
         self.fig.tight_layout()
         self.draw()
 
-    def minimumSizeHint(self):
-        return QtCore.QSize(800, 200)
+
+class BarPlot(MyMplCanvas):
+    def __init__(self, parent=None):
+
+        MyMplCanvas.__init__(self, parent=parent, width=3, height=1, dpi=80)
+
+    def updatePlot(self, dataframe):
+        self.fig.clear()
+        ax = self.fig.add_subplot(1, 1, 1)
+        dataframe.plot(kind='bar', ax=ax)
+        self.fig.tight_layout()
+        self.draw()

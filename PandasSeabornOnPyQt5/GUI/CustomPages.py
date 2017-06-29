@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QDir, pyqtSignal
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTextBrowser, QPushButton, QSpacerItem, QSizePolicy, QFileDialog, \
-    QScrollArea, QAbstractScrollArea, QWidget, QLabel, QComboBox, QCheckBox
+    QScrollArea, QAbstractScrollArea, QWidget, QLabel, QComboBox, QCheckBox, QButtonGroup
 
 from config import content1, content2, content3
 from libPage import Page
@@ -43,6 +43,8 @@ class FirstPage(Page):
 
 
 class SecongPage(Page):
+    changeCkeckbox = pyqtSignal()
+
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
         self.setLayout(QHBoxLayout())
@@ -85,6 +87,7 @@ class SecongPage(Page):
 
         self.layout().setStretch(0, 1)
         self.layout().setStretch(1, 1)
+        self.checkboxs = []
         self.oneComboBox.currentIndexChanged.connect(self.configElements)
 
     def setFields(self, fields):
@@ -93,17 +96,31 @@ class SecongPage(Page):
         self.oneComboBox.clear()
         self.oneComboBox.addItems(fields)
         self.oneComboBox.blockSignals(False)
+
+        for w in self.checkboxs:
+            w.deleteLater()
+        self.checkboxs = []
+
+        for text in fields:
+            ch = QCheckBox(text)
+            ch.setChecked(True)
+            ch.stateChanged.connect(self.changeCkeckbox.emit)
+            self.checkBoxLayout.addWidget(ch)
+            self.checkboxs.append(ch)
+
         self.configElements()
 
     def configElements(self):
-        # clear layout
-        for i in reversed(range(self.checkBoxLayout.count())):
-            self.checkBoxLayout.itemAt(i).widget().deleteLater()
         current_text = self.oneComboBox.currentText()
-        texts = [self.oneComboBox.itemText(i) for i in range(self.oneComboBox.count())]
-        for text in texts:
-            if text != current_text:
-                self.checkBoxLayout.addWidget(QCheckBox(text))
+
+        for checkbox in self.checkboxs:
+            if checkbox.text() == current_text:
+                checkbox.hide()
+                checkbox.blockSignals(True)
+                checkbox.setChecked(True)
+                checkbox.blockSignals(False)
+            else:
+                checkbox.show()
 
 
 class ThirdPage(Page):

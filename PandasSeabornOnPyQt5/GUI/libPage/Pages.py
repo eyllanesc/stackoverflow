@@ -11,6 +11,8 @@ class Page(QWidget):
 
 
 class ContainerPages(QWidget):
+    changedPage = pyqtSignal(Page)
+
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
         self.centralWidget = QWidget()
@@ -31,11 +33,14 @@ class ContainerPages(QWidget):
         hbox.addItem(item)
         backBtn = QPushButton("Back")
         hbox.addWidget(backBtn)
-        # self.layout().addLayout(hbox)
         self.layout().addWidget(self.widget)
         self.widget.hide()
 
         backBtn.clicked.connect(self.backPage)
+
+    def currentPage(self):
+        if isinstance(self.centralWidget, Page):
+            return self.centralWidget
 
     def backPage(self):
         index = self.currentIndex - 1
@@ -65,7 +70,7 @@ class ContainerPages(QWidget):
             self.widget.show()
         self.centralWidget = self.listWidgets[self.currentIndex]
         self.centralWidget.show()
-        print(self.currentIndex)
+        self.changedPage.emit(self.centralWidget)
 
     def showEvent(self, event):
         if self.currentIndex == -1:
