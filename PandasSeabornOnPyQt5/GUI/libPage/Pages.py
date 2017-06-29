@@ -42,7 +42,8 @@ class ContainerPages(QWidget):
             self.listWidgets.append(w)
             w.finished.connect(self.nextPage)
         else:
-            print("La clase debe heredar de Page")
+            print("Instances must inherit from Page")
+            raise TypeError
 
     def changeWidget(self, index):
         self.centralWidget.hide()
