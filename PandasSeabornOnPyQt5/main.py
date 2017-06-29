@@ -4,13 +4,15 @@ import sys
 # gtk.set_interactive(False)
 import matplotlib
 
-matplotlib.use('Qt5Agg')
+matplotlib.use('Qt5Agg', force=True)
+
+import matplotlib.pyplot as plt
+plt.switch_backend('Qt5Agg')
 
 import pandas as pd
 import seaborn as sns
 
-import matplotlib.pyplot as plt
-plt.style.use('ggplot')
+
 
 from PyQt5 import QtCore, QtWidgets
 
