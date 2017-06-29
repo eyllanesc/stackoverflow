@@ -1,4 +1,5 @@
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal, Qt
+from PyQt5.QtGui import QPalette
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QSpacerItem, QSizePolicy, QPushButton
 
 
@@ -14,18 +15,27 @@ class ContainerPages(QWidget):
         QWidget.__init__(self, parent=parent)
         self.centralWidget = QWidget()
         self.setLayout(QVBoxLayout())
+        self.layout().setContentsMargins(0, 0, 0, 0)
+
         self.listWidgets = []
         self.layout().addWidget(self.centralWidget)
         self.currentIndex = -1
 
-        hbox = QHBoxLayout()
+        self.widget = QWidget(self)
+        hbox = QHBoxLayout(self.widget)
+        margin = hbox.contentsMargins()
+        margin.setTop(0)
+        margin.setBottom(0)
+        hbox.setContentsMargins(margin)
         item = QSpacerItem(1, 1, QSizePolicy.Expanding, QSizePolicy.Fixed)
         hbox.addItem(item)
-        self.backBtn = QPushButton("Back")
-        hbox.addWidget(self.backBtn)
-        self.layout().addLayout(hbox)
+        backBtn = QPushButton("Back")
+        hbox.addWidget(backBtn)
+        # self.layout().addLayout(hbox)
+        self.layout().addWidget(self.widget)
+        self.widget.hide()
 
-        self.backBtn.clicked.connect(self.backPage)
+        backBtn.clicked.connect(self.backPage)
 
     def backPage(self):
         index = self.currentIndex - 1
@@ -50,9 +60,9 @@ class ContainerPages(QWidget):
         self.layout().replaceWidget(self.centralWidget, self.listWidgets[index])
         self.currentIndex = index
         if self.currentIndex == 0:
-            self.backBtn.hide()
+            self.widget.hide()
         else:
-            self.backBtn.show()
+            self.widget.show()
         self.centralWidget = self.listWidgets[self.currentIndex]
         self.centralWidget.show()
         print(self.currentIndex)

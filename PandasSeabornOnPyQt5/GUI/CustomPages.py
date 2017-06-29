@@ -61,10 +61,10 @@ class SecongPage(Page):
         scrollArea.setWidget(contentWidget)
         contentWidget.setLayout(QVBoxLayout())
 
-        vbox.addWidget(QLabel("One Column Name", contentWidget))
+        vbox.addWidget(QLabel("<b>One Column Name:</b>", contentWidget))
         self.oneComboBox = QComboBox(contentWidget)
         vbox.addWidget(self.oneComboBox)
-        vbox.addWidget(QLabel("Column names", contentWidget))
+        vbox.addWidget(QLabel("<b>Column names:</b>", contentWidget))
 
         self.checkBoxLayout = QVBoxLayout()
         contentWidget.layout().addLayout(self.checkBoxLayout)
