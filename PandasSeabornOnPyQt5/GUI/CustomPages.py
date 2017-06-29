@@ -100,7 +100,6 @@ class SecongPage(Page):
         for i in reversed(range(self.checkBoxLayout.count())):
             self.checkBoxLayout.itemAt(i).widget().deleteLater()
         current_text = self.oneComboBox.currentText()
-        print("config", current_text)
         texts = [self.oneComboBox.itemText(i) for i in range(self.oneComboBox.count())]
         for text in texts:
             if text != current_text:

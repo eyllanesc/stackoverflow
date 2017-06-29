@@ -4,7 +4,8 @@ import sys
 
 import pandas as pd
 from PyQt5.QtCore import Qt
-from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QMainWindow, QLabel, QHBoxLayout, QListView, QTableView
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QMainWindow, QLabel, QHBoxLayout, QListView, QTableView, \
+    QAbstractScrollArea, QHeaderView
 
 from CustomPages import FirstPage, SecongPage, ThirdPage
 from PandasModel import PandasModel
@@ -25,7 +26,9 @@ class Widget(QWidget):
 
         container = ContainerPages()
 
-        self.tableview = QTableView()
+        self.tableview = QTableView(self)
+        self.tableview.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tableview.setAlternatingRowColors(True)
         hbox.addWidget(container)
         hbox.addWidget(self.tableview)
         hbox.setStretch(0, 1)
@@ -44,6 +47,8 @@ class Widget(QWidget):
         self.plotWidget = RegressionPlot()
         self.layout().addWidget(self.plotWidget)
         self.spage.oneComboBox.currentIndexChanged.connect(self.changeDraw)
+
+        self.layout().addWidget(QLabel("some text"))
 
     def loadData(self, filename):
         self.df = pd.read_csv(filename)

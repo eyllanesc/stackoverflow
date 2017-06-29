@@ -38,18 +38,25 @@ class MyMplCanvas(FigureCanvas):
 class RegressionPlot(MyMplCanvas):
     def __init__(self, parent=None):
 
-        MyMplCanvas.__init__(self, parent=parent, width=3, height=1, dpi=100)
+        MyMplCanvas.__init__(self, parent=parent, width=3, height=1, dpi=80)
 
     def updateGraph(self, dataframe, x_vars, y_var):
         # sns.pairplot(data, ax=self.axes, x_vars=['TV', 'Radio', 'Newspaper'],
         #             y_vars='Sales', size=7, aspect=0.7, kind='reg')
-        self.fig.clf()
-        self.draw()
-        for i in range(len(x_vars)):
-            axes = self.fig.add_subplot(1, len(x_vars), i+1)
-            sns.regplot(ax=axes, x=dataframe[x_vars[i]], y=dataframe[y_var])
+        self.fig.clear()
 
+        axes = self.fig.add_subplot(1, len(x_vars), 1)
+        sns.regplot(ax=axes, x=dataframe[x_vars[0]], y=dataframe[y_var])
+
+        for i in range(1, len(x_vars)):
+            ax = self.fig.add_subplot(1, len(x_vars), i+1, sharey=axes)
+            sns.regplot(ax=ax, x=dataframe[x_vars[i]], y=dataframe[y_var])
+            # axes.get_shared_y_axes().join(axes, ax)
+
+            ax.get_yaxis().set_visible(False)
+
+        self.fig.tight_layout()
         self.draw()
 
     def minimumSizeHint(self):
-        return QtCore.QSize(500, 400)
+        return QtCore.QSize(800, 200)
