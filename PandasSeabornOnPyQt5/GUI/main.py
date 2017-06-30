@@ -6,11 +6,13 @@ import pandas as pd
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QWidget, QMainWindow, QLabel, QHBoxLayout, QTableView, \
     QHeaderView
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 from CustomPages import FirstPage, SecongPage, ThirdPage
 from PandasModel import PandasModel
 from PlotWidget import RegressionPlot, BarPlot
-from libPage.Pages import ContainerPages
+from libPage import ContainerPages
 
 
 class Widget(QWidget):
@@ -40,8 +42,8 @@ class Widget(QWidget):
         self.spage = SecongPage()
         container.addPage(self.spage)
 
-        tpage = ThirdPage()
-        container.addPage(tpage)
+        self.tpage = ThirdPage()
+        container.addPage(self.tpage)
 
         self.regressionWidget = RegressionPlot()
         self.layout().addWidget(self.regressionWidget)
@@ -54,8 +56,6 @@ class Widget(QWidget):
         self.spage.finished.connect(self.changeBarDraw)
 
         self.layout().addWidget(QLabel("some text"))
-
-        self.spage.changeCkeckbox.connect(self.changeRegressionDraw)
 
         container.changedPage.connect(self.onChangePage)
 
@@ -71,7 +71,6 @@ class Widget(QWidget):
             self.df = None
 
     def loadData(self, filename):
-        print filename
         self.df = pd.read_csv(filename)
         model = PandasModel(self.df)
         self.tableview.setModel(model)
@@ -87,17 +86,42 @@ class Widget(QWidget):
 
         y_var = self.spage.oneComboBox.currentText()
 
-        for btn in self.spage.checkboxs:
-            if btn.isChecked() and btn.text() != y_var:
-                x_vars.append(btn.text())
+        for label in self.spage.labels:
+            if label.text() != y_var:
+                x_vars.append(label.text())
 
         self.regressionWidget.updateGraph(self.df, x_vars, y_var)
         self.regressionWidget.show()
         self.barWidget.hide()
 
     def changeBarDraw(self):
-        df = pd.DataFrame({'a': 10, 'b': 20, 'c': 30}, index=[0])
-        self.barWidget.updatePlot(df)
+        x_vars = []
+        y_var = self.spage.oneComboBox.currentText()
+        for label in self.spage.labels:
+            if label.text() != y_var:
+                x_vars.append(label.text())
+
+        y = self.df[y_var]
+        x = self.df[x_vars]
+
+        x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=1)
+
+        lin_reg = LinearRegression()
+        lin_reg.fit(x_train, y_train)
+
+        co_dict = {}
+        for i in range(len(lin_reg.coef_)):
+            co_dict[x_vars[i]] = float(round(lin_reg.coef_[i] * 1000, 1))
+        results_df = pd.DataFrame(co_dict, index=['Sales'])
+
+        interpretation = "Interpretation:For a given amount of ad spending, " \
+                         "an additional $1,000 spent will likely increase unit sales by:"
+        self.tpage.setText(lin_reg.intercept_,
+                           co_dict.values(),
+                           interpretation,
+                           y_var,
+                           zip(x, [co_dict[var] for var in x]))
+        self.barWidget.updatePlot(results_df)
         self.barWidget.show()
         self.regressionWidget.hide()
 

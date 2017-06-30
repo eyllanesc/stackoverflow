@@ -63,10 +63,11 @@ class BarPlot(MyMplCanvas):
     def __init__(self, parent=None):
 
         MyMplCanvas.__init__(self, parent=parent, width=3, height=1, dpi=80)
+        self.ax = self.fig.add_subplot(1, 1, 1)
 
     def updatePlot(self, dataframe):
-        self.fig.clear()
-        ax = self.fig.add_subplot(1, 1, 1)
-        dataframe.plot(kind='bar', ax=ax)
+        self.ax.clear()
+        dataframe.plot(kind='bar', ax=self.ax)
+        self.ax.set_xticklabels(dataframe.index, rotation=0)
         self.fig.tight_layout()
         self.draw()

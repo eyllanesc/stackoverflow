@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QDir, pyqtSignal
 from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTextBrowser, QPushButton, QSpacerItem, QSizePolicy, QFileDialog, \
-    QScrollArea, QAbstractScrollArea, QWidget, QLabel, QComboBox, QCheckBox, QButtonGroup
+    QScrollArea, QAbstractScrollArea, QWidget, QLabel, QComboBox, QCheckBox
 
 from config import content1, content2, content3
 from libPage import Page
@@ -43,7 +43,6 @@ class FirstPage(Page):
 
 
 class SecongPage(Page):
-    changeCkeckbox = pyqtSignal()
 
     def __init__(self, parent=None):
         QWidget.__init__(self, parent=parent)
@@ -68,8 +67,8 @@ class SecongPage(Page):
         vbox.addWidget(self.oneComboBox)
         vbox.addWidget(QLabel("<b>Column names:</b>", contentWidget))
 
-        self.checkBoxLayout = QVBoxLayout()
-        contentWidget.layout().addLayout(self.checkBoxLayout)
+        self.LabelLayout = QVBoxLayout()
+        contentWidget.layout().addLayout(self.LabelLayout)
 
         spacerItem = QSpacerItem(1, 1, QSizePolicy.Minimum, QSizePolicy.Expanding)
         contentWidget.layout().addItem(spacerItem)
@@ -87,46 +86,47 @@ class SecongPage(Page):
 
         self.layout().setStretch(0, 1)
         self.layout().setStretch(1, 1)
-        self.checkboxs = []
+        self.labels = []
         self.oneComboBox.currentIndexChanged.connect(self.configElements)
 
     def setFields(self, fields):
-        print("set Fields")
         self.oneComboBox.blockSignals(True)
         self.oneComboBox.clear()
         self.oneComboBox.addItems(fields)
         self.oneComboBox.blockSignals(False)
 
-        for w in self.checkboxs:
+        for w in self.labels:
             w.deleteLater()
-        self.checkboxs = []
+        self.labels = []
 
         for text in fields:
-            ch = QCheckBox(text)
-            ch.setChecked(True)
-            ch.stateChanged.connect(self.changeCkeckbox.emit)
-            self.checkBoxLayout.addWidget(ch)
-            self.checkboxs.append(ch)
+            ch = QLabel(text)
+            self.LabelLayout.addWidget(ch)
+            self.labels.append(ch)
 
         self.configElements()
 
     def configElements(self):
         current_text = self.oneComboBox.currentText()
 
-        for checkbox in self.checkboxs:
-            if checkbox.text() == current_text:
-                checkbox.hide()
-                checkbox.blockSignals(True)
-                checkbox.setChecked(True)
-                checkbox.blockSignals(False)
+        for label in self.labels:
+            if label.text() == current_text:
+                label.hide()
             else:
-                checkbox.show()
+                label.show()
 
 
 class ThirdPage(Page):
     def __init__(self, parent=None):
         Page.__init__(self, parent=parent)
         self.setLayout(QVBoxLayout())
-        textBrowser = QTextBrowser()
-        self.layout().addWidget(textBrowser)
-        textBrowser.setHtml(content3)
+        self.textBrowser = QTextBrowser()
+        self.layout().addWidget(self.textBrowser)
+
+    def setText(self, intercept, coefficient, interpretation, y_var, co_dict):
+        html = content3.format(Intercept=intercept,
+                               Coefficient=coefficient,
+                               interpretation=interpretation,
+                               y_var=y_var,
+                               co_dict=co_dict)
+        self.textBrowser.setHtml(html)
