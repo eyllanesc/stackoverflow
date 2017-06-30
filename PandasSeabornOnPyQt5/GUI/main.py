@@ -129,6 +129,7 @@ class Widget(QWidget):
 class MainWindow(QMainWindow):
     def __init__(self, parent=None):
         QMainWindow.__init__(self, parent=parent)
+        self.setWindowTitle("Title")
         self.setCentralWidget(Widget())
 
 
