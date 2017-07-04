@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLCDNumber" name="lcd_webs">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>0</y>
+      <width>341</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcd_tens">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>360</y>
+      <width>191</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcd_rpm">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>360</y>
+      <width>191</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_null_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>320</y>
+      <width>381</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(85, 170, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Gauges</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_fwd">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>360</y>
+      <width>201</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(215, 252, 255, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Forward</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_bck">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>450</y>
+      <width>201</width>
+      <height>90</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Gadugi&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(215, 252, 255, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Backward</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_strt">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>360</y>
+      <width>225</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 20pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(0, 170, 0, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Run</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_pause">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>360</y>
+      <width>225</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 20pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(255, 0, 0, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Pause</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_null">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>320</y>
+      <width>451</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(85, 170, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Process</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_null_4">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>320</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(85, 170, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>Web Direction</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_null_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-10</y>
+      <width>1031</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:1 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_webs">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>0</y>
+      <width>311</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 22pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Actual Web Speed</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_tens">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>350</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Tension</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_rpm">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>350</y>
+      <width>181</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 20pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>RPM</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_webs_2">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>230</y>
+      <width>231</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>ft / min</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_tens_2">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>480</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;</string>
+    </property>
+    <property name="text">
+     <string>mV</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_spd_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>221</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(215, 252, 255, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>2 ft/min</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_spd_3">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>100</y>
+      <width>231</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(215, 252, 255, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>3ft/min</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_spd_4">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>99</y>
+      <width>231</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 16pt &quot;Arial&quot;;
+background-color: qconicalgradient(cx:0.998, cy:0.988636, angle:90.094, stop:0 rgba(215, 252, 255, 255), stop:0.343284 rgba(255, 255, 255, 255));</string>
+    </property>
+    <property name="text">
+     <string>4ft/min</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_webs_3">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>10</y>
+      <width>311</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 22pt &quot;Gadugi&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Web Speed Set</string>
+    </property>
+   </widget>
+   <zorder>btn_null_2</zorder>
+   <zorder>lcd_webs</zorder>
+   <zorder>lcd_tens</zorder>
+   <zorder>lcd_rpm</zorder>
+   <zorder>btn_null_3</zorder>
+   <zorder>btn_fwd</zorder>
+   <zorder>btn_bck</zorder>
+   <zorder>btn_strt</zorder>
+   <zorder>btn_pause</zorder>
+   <zorder>btn_null</zorder>
+   <zorder>btn_null_4</zorder>
+   <zorder>lbl_webs</zorder>
+   <zorder>lbl_tens</zorder>
+   <zorder>lbl_rpm</zorder>
+   <zorder>lbl_webs_2</zorder>
+   <zorder>lbl_tens_2</zorder>
+   <zorder>btn_spd_2</zorder>
+   <zorder>btn_spd_3</zorder>
+   <zorder>btn_spd_4</zorder>
+   <zorder>lbl_webs_3</zorder>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
