@@ -9,8 +9,6 @@ QT       += widgets
 TARGET = GLineEdit
 TEMPLATE = lib
 
-CONFIG += staticlib
-
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
@@ -32,6 +30,7 @@ HEADERS += \
         $$PWD/include/glineedit.h \
     $$PWD/include/focuslabel.h \
     $$PWD/include/focuslineedit.h
+    $$PWD/include/glineedit_global.h
 
 INCLUDEPATH += $$PWD/include
 
