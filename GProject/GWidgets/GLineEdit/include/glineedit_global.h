@@ -1,0 +1,12 @@
+#ifndef GLINEEDIT_GLOBAL_H
+#define GLINEEDIT_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(GLINEEDIT_LIBRARY)
+#  define GLINEEDITSHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define GLINEEDITSHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // GLINEEDIT_GLOBAL_H
