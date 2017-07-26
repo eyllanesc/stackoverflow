@@ -30,13 +30,17 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-INCLUDEPATH += $$PWD/../
-DEPENDPATH += $$PWD/../
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../GProject/GWidgets/lib/release/ -lGLineEdit
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../GProject/GWidgets/lib/debug/ -lGLineEdit
-else:unix: LIBS += -L$$PWD/../../../GProject/GWidgets/lib/ -lGLineEdit
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/lib/release/ -lGLineEdit
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/lib/debug/ -lGLineEdit
+else:unix: LIBS += -L$$PWD/../GProject/GWidgets/lib/ -lGLineEdit
 
-INCLUDEPATH += $$PWD/../../../GProject/GWidgets/include
-DEPENDPATH += $$PWD/../../../GProject/GWidgets/include
+INCLUDEPATH += $$PWD/../GProject/GWidgets/include
+DEPENDPATH += $$PWD/../GProject/GWidgets/include
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../GProject/GWidgets/lib/release/libGLineEdit.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../GProject/GWidgets/lib/debug/libGLineEdit.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../GProject/GWidgets/lib/release/GLineEdit.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../GProject/GWidgets/lib/debug/GLineEdit.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../GProject/GWidgets/lib/libGLineEdit.a
