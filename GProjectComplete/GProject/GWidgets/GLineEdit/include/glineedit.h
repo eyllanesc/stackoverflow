@@ -12,6 +12,8 @@
 class GLINEEDITSHARED_EXPORT GLineEdit : public QWidget
 {
 
+    Q_OBJECT
+    Q_PROPERTY(QString text READ text WRITE setText)
 public:
     GLineEdit(QWidget *parent = 0);
 
@@ -22,6 +24,8 @@ public:
 private:
     FocusLabel *m_label;
     FocusLineEdit *m_lineEdit;
+
+    QString mText;
 };
 
 #endif // GLINEEDIT_H

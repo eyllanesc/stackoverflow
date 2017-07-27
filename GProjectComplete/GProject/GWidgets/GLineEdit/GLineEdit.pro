@@ -40,6 +40,4 @@ unix {
     INSTALLS += target
 }
 
-DESTDIR = $$PWD/../lib
-
-QMAKE_POST_LINK += cp -rf $$PWD/include/ $$PWD/../include
+DESTDIR = $$PWD/lib

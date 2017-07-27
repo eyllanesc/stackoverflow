@@ -30,13 +30,10 @@ HEADERS  += mainwindow.h
 
 FORMS    += mainwindow.ui
 
-INCLUDEPATH += $$PWD/../
-DEPENDPATH += $$PWD/../
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/release/ -lGLineEdit
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/debug/ -lGLineEdit
+else:unix: LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/ -lGLineEdit
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../GProject/GWidgets/lib/release/ -lGLineEdit
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../GProject/GWidgets/lib/debug/ -lGLineEdit
-else:unix: LIBS += -L$$PWD/../../../GProject/GWidgets/lib/ -lGLineEdit
-
-INCLUDEPATH += $$PWD/../../../GProject/GWidgets/include
-DEPENDPATH += $$PWD/../../../GProject/GWidgets/include
+INCLUDEPATH += $$PWD/../GProject/GWidgets/GLineEdit/include
+DEPENDPATH += $$PWD/../GProject/GWidgets/GLineEdit/include

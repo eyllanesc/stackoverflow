@@ -1,7 +1,10 @@
 #include "glineeditplugin.h"
+#include "glineeditmenufactory.h"
 
 #include <glineedit.h>
 
+#include <QDesignerFormEditorInterface>
+#include <QExtensionManager>
 #include <QtPlugin>
 
 GLineEditPlugin::GLineEditPlugin(QObject *parent)
@@ -10,12 +13,18 @@ GLineEditPlugin::GLineEditPlugin(QObject *parent)
     m_initialized = false;
 }
 
-void GLineEditPlugin::initialize(QDesignerFormEditorInterface * /* core */)
+void GLineEditPlugin::initialize(QDesignerFormEditorInterface * formEditor)
 {
     if (m_initialized)
         return;
 
     // Add extension registrations, etc. here
+
+    QExtensionManager *manager = formEditor->extensionManager();
+    Q_ASSERT(manager != 0);
+
+    manager->registerExtensions(new GLineEditMenuFactory(manager),
+                                Q_TYPEID(QDesignerTaskMenuExtension));
 
     m_initialized = true;
 }
@@ -67,7 +76,7 @@ QString GLineEditPlugin::domXml() const
 
 QString GLineEditPlugin::includeFile() const
 {
-    return QLatin1String("GWidgets/glineedit.h");
+    return QLatin1String("glineedit.h");
 }
 #if QT_VERSION < 0x050000
 Q_EXPORT_PLUGIN2(GLineEditPlugin, GLineEditPlugin)

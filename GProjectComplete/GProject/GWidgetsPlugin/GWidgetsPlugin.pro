@@ -22,15 +22,19 @@ INSTALLS    += target
 
 HEADERS += \
     gwidgets.h \
-    glineeditplugin.h
+    glineeditplugin.h \
+    glineeditmenufactory.h \
+    glineeditdialog.h
 
 SOURCES += \
     gwidgets.cpp \
-    glineeditplugin.cpp
+    glineeditplugin.cpp \
+    glineeditmenufactory.cpp \
+    glineeditdialog.cpp
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../GWidgets/lib/release/ -lGLineEdit
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../GWidgets/lib/debug/ -lGLineEdit
-else:unix: LIBS += -L$$PWD/../GWidgets/lib/ -lGLineEdit
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../GWidgets/GLineEdit/lib/release/ -lGLineEdit
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../GWidgets/GLineEdit/lib/debug/ -lGLineEdit
+else:unix: LIBS += -L$$PWD/../GWidgets/GLineEdit/lib/ -lGLineEdit
 
-INCLUDEPATH += $$PWD/../GWidgets/include
-DEPENDPATH += $$PWD/../GWidgets/include
+INCLUDEPATH += $$PWD/../GWidgets/GLineEdit/include
+DEPENDPATH += $$PWD/../GWidgets/GLineEdit/include
