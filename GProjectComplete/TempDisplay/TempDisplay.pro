@@ -31,6 +31,7 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/release/ -lGLineEdit
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/debug/ -lGLineEdit
 else:unix: LIBS += -L$$PWD/../GProject/GWidgets/GLineEdit/lib/ -lGLineEdit
