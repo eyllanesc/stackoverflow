@@ -26,11 +26,14 @@ void Dialog::on_pushButton_clicked()
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
                                                     QDir::currentPath(),
                                                     tr("SQLite Database files(*.db *.db3 *.sqlite *.sqlite3)"));
-    db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(fileName);
+
     if(!db.open()){
-        qWarning()<<db.lastError().text();
-        return;
+        db = QSqlDatabase::addDatabase("QSQLITE");
+        db.setDatabaseName(fileName);
+        if(!db.open()){
+            qWarning()<<db.lastError().text();
+            return;
+        }
     }
 
     model = new SqlTableModel;

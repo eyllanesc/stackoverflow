@@ -5,6 +5,9 @@
 
 class SqlTableModel : public QSqlTableModel
 {
+    const QString stateName = "state";
+    const QString positionName = "position";
+
 public:
     int	columnCount(const QModelIndex &parent = QModelIndex()) const;
     void setTable(const QString &tableName);
@@ -13,9 +16,11 @@ public:
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
-
 private:
     int max_position;
+
+    int index_position;
+    int index_state;
 };
 
 #endif // SQLTABLEMODEL_H
