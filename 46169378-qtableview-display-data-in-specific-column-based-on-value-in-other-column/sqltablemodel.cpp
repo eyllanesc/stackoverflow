@@ -57,9 +57,9 @@ Qt::ItemFlags SqlTableModel::flags(const QModelIndex &index) const
 {
     int position = QSqlTableModel::data(this->index(index.row(), index_position), Qt::DisplayRole).toInt();
 
-    if(QSqlTableModel::data(this->index(index.row(), index_state), Qt::DisplayRole).toString().isEmpty()){
+    /*if(QSqlTableModel::data(this->index(index.row(), index_state), Qt::DisplayRole).toString().isEmpty()){
         return QSqlTableModel::flags(this->index(index.row(), 0));
-    }
+    }*/
     if(index.column() == position){
         return QSqlTableModel::flags(this->index(index.row(), 0));
     }
