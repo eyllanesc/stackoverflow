@@ -8,10 +8,6 @@
 class HtmlDelegate : public QStyledItemDelegate
 {
 public:
-    HtmlDelegate(QObject * parent = 0):QStyledItemDelegate(parent){
-
-    }
-
     void paint(QPainter* painter, const QStyleOptionViewItem & option, const QModelIndex &index) const
     {
         QStyleOptionViewItem options = option;
