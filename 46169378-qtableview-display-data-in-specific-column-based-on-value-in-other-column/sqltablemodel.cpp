@@ -5,9 +5,11 @@
 #include <QSqlTableModel>
 #include <QSqlRecord>
 
-int SqlTableModel::columnCount(const QModelIndex &/*parent*/) const
+#include <QDebug>
+
+int SqlTableModel::columnCount(const QModelIndex &parent) const
 {
-    return max_position + 1;;
+    return QSqlTableModel::columnCount(parent)+ max_position;;
 }
 
 void SqlTableModel::setTable(const QString &tableName)
@@ -33,51 +35,48 @@ QVariant SqlTableModel::data(const QModelIndex &index, int role) const
     if(role == Qt::ForegroundRole){
         return QBrush(Qt::black);
     }
-    if(index.column()>0){
+    const int number_of_columns = QSqlTableModel::columnCount();
+    if(index.column()>= number_of_columns){
         if(role==Qt::DisplayRole){
             int position = QSqlTableModel::data(this->index(index.row(), index_position), Qt::DisplayRole).toInt();
-            if(index.column() == position){
+            if(index.column() == number_of_columns + position - 1){
                 return QSqlTableModel::data(this->index(index.row(), index_state), Qt::DisplayRole).toString();
             }
         }
-        return QVariant();
     }
     return QSqlTableModel::data(index, role);
 }
 
 QVariant SqlTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if(orientation == Qt::Horizontal && role == Qt::DisplayRole && section > 0)
-        return section;
-
+    if(orientation == Qt::Horizontal && role == Qt::DisplayRole && section >= QSqlTableModel::columnCount())
+        return section -  QSqlTableModel::columnCount() + 1;
     return QSqlTableModel::headerData(section, orientation, role);
 }
 
 Qt::ItemFlags SqlTableModel::flags(const QModelIndex &index) const
 {
-    int position = QSqlTableModel::data(this->index(index.row(), index_position), Qt::DisplayRole).toInt();
-
-    /*if(QSqlTableModel::data(this->index(index.row(), index_state), Qt::DisplayRole).toString().isEmpty()){
-        return QSqlTableModel::flags(this->index(index.row(), 0));
-    }*/
-    if(index.column() == position){
-        return QSqlTableModel::flags(this->index(index.row(), 0));
+    if(index.column() >= QSqlTableModel::columnCount()){
+        return Qt::ItemIsSelectable| Qt::ItemIsEditable| Qt::ItemIsEnabled;
     }
-    return Qt::NoItemFlags;
+    return QSqlTableModel::flags(index);
 }
 
 bool SqlTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if(role==Qt::EditRole){
-        int position = QSqlTableModel::data(this->index(index.row(), index_position), Qt::DisplayRole).toInt();
-        if(index.column() == position){
+        const int number_of_columns =  QSqlTableModel::columnCount();
+        if(index.column() >= number_of_columns){
             QSqlQuery q;
             int id = QSqlTableModel::data(this->index(index.row(), 0), Qt::DisplayRole).toInt();
-            q.exec(QString("UPDATE %1 SET state = '%2' WHERE id =%3")
-                   .arg(tableName())
-                   .arg(value.toString())
-                   .arg(id));
-
+            q.prepare(QString("UPDATE %1 SET %2 = :state, %3=:position WHERE id =:id")
+                      .arg(tableName())
+                      .arg(stateName)
+                      .arg(positionName));
+            q.bindValue(":state", value);
+            q.bindValue(":position", index.column()-number_of_columns +1);
+            q.bindValue(":id", id);
+            q.exec();
             select();
             return true;
         }
