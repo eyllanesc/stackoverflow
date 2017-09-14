@@ -72,9 +72,7 @@ bool SqlTableModel::setData(const QModelIndex &index, const QVariant &value, int
             return result1 && result2;
         }
         if(index.column() == index_position){
-            bool status = QSqlTableModel::setData(index, value, role);
             QTimer::singleShot(0, this, &SqlTableModel::reset);
-            return status;
         }
     }
 
