@@ -5,8 +5,6 @@
 #include <QSqlTableModel>
 #include <QSqlRecord>
 
-#include <QDebug>
-
 int SqlTableModel::columnCount(const QModelIndex &parent) const
 {
     return QSqlTableModel::columnCount(parent)+ max_position;;
