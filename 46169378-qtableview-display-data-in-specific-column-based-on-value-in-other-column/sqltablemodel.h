@@ -21,6 +21,8 @@ private:
 
     int index_position;
     int index_state;
+
+    void reset();
 };
 
 #endif // SQLTABLEMODEL_H

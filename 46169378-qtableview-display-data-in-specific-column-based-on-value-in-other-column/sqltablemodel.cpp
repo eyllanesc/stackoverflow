@@ -4,6 +4,8 @@
 #include <QSqlQuery>
 #include <QSqlTableModel>
 #include <QSqlRecord>
+#include <QTimer>
+
 
 int SqlTableModel::columnCount(const QModelIndex &parent) const
 {
@@ -12,6 +14,9 @@ int SqlTableModel::columnCount(const QModelIndex &parent) const
 
 void SqlTableModel::setTable(const QString &tableName)
 {
+
+    QSqlTableModel::setTable(tableName);
+
     QSqlQuery q;
     q.exec(QString("PRAGMA table_info(%1)").arg(tableName));
     while (q.next()) {
@@ -21,11 +26,7 @@ void SqlTableModel::setTable(const QString &tableName)
             index_state = q.at();
     }
 
-    q.exec(QString("SELECT MAX(%1) FROM %2").arg(positionName).arg(tableName));
-    while (q.next()) {
-        max_position  = q.value(0).toInt();
-    }
-    QSqlTableModel::setTable(tableName);
+    reset();
 }
 
 QVariant SqlTableModel::data(const QModelIndex &index, int role) const
@@ -67,8 +68,31 @@ bool SqlTableModel::setData(const QModelIndex &index, const QVariant &value, int
         if(index.column() >= number_of_columns){
             bool result1 = QSqlTableModel::setData(this->index(index.row(), index_position), index.column()-number_of_columns +1, role);
             bool result2 = QSqlTableModel::setData(this->index(index.row(), index_state), value, role);
+
             return result1 && result2;
         }
+        if(index.column() == index_position){
+            bool status = QSqlTableModel::setData(index, value, role);
+            QTimer::singleShot(0, this, &SqlTableModel::reset);
+            return status;
+        }
     }
+
     return QSqlTableModel::setData(index, value, role);
+}
+
+void SqlTableModel::reset()
+{
+    QSqlQuery q;
+    q.exec(QString("SELECT MAX(%1) FROM %2").arg(positionName).arg(tableName()));
+    int val;
+    while (q.next()) {
+        val = q.value(0).toInt();
+    }
+
+    if(val != max_position){
+        beginResetModel();
+        max_position = val;
+        endResetModel();
+    }
 }
