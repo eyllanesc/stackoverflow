@@ -23,7 +23,7 @@ void SqlTableModel::setTable(const QString &tableName)
             index_state = q.at();
     }
 
-    q.exec(QString("SELECT MAX(position) FROM %1").arg(tableName));
+    q.exec(QString("SELECT MAX(%1) FROM %2").arg(positionName).arg(tableName));
     while (q.next()) {
         max_position  = q.value(0).toInt();
     }
@@ -67,18 +67,9 @@ bool SqlTableModel::setData(const QModelIndex &index, const QVariant &value, int
     if(role==Qt::EditRole){
         const int number_of_columns =  QSqlTableModel::columnCount();
         if(index.column() >= number_of_columns){
-            QSqlQuery q;
-            int id = QSqlTableModel::data(this->index(index.row(), 0), Qt::DisplayRole).toInt();
-            q.prepare(QString("UPDATE %1 SET %2 = :state, %3=:position WHERE id =:id")
-                      .arg(tableName())
-                      .arg(stateName)
-                      .arg(positionName));
-            q.bindValue(":state", value);
-            q.bindValue(":position", index.column()-number_of_columns +1);
-            q.bindValue(":id", id);
-            q.exec();
-            select();
-            return true;
+            bool result1 = QSqlTableModel::setData(this->index(index.row(), index_position), index.column()-number_of_columns +1, role);
+            bool result2 = QSqlTableModel::setData(this->index(index.row(), index_state), value, role);
+            return result1 && result2;
         }
     }
     return QSqlTableModel::setData(index, value, role);
