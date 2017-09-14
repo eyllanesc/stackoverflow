@@ -14,30 +14,14 @@ Dialog::Dialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("Custom QSqlTableModel");
-}
-
-Dialog::~Dialog()
-{
-    delete ui;
-}
-
-void Dialog::on_pushButton_clicked()
-{
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
-                                                    QDir::currentPath(),
-                                                    tr("SQLite Database files(*.db *.db3 *.sqlite *.sqlite3)"));
-
-    if(!db.open()){
-        db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName(fileName);
-        if(!db.open()){
-            qWarning()<<db.lastError().text();
-            return;
-        }
-    }
 
     model = new SqlTableModel;
     model->setTable("TableExample");
     ui->tableView->setModel(model);
     model->select();
+}
+
+Dialog::~Dialog()
+{
+    delete ui;
 }
