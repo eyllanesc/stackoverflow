@@ -32,3 +32,8 @@ HEADERS += \
 
 FORMS += \
         dialog.ui
+
+DISTFILES +=
+
+RESOURCES += \
+    resource.qrc

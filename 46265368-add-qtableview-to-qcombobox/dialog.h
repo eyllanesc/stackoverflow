@@ -17,7 +17,7 @@ public:
     ~Dialog();
 
 private slots:
-    void on_lineEdit_textChanged(const QString &arg1);
+    void on_ContinentComboBox_currentTextChanged(const QString &name);
 
 private:
     Ui::Dialog *ui;
