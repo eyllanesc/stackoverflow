@@ -17,15 +17,8 @@ void SqlTableModel::setTable(const QString &tableName)
 
     QSqlTableModel::setTable(tableName);
 
-    QSqlQuery q;
-    q.exec(QString("PRAGMA table_info(%1)").arg(tableName));
-    while (q.next()) {
-        if(q.value(1).toString() == positionName)
-            index_position = q.at();
-        if(q.value(1).toString() == stateName)
-            index_state = q.at();
-    }
-
+    index_position = fieldIndex(positionName);
+    index_state = fieldIndex(stateName);
     reset();
 }
 
