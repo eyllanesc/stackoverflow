@@ -3,11 +3,8 @@
 #include <QPainter>
 #include <QScrollBar>
 
-#include <QDebug>
-
 MemoryViewer::MemoryViewer(QWidget *parent):QAbstractScrollArea(parent)
 {
-    //mChunks = new Chunks(this);
     ioDevice = new QBuffer(this);
     init();
     connect(verticalScrollBar(), &QScrollBar::valueChanged, this, &MemoryViewer::adjustContent);
