@@ -1,4 +1,4 @@
-MemoryViewer
+PopupTableView
 =========
 
 ![](Screenshot.png) 
