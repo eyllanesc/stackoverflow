@@ -7,7 +7,9 @@
 #include <QMouseEvent>
 #include <QTableView>
 #include <QVBoxLayout>
+#include <QHeaderView>
 
+#include <QDebug>
 
 class TableView: public QTableView{
     Q_OBJECT
@@ -21,6 +23,7 @@ public:
         setMouseTracking(true);
 
         popup = new QDialog(this, Qt::Popup | Qt::ToolTip);
+
         QVBoxLayout *layout = new QVBoxLayout;
         popupLabel = new QLabel(popup);
         popupLabel->setWordWrap(true);
@@ -37,14 +40,14 @@ public:
                 QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
                 QModelIndex index = lastIndex;
                 index = indexAt(mouseEvent->pos());
-                if(index!=lastIndex){
+                //if(index!=lastIndex){
                     if(index.isValid()){
-                        showPopup(index, mapToGlobal(mouseEvent->pos()));
+                        showPopup(index);
                     }
                     else{
                         popup->hide();
                     }
-                }
+                //}
                 lastIndex = QPersistentModelIndex(index);
             }
         }
@@ -57,10 +60,13 @@ public:
         return QTableView::eventFilter(watched, event);
     }
 
-    void showPopup (QModelIndex index, const QPoint &position) const {
+    void showPopup (const QModelIndex &index) const {
         if(index.column() == 1){
+            QRect r = visualRect(index);
+            popup->move(viewport()->mapToGlobal(r.bottomRight()));
+            popup->setFixedWidth(r.width());
             popupLabel->setText(index.data(Qt::DisplayRole).toString());
-            popup->move(position);
+            popup->adjustSize();
             popup->show();
         }
         else {
