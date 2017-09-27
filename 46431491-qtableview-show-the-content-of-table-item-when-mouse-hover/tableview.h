@@ -18,7 +18,6 @@ public:
     TableView(QWidget *parent = Q_NULLPTR):QTableView(parent){
         viewport()->installEventFilter(this);
         setMouseTracking(true);
-
         popup = new QDialog(this, Qt::Popup | Qt::ToolTip);
 
         QVBoxLayout *layout = new QVBoxLayout;
@@ -43,22 +42,25 @@ public:
                     popup->hide();
                 }
             }
+            else if(event->type() == QEvent::Leave){
+                popup->hide();
+            }
         }
         else if(popup == watched){
             if(event->type() == QEvent::Leave){
                 popup->hide();
             }
         }
-
         return QTableView::eventFilter(watched, event);
     }
 
+private:
     void showPopup (const QModelIndex &index) const {
         if(index.column() == 1){
-            popupLabel->setText(index.data(Qt::DisplayRole).toString());
             QRect r = visualRect(index);
             popup->move(viewport()->mapToGlobal(r.bottomLeft()));
-            popup->setFixedSize(100,  popup->heightForWidth(100));
+            popup->setFixedSize(100, popup->heightForWidth(100));
+            popupLabel->setText(index.data(Qt::DisplayRole).toString());
             popup->adjustSize();
             popup->show();
         }
@@ -67,6 +69,5 @@ public:
         }
     }
 };
-
 
 #endif // TABLEVIEW_H

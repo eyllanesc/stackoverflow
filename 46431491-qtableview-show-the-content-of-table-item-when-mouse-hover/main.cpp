@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     TableView w;
 
-    QStandardItemModel model(10,10);
+    QStandardItemModel model(10,2);
 
     for(int row = 0; row < model.rowCount(); row++)
     {
