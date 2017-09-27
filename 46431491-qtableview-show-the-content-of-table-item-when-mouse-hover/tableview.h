@@ -13,7 +13,6 @@
 
 class TableView: public QTableView{
     Q_OBJECT
-    QPersistentModelIndex lastIndex;
     QDialog *popup;
     QLabel *popupLabel;
 
@@ -38,17 +37,13 @@ public:
         if(viewport() == watched){
             if(event->type() == QEvent::MouseMove){
                 QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-                QModelIndex index = lastIndex;
-                index = indexAt(mouseEvent->pos());
-                //if(index!=lastIndex){
-                    if(index.isValid()){
-                        showPopup(index);
-                    }
-                    else{
-                        popup->hide();
-                    }
-                //}
-                lastIndex = QPersistentModelIndex(index);
+                QModelIndex index = indexAt(mouseEvent->pos());
+                if(index.isValid()){
+                    showPopup(index);
+                }
+                else{
+                    popup->hide();
+                }
             }
         }
         else if(popup == watched){
