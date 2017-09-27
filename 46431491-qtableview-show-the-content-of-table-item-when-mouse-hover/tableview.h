@@ -9,8 +9,6 @@
 #include <QVBoxLayout>
 #include <QHeaderView>
 
-#include <QDebug>
-
 class TableView: public QTableView{
     Q_OBJECT
     QDialog *popup;
@@ -57,10 +55,10 @@ public:
 
     void showPopup (const QModelIndex &index) const {
         if(index.column() == 1){
+            popupLabel->setText(index.data(Qt::DisplayRole).toString());
             QRect r = visualRect(index);
             popup->move(viewport()->mapToGlobal(r.bottomLeft()));
-            popup->setFixedWidth(r.width());
-            popupLabel->setText(index.data(Qt::DisplayRole).toString());
+            popup->setFixedSize(100,  popup->heightForWidth(100));
             popup->adjustSize();
             popup->show();
         }
