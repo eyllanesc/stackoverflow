@@ -58,7 +58,7 @@ public:
     void showPopup (const QModelIndex &index) const {
         if(index.column() == 1){
             QRect r = visualRect(index);
-            popup->move(viewport()->mapToGlobal(r.bottomRight()));
+            popup->move(viewport()->mapToGlobal(r.bottomLeft()));
             popup->setFixedWidth(r.width());
             popupLabel->setText(index.data(Qt::DisplayRole).toString());
             popup->adjustSize();
