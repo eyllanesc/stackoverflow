@@ -7,7 +7,7 @@ class GridTableHeaderView : public QHeaderView
 {
     Q_OBJECT
 public:
-    GridTableHeaderView(Qt::Orientation orientation, int rows, int columns, QWidget *parent = Q_NULLPTR);
+    GridTableHeaderView(Qt::Orientation orientation, int rows, int columns, QWidget *parent = nullptr);
     ~GridTableHeaderView();
 
     void setCellLabel(int row, int column, const QString& label);
