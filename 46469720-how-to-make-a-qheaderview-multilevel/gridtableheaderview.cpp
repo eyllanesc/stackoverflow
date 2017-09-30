@@ -23,8 +23,11 @@ GridTableHeaderView::GridTableHeaderView(Qt::Orientation orientation, int rows, 
             model->setData(model->index(row, col), baseSectionSize, Qt::SizeHintRole);
 
     setModel(model);
+#if QT_VERSION >= 0x050000
+    connect(this, &QHeaderView::sectionResized, this, &GridTableHeaderView::onSectionResized);
+#else
     connect(this, SIGNAL(sectionResized(int,int,int)), this, SLOT(onSectionResized(int,int,int)));
-    //connect(this, &QHeaderView::sectionResized, this, &GridTableHeaderView::onSectionResized);
+#endif
 }
 
 GridTableHeaderView::~GridTableHeaderView()

@@ -14,14 +14,20 @@ void GridTableView::setGridHeaderview(Qt::Orientation orientation, int levels)
     if(orientation == Qt::Horizontal){
         header = new GridTableHeaderView(orientation, levels, model()->columnCount());
         setHorizontalHeader(header);
+#if QT_VERSION >= 0x050000
+        connect(header, &GridTableHeaderView::sectionPressed, this, &GridTableView::horizontalHeaderSectionPressed);
+#else
         connect(header, SIGNAL(sectionPressed(int,int)), this, SLOT(horizontalHeaderSectionPressed(int,int)));
-        //connect(header, &GridTableHeaderView::sectionPressed, this, &GridTableView::horizontalHeaderSectionPressed);
+#endif
     }
     else{
         header = new GridTableHeaderView(orientation, model()->rowCount(), levels);
         setVerticalHeader(header);
+#if QT_VERSION >= 0x050000
+        connect(header, &GridTableHeaderView::sectionPressed,this, &GridTableView::verticalHeaderSectionPressed);
+#else
         connect(header, SIGNAL(sectionPressed(int, int)), this, SLOT(verticalHeaderSectionPressed(int,int)));
-        //connect(header, &GridTableHeaderView::sectionPressed,this, &GridTableView::verticalHeaderSectionPressed);
+#endif
     }
 }
 
