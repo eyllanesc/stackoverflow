@@ -27,4 +27,4 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
-    scrollarea.h
+    horizontalscrollarea.h
