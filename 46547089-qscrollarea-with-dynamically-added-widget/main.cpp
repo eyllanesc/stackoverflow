@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     QPushButton btn("Add", &w);
 
-    int nrows = 3;
+    int nrows = 2;
     int ncols = 2;
 
     HorizontalScrollArea scroll(nrows, ncols);
