@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pics/pen.svg</file>
+        <file>pics/select.svg</file>
+        <file>pics/rect.svg</file>
+        <file>pics/circle.svg</file>
+        <file>pics/line.svg</file>
+    </qresource>
+</RCC>
