@@ -11,10 +11,13 @@ public:
         if(index >= count() || index < 0)
             return;
         mUnSaved << index;
+        update();
     }
     void setSaved(int index){
-        if(mUnSaved.contains(index))
-            mUnSaved.remove(mUnSaved.indexOf(index));
+        if(!mUnSaved.contains(index))
+            return;
+        mUnSaved.remove(mUnSaved.indexOf(index));
+        update();
     }
 protected:
     void paintEvent(QPaintEvent */*event*/){
