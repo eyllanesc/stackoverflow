@@ -13,15 +13,16 @@ class Runnable : public QRunnable
 public:
     Runnable(QObject *receiver){
         mReceiver = receiver;
-        mRunning = true;
+        mRunning = false;
     }
     void run(){
+        mRunning = true;
         while(mRunning){
             mNumber++;
             QMetaObject::invokeMethod(mReceiver, "setNumber",
                                       Qt::QueuedConnection,
                                       Q_ARG(int, mNumber));
-            QThread::currentThread()->msleep(10);
+            QThread::msleep(10);
         }
     }
     bool isRunning() const{
