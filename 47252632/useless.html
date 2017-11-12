@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=yes"/>
+    <script type="text/javascript" src="./qwebchannel.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="useless.js"></script>
+
+</head>
+<body>
+<style>
+    #mapCanvas {
+        width: 102%;
+        height: 500px;
+        float: left;
+        margin-left: -7px;
+        margin-right: -10px;
+        margin-top: -7px;
+        margin-bottom: 10px;
+    }
+
+    #infoPanel {
+        float: left;
+        margin-left: 20px;
+    }
+
+    #infoPanel div {
+        margin-bottom: 10px;
+    }
+</style>
+
+<span style="font-size: small; color: black; font-family: verdana; "></span>
+<div id="mapCanvas"></div>
+<div id="infoPanel">
+    <span style="font-size: small; color: black; font-family: verdana; "></span>
+    <!-- <b>Marker status:</b> -->
+    <div id="markerStatus"><i>Click and drag the marker.</i></div>
+    <span style="font-size: small; color: black; font-family: verdana; "></span>
+    <b>Current position:</b>
+    <div id="info"></div>
+    <!--<b>Closest matching address:</b>-->
+    <!--<div id="address"></div>-->
+</div>
+</body>
+</html>
