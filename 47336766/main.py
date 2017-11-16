@@ -94,7 +94,8 @@ class Widget(QWidget):
 
     def onLoadFinished(self, ok):
         if self.isFirst:
-            self.sender().page().action(QWebEnginePage.Reload).trigger()
+            # self.sender().page().action(QWebEnginePage.Reload).trigger()
+            self.sender().reload()
         self.isFirst = False
 
 
