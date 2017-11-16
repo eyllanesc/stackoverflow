@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
              * it is not necessary to indicate its value,
              * that is why this field of the request is removed.
             */
-            record.remove(0);//
+            record.remove(record.indexOf("id"));//
             record.setValue("firstname", f);
             record.setValue("lastname", l);
             /*-1 is set to indicate that it will be added to the last row*/
