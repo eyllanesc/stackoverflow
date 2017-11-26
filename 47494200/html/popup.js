@@ -1,5 +1,3 @@
-/*var jshelper = sessionStorage.getItem("jshelper");
-console.log(jshelper);*/
 var jshelper = parent.jshelper;
 console.log(document.getElementById("myBtn"));
 
