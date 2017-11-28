@@ -8,7 +8,7 @@ class TreeView(QTreeView):
 
     def __init__(self, *args, **kwargs):
         QTreeView.__init__(self, *args, **kwargs)
-        self.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.setSelectionMode(QAbstractItemView.SingleSelection)
         self.setDragEnabled(True)
         self.viewport().setAcceptDrops(True)
         self.setDropIndicatorShown(True)
