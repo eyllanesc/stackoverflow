@@ -4,7 +4,6 @@
 #include <QGraphicsRectItem>
 #include <QPainter>
 
-#include <QDebug>
 
 class DGraphicsEllipseItem : public QGraphicsEllipseItem
 {
