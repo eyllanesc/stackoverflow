@@ -18,7 +18,7 @@ Widget::Widget(QWidget *parent) :
     QPen pen(Qt::green);
     pen.setWidth(1);
 
-    DGraphicsEllipseItem* ellipse = new DGraphicsEllipseItem(QRectF(20,20,100,100), 10);
+    DGraphicsEllipseItem* ellipse = new DGraphicsEllipseItem(QRectF(20,20, 200,100), 10);
     scene->addItem(ellipse);
     ellipse->setPen(pen);
     ellipse->setBrush(brush);
