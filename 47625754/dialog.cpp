@@ -10,7 +10,7 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
-
+    signalMapper = new QSignalMapper(this);
 }
 
 Dialog::~Dialog()
@@ -30,14 +30,15 @@ void Dialog::createButtons()
         QPushButton* a= new QPushButton(this);
         a->setText(text);
         ui->horizontalLayout->addWidget(a);
-        connect(a, &QPushButton::clicked, this, &Dialog::onClicked);
+        connect(a, &QAbstractButton::clicked, signalMapper, QOverload<>::of(&QSignalMapper::map));
+        signalMapper->setMapping(a, text);
     }
+    connect(signalMapper, QOverload<const QString &>::of(&QSignalMapper::mapped), this, &Dialog::onClicked);
 }
 
-void Dialog::onClicked()
+void Dialog::onClicked(const QString &text)
 {
-    QPushButton *b = qobject_cast<QPushButton *>(sender());
-    QMetaObject::invokeMethod(this, b->text().toLatin1().data());
+    QMetaObject::invokeMethod(this, text.toLatin1().data());
 }
 
 

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QFrame>
+#include <QSignalMapper>
 
 namespace Ui {
 class Dialog;
@@ -20,13 +21,13 @@ private slots:
     void on_pushButton_clicked();
     void Run();
     void Stop();
-    void onClicked();
+    void onClicked(const QString &text);
 
 private:
     void createButtons();
     Ui::Dialog *ui;
     QStringList List;
-    QFrame *f1;
+    QSignalMapper *signalMapper;
 };
 
 #endif // DIALOG_H
