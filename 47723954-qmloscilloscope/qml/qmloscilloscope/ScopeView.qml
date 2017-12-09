@@ -41,7 +41,6 @@ ChartView {
     onOpenGLChanged: {
         if (openGLSupported) {
             series("signal 1").useOpenGL = openGL;
-            series("signal 2").useOpenGL = openGL;
         }
     }
     Component.onCompleted: {
