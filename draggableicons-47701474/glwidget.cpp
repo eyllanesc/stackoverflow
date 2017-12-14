@@ -57,5 +57,5 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
     drag->setMimeData(mimeData);
     drag->setPixmap(pixmap);
     drag->setHotSpot(event->pos());
-    drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction);
+    drag->exec(Qt::CopyAction);
 }
