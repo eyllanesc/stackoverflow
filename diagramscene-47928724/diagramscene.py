@@ -69,7 +69,7 @@ class Arrow(QtWidgets.QGraphicsLineItem):
         for i in endPolygon:
             p2 = i + myEndItem.pos()
             polyLine = QtCore.QLineF(p1, p2)
-            intersectType, intersectPoint = polyLine.intersect(centerLine)
+            intersectType = polyLine.intersect(centerLine, intersectPoint)
             if intersectType == QtCore.QLineF.BoundedIntersection:
                 break
             p1 = p2
