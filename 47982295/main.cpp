@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     M.show();//screen 2(main menu, which has "Start" button)
 
     QQmlApplicationEngine engine;
-    auto button = M.findChild<QPushButton *>("StartButton");
+    QPushButton *button = M.findChild<QPushButton *>("StartButton");
     engine.rootContext()->setContextProperty("button", button);
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
