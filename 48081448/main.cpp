@@ -41,11 +41,9 @@ public:
 
     }
 protected:
-    bool eventFilter(QObject *obj, QEvent *ev){
-        if(obj == this && (ev->type() == QEvent::Resize)){
-            btn->move(rect().bottomRight()-btn->rect().bottomRight());
-        }
-        return QWidget::eventFilter(obj, ev);
+    void resizeEvent(QResizeEvent *ev){
+        btn->move(rect().bottomRight()-btn->rect().bottomRight());
+        return QWidget::resizeEvent(ev);
     }
 };
 
