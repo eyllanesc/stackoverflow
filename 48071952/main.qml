@@ -8,7 +8,6 @@ Window {
     visible: true
     width: 640
     height: 480
-    title: qsTr("Hello World")
 
     Plugin {
         id: osmMapPlugin
@@ -23,19 +22,22 @@ Window {
 
         MapPolyline {
             id: pl
-            line.width: 3
+            line.width: 10
             line.color: 'red'
         }
     }
 
+    function loadPath(){
+        var lines = []
+        for(var i=0; i < pathController.geopath.size(); i++){
+            lines[i] = pathController.geopath.coordinateAt(i)
+        }
+        return lines;
+    }
     Connections{
         target: pathController
-        onGeopathChanged: {
-            var lines = []
-            for(var i=0; i < pathController.geopath.size(); i++){
-                lines[i] = pathController.geopath.coordinateAt(i)
-            }
-            pl.path = lines
-        }
+        onGeopathChanged: pl.path = loadPath()
     }
+
+    Component.onCompleted: pl.path = loadPath()
 }
