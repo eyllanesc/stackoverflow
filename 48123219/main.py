@@ -10,7 +10,7 @@ class ReadTable2ListProxyModel(QIdentityProxyModel):
         return self.sourceModel().rowCount() * self.sourceModel().columnCount()
 
     def mapFromSource(self, sourceIndex):
-        if sourceIndex.isValid() and sourceIndex.column() == 0\
+        if sourceIndex.isValid() and sourceIndex.column() == 0 \
                 and sourceIndex.row() < self.rowCount():
             r = sourceIndex.row()
             c = sourceIndex.column()
@@ -33,14 +33,14 @@ class DuplicateFilterProxyModel(QSortFilterProxyModel):
         QSortFilterProxyModel.setSourceModel(self, model)
 
     def filterAcceptsRow(self, row, parent):
-        value = self.sourceModel().index(row, self.filterKeyColumn())\
+        value = self.sourceModel().index(row, self.filterKeyColumn()) \
             .data(self.filterRole())
         if value is None:
             return False
         if row == 0:
             return True
         for i in reversed(range(0, row)):
-            val = self.sourceModel().index(i, self.filterKeyColumn())\
+            val = self.sourceModel().index(i, self.filterKeyColumn()) \
                 .data(self.filterRole())
             if val == value:
                 return False
@@ -62,13 +62,21 @@ class TableItemCompleter(QStyledItemDelegate):
         return editor
 
 
+class TitleWidget(QWidget):
+    def __init__(self, title, w, *args, **kwargs):
+        QWidget.__init__(self, *args, **kwargs)
+        lay = QVBoxLayout(self)
+        lay.addWidget(QLabel(title))
+        lay.addWidget(w)
+
+
 class Widget(QWidget):
     def __init__(self, *args, **kwargs):
         QWidget.__init__(self, *args, **kwargs)
         splitter = QSplitter(self)
         lay = QHBoxLayout(self)
         lay.addWidget(splitter)
-        tv = QTableWidget(4, 5, self)
+        tv = QTableWidget(3, 4, self)
         lv1 = QListView(self)
         lv2 = QListView(self)
 
@@ -85,9 +93,9 @@ class Widget(QWidget):
         model2.setSourceModel(model1)
 
         lv2.setModel(model2)
-        splitter.addWidget(tv)
-        splitter.addWidget(lv1)
-        splitter.addWidget(lv2)
+        splitter.addWidget(TitleWidget("TableWidget",tv))
+        splitter.addWidget(TitleWidget("ReadTable2ListProxyModel", lv1))
+        splitter.addWidget(TitleWidget("DuplicateFilterProxyModel", lv2))
 
 
 if __name__ == '__main__':
