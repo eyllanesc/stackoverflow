@@ -14,7 +14,7 @@ class ReadTable2ListProxyModel(QIdentityProxyModel):
                 and sourceIndex.row() < self.rowCount():
             r = sourceIndex.row()
             c = sourceIndex.column()
-            row = c * sourceIndex.model().columnCount() * c + r
+            row = c * sourceIndex.model().columnCount() + r
             return self.index(row, 0)
         return QModelIndex()
 
