@@ -55,8 +55,7 @@ int main(int argc, char *argv[])
             QPainter painter(&p);
             QPoint d = glWidget->mapToGlobal(QPoint())-chartView.mapToGlobal(QPoint());
             painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-            painter.drawImage(QRect(d, glWidget->size()),
-                              glWidget->grabFramebuffer());
+            painter.drawImage(d, glWidget->grabFramebuffer());
             painter.end();
         }
         p.save("test", "PNG");
