@@ -37,15 +37,30 @@ Widget::Widget(QWidget *parent) :
         widget << w;
         layout << lay;
         box << combo;
+        pic << lbl;
 
         QListWidgetItem *qlistwidgetitem = new QListWidgetItem;
         qlistwidgetitem->setSizeHint(w->sizeHint());
+        qlistwidgetitem->setData(Qt::UserRole, QVariant::fromValue(icon));
         ui->listWidget->addItem(qlistwidgetitem);
         ui->listWidget->setItemWidget(qlistwidgetitem, w);
     }
+    ui->horizontalSlider->setMaximum(200);
+    on_horizontalSlider_valueChanged(ui->horizontalSlider->value());
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+void Widget::on_horizontalSlider_valueChanged(int value)
+{
+    for(int i=0; i< ui->listWidget->count(); i++){
+        QListWidgetItem *it = ui->listWidget->item(i);
+        QIcon icon = it->data(Qt::UserRole).value<QIcon>();
+        pic[i]->setPixmap(icon.pixmap(value, value));
+        QWidget *w = ui->listWidget->itemWidget(it);
+        it->setSizeHint(w->sizeHint());
+    }
 }

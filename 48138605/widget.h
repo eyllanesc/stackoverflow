@@ -4,6 +4,7 @@
 #include <QWidget>
 class QVBoxLayout;
 class QComboBox;
+class QLabel;
 
 namespace Ui {
 class Widget;
@@ -17,11 +18,16 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
+private slots:
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::Widget *ui;
     QList<QWidget *> widget;
     QList<QVBoxLayout *> layout;
     QList<QComboBox *> box;
+    QList<QLabel *>pic;
+
 };
 
 #endif // WIDGET_H
