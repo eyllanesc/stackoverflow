@@ -1,0 +1,4 @@
+*.user
+bin
+build
+lib
