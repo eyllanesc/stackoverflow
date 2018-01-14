@@ -1,0 +1,2 @@
+module Component
+singleton SingletonClass 1.0 SingletonClass.qml
