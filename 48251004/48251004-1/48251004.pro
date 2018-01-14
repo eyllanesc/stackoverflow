@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-QT       += quickwidgets
+QT       += quickwidgets positioning
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

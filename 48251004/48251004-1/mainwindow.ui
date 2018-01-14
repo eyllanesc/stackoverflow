@@ -16,6 +16,9 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item>
      <widget class="QQuickWidget" name="quickWidget">
       <property name="resizeMode">
        <enum>QQuickWidget::SizeRootObjectToView</enum>
