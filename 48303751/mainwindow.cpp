@@ -1,3 +1,4 @@
+#include "grafica_ppu.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->graphicsView->setScene(new QGraphicsScene(-100, -100, 200, 200));
 
-    QGraphicsRectItem *r = ui->graphicsView->scene()->addRect(0, 0, 60, 60, QPen(Qt::blue), QBrush(Qt::red));
+    /*QGraphicsRectItem *r = ui->graphicsView->scene()->addRect(0, 0, 40, 40, QPen(Qt::blue));
     r->setTransformOriginPoint(r->rect().center());
 
     QVariantAnimation *animation = new QVariantAnimation(this);
@@ -24,7 +25,16 @@ MainWindow::MainWindow(QWidget *parent) :
     animation->setEndValue(360);
     animation->setDuration(1000);
     animation->setLoopCount(-1);
-    animation->start();
+    animation->start();*/
+
+    GraphicModuleData tmp{0, 0, 40, 40};
+    Grafica_PPU *item = new Grafica_PPU("test", tmp, QPen(Qt::red), 100);
+
+    GraphicModuleData tmp2{-50, 50, 60, 40};
+    Grafica_PPU *item2 = new Grafica_PPU("test", tmp2, QPen(Qt::red), 90);
+
+    ui->graphicsView->scene()->addItem(item);
+    ui->graphicsView->scene()->addItem(item2);
 }
 
 MainWindow::~MainWindow()
