@@ -20,8 +20,8 @@ Window {
                 model: SqlTrafficModel {
                     id: trafficModel
                     queryStr: "select * from traffic"
-                    onModelReset: bar_axis.categories = trafficModel.getColumn(0)
-                    Component.onCompleted: bar_axis.categories = trafficModel.getColumn(0)
+                    onModelReset: bar_axis.categories = getColumn(0)
+                    Component.onCompleted: bar_axis.categories = getColumn(0)
                 }
                 firstBarSetColumn: 1
                 lastBarSetColumn: 2
