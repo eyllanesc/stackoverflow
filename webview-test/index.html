@@ -1,0 +1,100 @@
+<html>
+   <head>
+      <title>The Materialize Form Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script>
+   </head>
+
+   <body class = "container">
+      <div class = "row">
+         <form class = "col s12">
+            <div class = "row">
+               <div class = "input-field col s6">
+                  <i class = "material-icons prefix">account_circle</i>
+                  <input placeholder = "Username" value = "Mahesh" id = "name"
+                     type = "text" class = "active validate" required />
+                  <label for = "name">Username</label>
+               </div>
+
+               <div class = "input-field col s6">
+                  <label for = "password">Password</label>
+                  <input id = "password" type = "password" placeholder = "Password"
+                     class = "validate" required />
+               </div>
+            </div>
+
+            <div class = "row">
+               <div class = "input-field col s12">
+                  <input placeholder = "Email" id = "email" type = "email"
+                     class = "validate">
+                  <label for = "email">Email</label>
+               </div>
+            </div>
+
+            <div class = "row">
+               <div class = "input-field col s12">
+                  <i class = "material-icons prefix">mode_edit</i>
+                  <textarea id = "address" class = "materialize-textarea"></textarea>
+                  <label for = "address">Address</label>
+               </div>
+            </div>
+
+            <div class = "row">
+               <div class = "input-field col s12">
+                  <input placeholder = "Comments (Disabled)" id = "comments"
+                     type = "text" disabled />
+                  <label for = "comments">Comments</label>
+               </div>
+            </div>
+
+            <div class = "row">
+               <div class = "input-field col s12">
+                  <p>
+                     <input id = "married" type = "checkbox" checked = "checked" />
+                     <label for = "married">Married</label>
+                  </p>
+
+                  <p>
+                     <input id = "single" type = "checkbox" class = "filled-in" />
+                     <label for = "single">Single</label>
+                  </p>
+
+                  <p>
+                     <input id = "dontknow" type = "checkbox" disabled = "disabled" />
+                     <label for = "dontknow">Don't know (Disabled)</label>
+                  </p>
+               </div>
+            </div>
+
+            <div class = "row">
+               <div class = "input-field col s12">
+                   <p>
+                     <input id = "male" type = "radio" name = "gender"
+                        value = "male" checked />
+                     <label for = "male">Male</label>
+                  </p>
+
+                  <p>
+                     <input id = "female" type = "radio" name = "gender"
+                        value = "female" checked />
+                     <label for = "female">Female</label>
+                  </p>
+
+                  <p>
+                     <input id = "dontknow1" type = "radio" name = "gender"
+                        value = "female" disabled />
+                     <label for = "dontknow1">Don't know (Disabled)</label>
+                  </p>
+               </div>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
