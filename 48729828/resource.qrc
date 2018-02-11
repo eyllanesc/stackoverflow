@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/if__emergency-stairs2_2324134.png</file>
+        <file>icons/if_minimize_1954533.png</file>
+        <file>icons/if_Y_Exit_87843.png</file>
+        <file>icons/if_exit-to-app_326635.png</file>
+        <file>icons/if_Sign In_20297.png</file>
+        <file>icons/if_Intsagram_194923.png</file>
+        <file>icons/if_square-facebook_317727.png</file>
+        <file>icons/if_stackoverflow_394194.png</file>
+    </qresource>
+</RCC>
