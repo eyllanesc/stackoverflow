@@ -1,13 +1,17 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
 
-import "."
+import "style"
 
 ApplicationWindow {
     visible: true
     width: 640
     height: 480
     title: qsTr("Tabs")
+    color: {
+        console.log(Style.textColor)
+        return "green"
+    }
 
     SwipeView {
         id: swipeView
