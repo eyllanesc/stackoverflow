@@ -1,2 +1,2 @@
 module CustomStyles
-singleton Style 1.0 Style.qml
+singleton Style 1.0 style.qml

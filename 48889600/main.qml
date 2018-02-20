@@ -8,10 +8,6 @@ ApplicationWindow {
     width: 640
     height: 480
     title: qsTr("Tabs")
-    color: {
-        console.log(Style.textColor)
-        return "green"
-    }
 
     SwipeView {
         id: swipeView

@@ -4,6 +4,6 @@
         <file>Page1Form.qml</file>
         <file>Page2Form.qml</file>
         <file>style/qmldir</file>
-        <file>style/Style.qml</file>
+        <file>style/style.qml</file>
     </qresource>
 </RCC>
