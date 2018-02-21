@@ -4,5 +4,7 @@
         <file>Favourites.qml</file>
         <file>FavModel.qml</file>
         <file>SamplePage.qml</file>
+        <file>qmldir</file>
+        <file>Shared.qml</file>
     </qresource>
 </RCC>
