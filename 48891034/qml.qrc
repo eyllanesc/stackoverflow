@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Favourites.qml</file>
+        <file>FavModel.qml</file>
+        <file>SamplePage.qml</file>
+    </qresource>
+</RCC>
