@@ -8,7 +8,7 @@ function shuffle(model){
         randomIndex = Math.floor(Math.random() * currentIndex)
         currentIndex -= 1
         // And swap it with the current element.
-        // the dictionaries maintain their preference so a copy should be made
+        // the dictionaries maintain their reference so a copy should be made
         // https://stackoverflow.com/a/36645492/6622587
         temporaryValue = JSON.parse(JSON.stringify(model.get(currentIndex)))
         model.set(currentIndex, model.get(randomIndex))
