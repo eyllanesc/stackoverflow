@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 
     QPropertyAnimation animation_scale(logo, "scale");
     animation_scale.setDuration(1000);
-    animation_scale.setStartValue(2);
+    animation_scale.setStartValue(2.0);
     animation_scale.setEndValue(0.1);
 
     QPropertyAnimation animation_pos(logo, "pos");
