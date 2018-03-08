@@ -38,7 +38,9 @@ MainWindow::MainWindow(QWidget *parent) :
             QLineEdit *lineEdit = new QLineEdit;
             gridLayout->addWidget(lineEdit,i,5);
 
-            connect(lineEdit, &QLineEdit::textChanged, button, &QPushButton::show);
+            connect(lineEdit, &QLineEdit::textChanged, [button](const QString &text){
+                button->setVisible(!text.isEmpty());
+            });
         }
         else{
             QLineEdit *lineEdit_A = new QLineEdit;
@@ -49,8 +51,12 @@ MainWindow::MainWindow(QWidget *parent) :
             gridLayout->addWidget(lineEdit_B,i, 7);
             lineEdit_B->setValidator(new QIntValidator(0,100,this));
 
-            connect(lineEdit_A, &QLineEdit::textChanged, button, &QPushButton::show);
-            connect(lineEdit_B, &QLineEdit::textChanged, button, &QPushButton::show);
+            connect(lineEdit_A, &QLineEdit::textChanged, [button](const QString &text){
+                button->setVisible(!text.isEmpty());
+            });
+            connect(lineEdit_B, &QLineEdit::textChanged, [button](const QString &text){
+                button->setVisible(!text.isEmpty());
+            });
         }
     }
 
