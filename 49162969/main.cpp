@@ -2,19 +2,28 @@
 #include <QLabel>
 #include <QTimer>
 #include <QDebug>
+#include <QPropertyAnimation>
 
 class NotifyLabel: public QLabel{
     Q_OBJECT
     QTimer timer{this};
+    QPropertyAnimation slideIn{this, "pos"};
 public:
     NotifyLabel(){
         timer.setSingleShot(true);
         timer.setInterval(3000);
         connect(&timer, &QTimer::timeout, this, &NotifyLabel::hide);
+        slideIn.setDuration(750);
+        slideIn.setStartValue(QPoint(1800, 30));
+        slideIn.setEndValue(QPoint(1250, 30));
+        slideIn.setEasingCurve(QEasingCurve::InBack);
     }
     void displayNotif(int value){
-        if(timer.isActive())
+        if(timer.isActive()){
             timer.stop();
+        }
+        else
+            slideIn.start();
         setText(QString("%1% volume").arg(value));
         show();
         timer.start();
