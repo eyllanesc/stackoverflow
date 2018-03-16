@@ -17,10 +17,11 @@ public:
     static MainWindow *instance(QWidget* parent = 0);
     ~MainWindow();
     void drawConnection();
-    static MainWindow* mInstance;
+
 private:
     MainWindow(QWidget *parent = 0);
     Ui::MainWindow *ui;
+    static MainWindow* mInstance;
 
     QGraphicsScene *scene;
     QGraphicsTextItem *connection;
