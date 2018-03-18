@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void onTextChanged(const QString &text);
+    void onActivated(const QString &text);
 
 private:
     Ui::MainWindow *ui;

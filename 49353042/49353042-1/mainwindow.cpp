@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
         QLineEdit *lineEdit = new QLineEdit;
         QCompleter *completer = new QCompleter(wordList);
         completer->setCaseSensitivity(Qt::CaseInsensitive);
-        connect(lineEdit, &QLineEdit::textChanged, this, &MainWindow::onTextChanged);
+        connect(completer, qOverload<const QString &>(&QCompleter::activated), this, &MainWindow::onActivated);
         lineEdit->setCompleter(completer);
         ui->tableWidget->setCellWidget(i,i,lineEdit);
     }
@@ -35,10 +35,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::onTextChanged(const QString &text)
+void MainWindow::onActivated(const QString &text)
 {
-    QLineEdit *le = static_cast<QLineEdit *>(sender());
-    QModelIndex ix = ui->tableWidget->indexAt(le->pos());
+    QCompleter *completer = static_cast<QCompleter *>(sender());
+    QModelIndex ix = ui->tableWidget->indexAt(completer->widget()->pos());
     if(ix.isValid()){
         qDebug()<<ix.row()<<ix.column()<<text;
     }
