@@ -41,5 +41,4 @@ void MainWindow::onActivated(const QString &text)
 {
     QCompleter *completer = static_cast<QCompleter *>(sender());
     qDebug()<< completer->property("row").toInt()<<completer->property("column").toInt()<<text;
-
 }
