@@ -41,13 +41,12 @@ MainWindow::~MainWindow()
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 {
-    if(watched == rubberBand){
-        if(event->type() == QEvent::Resize){
+    if(watched == rubberBand && event->type() == QEvent::Resize){
 
-            QPointF fp = chart->mapToValue(rubberBand->geometry().topLeft());
-            QPointF tp = chart->mapToValue(rubberBand->geometry().bottomRight());
-            emit rubberBandChanged(fp, tp);
-        }
+        QPointF fp = chart->mapToValue(rubberBand->geometry().topLeft());
+        QPointF tp = chart->mapToValue(rubberBand->geometry().bottomRight());
+        emit rubberBandChanged(fp, tp);
+        
     }
     return QMainWindow::eventFilter(watched, event);
 }
