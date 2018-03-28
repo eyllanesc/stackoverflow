@@ -28,7 +28,6 @@ void GraphicsScene::dropEvent(QGraphicsSceneDragDropEvent *event)
 {
     QByteArray byteArray = event->mimeData()->data("Item");
     QGraphicsPixmapItem * item = *reinterpret_cast<QGraphicsPixmapItem**>(byteArray.data());
-    event->scenePos();
     QGraphicsItem *item_parent = itemAt(event->scenePos(), QTransform());
     item->setParentItem(item_parent);
 }
