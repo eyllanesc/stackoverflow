@@ -1,7 +1,6 @@
 #ifndef BOOK_H
 #define BOOK_H
 #include <string>
-#include <QMetaType>
 
 using namespace std;
 
@@ -9,22 +8,19 @@ class book
 {
 public:
     book();
-    book(string, string, string);
+    book(const string &, const string &, const string &);
 
-    void setName(string);
-    void setAuthor(string);
-    void setUid(string);
+    void setName(const string &);
+    void setAuthor(const string &);
+    void setUid(const string &);
 
     string getName();
     string getAuthor();
     string getUid();
-
-    ~book() { }
 private:
     string name, author, uid;
 };
 
-Q_DECLARE_METATYPE(book);
 
 
 #endif // BOOK_H

@@ -2,29 +2,25 @@
 
 book::book()
 {
-    name = "";
-    author = "";
-    uid = "";
+    book("","", "");
 }
 
-book :: book(string n, string a, string u)
+book :: book(const string & n, const string & a, const string & u):
+    name(n), author(a), uid(u)
 {
-    this->name = n;
-    this->author = a;
-    this->uid = u;
 }
 
-void book :: setName(string n)
+void book :: setName(const string & n)
 {
     this->name = n;
 }
 
-void book :: setAuthor(string a)
+void book :: setAuthor(const string & a)
 {
     this->author = a;
 }
 
-void book :: setUid(string u)
+void book :: setUid(const string & u)
 {
     this->uid = u;
 }

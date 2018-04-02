@@ -11,7 +11,7 @@ class library
 public:
     library();
 
-    void addBook(book b);
+    void addBook(const book & b);
     book getBook(int index);
     int numOfBooks();
 
