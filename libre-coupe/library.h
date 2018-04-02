@@ -17,7 +17,6 @@ public:
 
 private:
     vector<book> arr;
-    unsigned int num = 0;
 };
 
 #endif // LIBRARY_H
