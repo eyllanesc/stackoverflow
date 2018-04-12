@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>owl.png</file>
+        <file>character.png</file>
+    </qresource>
+</RCC>
