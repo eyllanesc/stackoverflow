@@ -1,7 +1,6 @@
 #include <QApplication>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
-#include <QTimer>
 
 #include <QDebug>
 
@@ -23,7 +22,8 @@ int main(int argc, char *argv[])
     }
 
     items[1]->setPos(50, 22);
-    qDebug()<<items[0]->collidingItems();
+    if(items[0]->collidingItems().isEmpty())
+        qDebug()<<"there is no intersection";
     w.show();
     return a.exec();
 }
