@@ -1,11 +1,8 @@
 #include <QApplication>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
-<<<<<<< HEAD
 
 #include <QDebug>
-=======
->>>>>>> f177a5720912abfb81811e7ff0b54c209c93a42a
 
 int main(int argc, char *argv[])
 {
