@@ -14,7 +14,7 @@ Keypad::Keypad(QWidget *parent):QWidget{parent}{
                                   {".", Qt::Key_Colon}, {"del", Qt::Key_Delete}, {"enter", Qt::Key_Return}};
 
     for(unsigned int i=0; i < keys.size(); i++){
-        auto button = new QToolButton;
+        QToolButton *button = new QToolButton;
         button->setFixedSize(64, 64);
         const Keys & _key = keys[i];
         button->setText(_key.name);
