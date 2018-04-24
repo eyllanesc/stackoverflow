@@ -19,11 +19,15 @@ public:
     QColor getColor() const;
     void setColor(const QColor &color);
 
+    int getAngle() const;
+    void setAngle(int angle);
+
 private:
     QString mName;
     QGeoCoordinate mAsset;
     QList<QGeoCoordinate> history;
     QColor mColor;
+    int mAngle;
 };
 
 #endif // ASSETITEM_H

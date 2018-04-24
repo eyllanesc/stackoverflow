@@ -1,30 +1,46 @@
 #include "assetlistmodel.h"
+#include "nodemodel.h"
 
-bool AssetListModel::addAsset(QGeoCoordinate coord, const QString &name)
+#include <QQmlContext>
+
+AssetListModel::AssetListModel(QObject *parent):QAbstractListModel(parent)
+{
+    model = new NodeModel{this};
+}
+
+void AssetListModel::register_objects(const QString &assetName, const QString &nodeName,  QQmlContext *context)
+{
+    context->setContextProperty(assetName, this);
+    context->setContextProperty(nodeName, model);
+}
+
+bool AssetListModel::addAsset(QGeoCoordinate coord, int angle, const QString &name)
 {
     auto it = std::find_if(mAssets.begin(), mAssets.end(), [&](AssetItem const& obj){
             return obj.name() == name;
-} );
+}) ;
     if(it != mAssets.end()){
         //append
         int row = it - mAssets.begin();
         QModelIndex ix = index(row);
-        return  setData(ix, QVariant::fromValue(coord), AssetRole);
+        QGeoCoordinate c = ix.data(AssetRole).value<QGeoCoordinate>();
+        int a= ix.data(AngleRole).toInt();
+        Data data{coord, angle};
+        bool result = setData(ix, QVariant::fromValue(data), AssetRole);
+        if(result)
+            model->appendNode(c, a);
+        return result;
     }
-    else{
-        //create
-        return createAsset(coord, name);
-    }
+    return false;
 }
 
-bool AssetListModel::createAsset(QGeoCoordinate coord, const QString &name)
+bool AssetListModel::createAsset(QGeoCoordinate coord, const QColor & color, const QString &name)
 {
     beginInsertRows(QModelIndex(), rowCount(), rowCount());
-
     AssetItem it;
     it.setName(name);
     it.setAsset(coord);
-    it.setColor(QColor(qrand()%255, qrand()%255, qrand()%255));
+    it.setColor(color);
     mAssets<< it;
     endInsertRows();
     return true;
@@ -53,10 +69,14 @@ QVariant AssetListModel::data(const QModelIndex &index, int role) const
             for(const QGeoCoordinate & coord: coords){
                 history_list<<QVariant::fromValue(coord);
             }
+            history_list<< QVariant::fromValue(it.asset());
             return history_list;
         }
         else if(role == ColorRole){
             return it.getColor();
+        }
+        else if (role == AngleRole) {
+            return it.getAngle();
         }
     }
     return QVariant();
@@ -66,10 +86,11 @@ QVariant AssetListModel::data(const QModelIndex &index, int role) const
 QHash<int, QByteArray> AssetListModel::roleNames() const
 {
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
-    roles[AssetRole]= "asset";
-    roles[HistoryRole] = "history";
-    roles[ColorRole] = "color";
+    roles[NameRole] = "nameData";
+    roles[AssetRole]= "assetData";
+    roles[HistoryRole] = "historyData";
+    roles[AngleRole] = "angleData";
+    roles[ColorRole] = "colorData";
     return roles;
 }
 
@@ -79,8 +100,10 @@ bool AssetListModel::setData(const QModelIndex &index, const QVariant &value, in
         return false;
     if(index.row() >= 0 && index.row()<rowCount()){
         if (role == AssetRole) {
-            QGeoCoordinate new_asset(value.value<QGeoCoordinate>());
+            const Data & data = value.value<Data>();
+            QGeoCoordinate new_asset(data.coord);
             mAssets[index.row()].setAsset(new_asset);
+            mAssets[index.row()].setAngle(data.angle);
             emit dataChanged(index, index, QVector<int>{AssetRole});
             return true;
         }

@@ -33,4 +33,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     assetlistmodel.h \
-    assetitem.h
+    assetitem.h \
+    nodemodel.h

@@ -17,9 +17,10 @@ QGeoCoordinate AssetItem::asset() const
 
 void AssetItem::setAsset(const QGeoCoordinate &asset)
 {
+
     if(mAsset.isValid())
         appendHistory(mAsset);
-    mAsset = asset;
+     mAsset = asset;
 }
 
 void AssetItem::appendHistory(const QGeoCoordinate &value)
@@ -39,4 +40,14 @@ QColor AssetItem::getColor() const
 void AssetItem::setColor(const QColor &color)
 {
     mColor = color;
+}
+
+int AssetItem::getAngle() const
+{
+    return mAngle;
+}
+
+void AssetItem::setAngle(int angle)
+{
+    mAngle = angle;
 }

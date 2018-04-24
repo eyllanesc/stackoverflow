@@ -19,35 +19,37 @@ ApplicationWindow {
         plugin: Plugin {name: "osm"}
         center: QtPositioning.coordinate(41.97732, -87.90801)//KORD
 
+
         MapItemView {
             model: assetmodel
             delegate: AssetTrail{
-                path: history
-                line.color: color
+                path: historyData
+                line.color: colorData
             }
+
         }
 
         MapItemView {
             model: assetmodel
             delegate: MapMarker{
-                coordinate: asset
+                coordinate: assetData
+                name: nameData
+                //transformOrigin: Item.Center
+                //rotation: angleData
+                z:100
             }
         }
-    }
 
-    // testing
-    property var last_pos1: mapOfWorld.center
-    property var last_pos2: mapOfWorld.center
 
-    Timer {
-        interval: 500; running: true; repeat: true
-        onTriggered: {
-            last_pos1 = QtPositioning.coordinate(last_pos1.latitude + 0.1*(Math.random()-0.5),
-                                                last_pos1.longitude + 0.1*(Math.random()-0.5))
-            assetmodel.addAsset(last_pos1, "testing_name1")
-            last_pos2 = QtPositioning.coordinate(last_pos2.latitude + 0.1*(Math.random()-0.5),
-                                                last_pos2.longitude + 0.1*(Math.random()-0.5))
-            assetmodel.addAsset(last_pos2, "testing_name2")
+        MapItemView {
+            model: nodemodel
+            delegate: ArrowItem{
+                coordinate: nodeData
+                transformOrigin: Item.Center
+                rotation: angleData
+                z:100
+                factor: mapOfWorld.zoomLevel
+            }
         }
     }
 
