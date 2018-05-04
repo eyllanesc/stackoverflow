@@ -1,0 +1,32 @@
+<div id="container" style="width: 100%; min-height: 400px"></div>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript">
+    Highcharts.setOptions({
+        navigation: {
+            menuItemStyle: {
+                padding: '6px 14px'
+            }
+        }
+    });
+    var chart = new Highcharts.Chart({
+        chart: {
+            renderTo: 'container'
+        },
+        exporting: {
+            filename: 'data'
+        },
+        title: {
+            text: 'export file'
+        },
+        xAxis: {
+            categories: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        },
+        series: [{
+            name: 'test data',
+            data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        }]
+    });
+</script>
