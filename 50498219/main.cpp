@@ -2,7 +2,6 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
 
-#include <QDebug>
 
 class GraphicsPixmapItem: public QGraphicsPixmapItem{
 
@@ -38,18 +37,16 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QGraphicsView view;
-    QGraphicsScene scene;
+    QGraphicsScene scene(0, 0, 600, 400);
     view.setScene(&scene);
     view.setBackgroundBrush(QBrush(Qt::gray));
 
     GraphicsPixmapItem *p_item = new GraphicsPixmapItem(QPixmap(":/ball.png"));
+    p_item->setPos(100, 100);
 
-    // complex path
+    // Define the area that will be visible
     QPainterPath path;
-    /*QPolygonF poly({QPointF(0, 0), QPointF(100, 100), QPointF(200, 0), QPoint(100, -100)});
-    path.addPolygon(poly);
-    path.addEllipse(QPointF(100, -150), 50, 50);*/
-    path.addRect(QRectF(0, 0, 300, 150));
+    path.addRect(QRectF(100, 100, 400, 200));
 
     p_item->setBoundaryPath(path);
     scene.addItem(p_item);
@@ -57,7 +54,6 @@ int main(int argc, char *argv[])
     // the item is added to visualize the intersection
     QGraphicsPathItem *path_item = scene.addPath(path, QPen(Qt::black), QBrush(Qt::white));
     path_item->setZValue(-1);
-    view.resize(640, 480);
     view.show();
     return a.exec();
 }
