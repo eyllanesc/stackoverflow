@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QFrame>
 #include <QLabel>
-#include <QParallelAnimationGroup>
+#include <QSequentialAnimationGroup>
 #include <QPropertyAnimation>
 
 int main(int argc, char *argv[])
@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QFrame frame;
     frame.resize(320, 240);
-    QParallelAnimationGroup group;
+    QSequentialAnimationGroup group;
     int minSize = 5;
     int maxSize = 30;
     int labelSize = 50;;
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         animation->setEndValue(endVal);
         group.addAnimation(animation);
     }
-    QObject::connect(&group, &QParallelAnimationGroup::finished, [&group](){
+    QObject::connect(&group, &QAbstractAnimation::finished, [&group](){
         QAbstractAnimation::Direction direction = group.direction() == QAbstractAnimation::Forward ?
                     QAbstractAnimation::Backward : QAbstractAnimation::Forward;
         group.setDirection(direction);
