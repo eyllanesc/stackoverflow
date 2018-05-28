@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     CustomButton* custom = new CustomButton(this);
+    custom->resize(200, custom->height());
 }
 
 MainWindow::~MainWindow()
