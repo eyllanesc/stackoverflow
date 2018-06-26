@@ -26,10 +26,11 @@ bool Data::setItemAt(int index, const unit &item)
     return true;
 }
 
-void Data::appendItem()
+void Data::appendItem(const QString name, const QString &parent, const QString &level, const QVariantList &v)
 {
+
     emit preItemAppended();
-    unit item;
+    unit item{name, parent, level, v};
     menu.append(item);
     emit postItemAppended();
 }

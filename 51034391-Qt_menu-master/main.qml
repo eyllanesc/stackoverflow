@@ -58,11 +58,7 @@ Window {
         anchors.verticalCenter: parent.verticalCenter
         x:550
         width:70
-        onClicked: {
-            //if(db.push_lv1(input2.text))
-            //  objModel.append({"name":input2.text,"level":0,"parent":"null","subNode":[]})
-            //input2.text="";
-        }
+        onClicked: info.appendItem(input2.text, "0", "null", [])
     }
     Row{
         x:300

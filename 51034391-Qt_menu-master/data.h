@@ -14,10 +14,10 @@ struct unit{
     QVariantList subNodes;
 
     bool operator==(unit o) const {
-          return (name == o.name &&
-                  parent== o.parent &&
-                  level == o.level &&
-                  subNodes == o.subNodes);
+        return (name == o.name &&
+                parent== o.parent &&
+                level == o.level &&
+                subNodes == o.subNodes);
     }
 };
 
@@ -28,7 +28,7 @@ public:
     explicit Data(QObject *parent = nullptr);
     QVector<unit> items() const;
     bool setItemAt(int index, const unit &item);
-    void appendItem();
+    Q_INVOKABLE void appendItem(const QString name, const QString & parent, const QString & level, const QVariantList & v);
     void removeItem(const QString props);
 signals:
     void preItemAppended();
