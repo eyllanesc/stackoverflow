@@ -68,7 +68,7 @@ class MainWindow(QtGui.QMainWindow):
         document = self.textEdit.document()
         printer = QtGui.QPrinter()
         dlg = QtGui.QPrintDialog(printer, self)
-        if dlg.exec() != QtGui.QDialog.Accepted: 
+        if dlg.exec_() != QtGui.QDialog.Accepted: 
             return
 
         document.print_(printer)
