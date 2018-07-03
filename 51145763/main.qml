@@ -22,6 +22,7 @@ Window {
             onPressed: {
                 currentItem = create_lineitem(canvas)
                 currentItem.lineColor = "green"
+                currentItem.anchors.fill = canvas
                 currentItem.startPos = Qt.point(mouseX,mouseY)
                 currentItem.endPos = Qt.point(mouseX,mouseY)
             }
@@ -31,7 +32,7 @@ Window {
     }
 
     function create_lineitem(parentItem, color) {
-        return Qt.createQmlObject('import com.eyllanesc.org 1.0; LineItem{anchors.fill: parent}',
+        return Qt.createQmlObject('import com.eyllanesc.org 1.0; LineItem{}',
                                            parentItem);
     }
 
