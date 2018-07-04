@@ -54,7 +54,7 @@ private:
 
         if(r){
             double x= r->axis(QCPAxis::atBottom)->pixelToCoord(event->x());
-            double y= r->axis(QCPAxis::atLeft)->pixelToCoord(event->x());
+            double y= r->axis(QCPAxis::atLeft)->pixelToCoord(event->y());
             setToolTip(tr("%1,%2").arg(x).arg(y));
         }
     }
