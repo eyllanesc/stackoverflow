@@ -2,17 +2,17 @@
 
 #include <QApplication>
 
+#include <QDebug>
+
 class ChartWidget: public QCustomPlot{
 public:
     ChartWidget(QWidget *parent=nullptr):QCustomPlot(parent){
 
         plotLayout()->clear();
-        QCPLayoutGrid *subLayout = new QCPLayoutGrid;
-        plotLayout()->addElement(0, 0, subLayout);
-        leftAxisRect = new QCPAxisRect(this);
-        rightAxisRect = new QCPAxisRect(this);
-        subLayout->addElement(0, 0, leftAxisRect);
-        subLayout->addElement(0, 1, rightAxisRect);
+        QCPAxisRect *leftAxisRect = new QCPAxisRect(this);
+        QCPAxisRect *rightAxisRect = new QCPAxisRect(this);
+        plotLayout()->addElement(0, 0, leftAxisRect);
+        plotLayout()->addElement(0, 1, rightAxisRect);
 
         QVector<QCPGraphData> dataCos(100);
 
@@ -44,23 +44,18 @@ public:
     }
 private:
     void showToolTip(QMouseEvent *event){
-
-        QCPAxisRect *r = nullptr;
-
-        if(leftAxisRect->rect().contains(event->pos()))
-            r = leftAxisRect;
-        else if(rightAxisRect->rect().contains(event->pos()))
-            r = rightAxisRect;
-
-        if(r){
-            double x= r->axis(QCPAxis::atBottom)->pixelToCoord(event->x());
-            double y= r->axis(QCPAxis::atLeft)->pixelToCoord(event->y());
-            setToolTip(tr("%1,%2").arg(x).arg(y));
+        for(QCPLayoutElement *element : plotLayout()->elements(true)){
+            QCPAxisRect *axisRect = static_cast<QCPAxisRect *>(element);
+            if(axisRect){
+                if(axisRect->rect().contains(event->pos())){
+                    double x= axisRect->axis(QCPAxis::atBottom)->pixelToCoord(event->x());
+                    double y= axisRect->axis(QCPAxis::atLeft)->pixelToCoord(event->y());
+                    setToolTip(tr("%1,%2").arg(x).arg(y));
+                    break;
+                }
+            }
         }
     }
-
-    QCPAxisRect *leftAxisRect;
-    QCPAxisRect *rightAxisRect;
 };
 int main(int argc, char *argv[])
 {
