@@ -2,8 +2,6 @@ from PyQt5.QtGui import QPainter, QPen, QColor
 from PyQt5.QtSvg import QSvgRenderer
 from PyQt5.QtCore import Qt, QRectF
 from PyQt5.QtWidgets import QWidget, QApplication
-import sys
-import os
 
 class PyCounter(QWidget):
     def __init__(self, parent = None):
@@ -72,11 +70,10 @@ class PyCounter(QWidget):
         c = self.m_value
         r = 0
 
-        y = 0
         for i in range(self.m_digits):
-            r = c % 10
-            c = c/10
-            rect = QRectF(x + 10, 10, w, h)
+            r = int(c % 10)
+            c = int(c/10)
+            rect = QRectF(x + self.X_OFFSET, self.Y_OFFSET, w, h)
             self.m_svg.render(p, "d{}".format(r), rect)
             x -= w
 
@@ -91,8 +88,13 @@ class PyCounter(QWidget):
 
 if __name__ == '__main__':
     import sys
+    from PyQt5.QtCore import QTimeLine
 
     app = QApplication(sys.argv)
     w = PyCounter()
+    timeline = QTimeLine(10000)
+    timeline.setFrameRange(0, 9999)
+    timeline.frameChanged.connect(w.setValue)
+    timeline.start()
     w.show()
     sys.exit(app.exec_())
