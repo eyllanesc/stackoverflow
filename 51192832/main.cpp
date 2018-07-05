@@ -12,7 +12,7 @@ public:
         setEchoMode(QLineEdit::Password);
 
         QAction *action = addAction(QIcon(":/eyeOff"), QLineEdit::TrailingPosition);
-        QToolButton *button = qobject_cast<QToolButton *>(action->associatedWidgets()[1]);
+        QToolButton *button = qobject_cast<QToolButton *>(action->associatedWidgets().last());
         connect(button, &QToolButton::pressed, this, &PasswordLineEdit::onPressed);
         connect(button, &QToolButton::released, this, &PasswordLineEdit::onReleased);
     }
