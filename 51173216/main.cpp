@@ -2,8 +2,6 @@
 
 #include <QApplication>
 
-#include <QDebug>
-
 class ChartWidget: public QCustomPlot{
 public:
     ChartWidget(QWidget *parent=nullptr):QCustomPlot(parent){
