@@ -71,8 +71,8 @@ class PyCounter(QWidget):
         r = 0
 
         for i in range(self.m_digits):
-            r = int(c % 10)
-            c = int(c/10)
+            r = c % 10
+            c = c//10
             rect = QRectF(x + self.X_OFFSET, self.Y_OFFSET, w, h)
             self.m_svg.render(p, "d{}".format(r), rect)
             x -= w
