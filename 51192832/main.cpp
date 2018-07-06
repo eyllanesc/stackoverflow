@@ -13,6 +13,7 @@ public:
 
         QAction *action = addAction(QIcon(":/eyeOff"), QLineEdit::TrailingPosition);
         QToolButton *button = qobject_cast<QToolButton *>(action->associatedWidgets().last());
+        button->setCursor(QCursor(Qt::PointingHandCursor));
         connect(button, &QToolButton::pressed, this, &PasswordLineEdit::onPressed);
         connect(button, &QToolButton::released, this, &PasswordLineEdit::onReleased);
     }
