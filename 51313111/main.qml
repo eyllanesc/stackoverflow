@@ -36,14 +36,8 @@ Window {
         onClientConnected: {
             if(webSocket.status === WebSocket.Open){
                 channel.connectTo(transport)
-                webSocket.onTextMessageReceived.connect(function(message){
-                    transport.textMessageReceive(message)
-                });
-                transport.onMessageChanged.connect(function(message){
-                    if(webSocket.status !== undefined){
-                        webSocket.sendTextMessage(message)
-                    }
-                });
+                webSocket.onTextMessageReceived.connect(transport.textMessageReceive)
+                transport.onMessageChanged.connect(webSocket.sendTextMessage)
             }
         }
     }
