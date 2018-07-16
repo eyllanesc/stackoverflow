@@ -13,18 +13,19 @@ Window {
         model: manager.filterModel
         property int nextIndex : mod(currentIndex+1, count)
         property int previousIndex : mod(currentIndex-1, count)
+        property var currentModelItem
+        onCurrentModelItemChanged: model.currentItem = currentModelItem
         delegate:
             Rectangle {
             width: 100
             height: 100
             property var view: GridView.view
-            property var model: view.model
             property bool isCurrentItem: index === view.currentIndex
             property bool isPreviousItem : index === view.nextIndex
             property bool isNextItem : index === view.previousIndex
             color: isCurrentItem ? "red" : isNextItem ? "green"  : isPreviousItem ? "blue" : "yellow"
             rotation: isCurrentItem ? 180 : isNextItem ? 90  : isPreviousItem? -90  : 0
-            onIsNextItemChanged: if(isNextItem) model.currentItem = modelData
+            onIsNextItemChanged: if(isNextItem) view.currentModelItem = modelData
             Text {
                 text: modelData.getVar
                 anchors.centerIn: parent
