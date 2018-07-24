@@ -42,11 +42,9 @@ public:
 private slots:
     void onClicked()
     {
-        QWidget *widget = QApplication::focusWidget();
-        if(widget){
+        if(QWidget *widget = QApplication::focusWidget()){
             QString text = sender()->property("text").toString();
             int key = sender()->property("key").toInt();
-            QWidget *widget = QApplication::focusWidget();
             QKeyEvent * event = new QKeyEvent(QEvent::KeyPress, key, Qt::NoModifier, text);
             QCoreApplication::postEvent(widget, event);
         }
