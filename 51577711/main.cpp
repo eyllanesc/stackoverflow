@@ -78,10 +78,10 @@ public:
     }
     void setModelData(QWidget *editor, QAbstractItemModel *model, const QModelIndex &index) const{
         EditorWidget *widget = static_cast<EditorWidget*>(editor);
-        Q_ASSERT(model->setData(index, widget->text(), Qt::DisplayRole));
-        Q_ASSERT(model->setData(index, widget->checkState(), Qt::CheckStateRole));
-        Q_ASSERT(model->setData(index, widget->sizeHint(), Qt::SizeHintRole));
-        Q_ASSERT(model->setData(index, widget->currentIndex(), CustomRoles::SelectRole));
+        model->setData(index, widget->text(), Qt::DisplayRole);
+        model->setData(index, widget->checkState(), Qt::CheckStateRole);
+        model->setData(index, widget->sizeHint(), Qt::SizeHintRole);
+        model->setData(index, widget->currentIndex(), CustomRoles::SelectRole);
     }
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const{
         Q_UNUSED(index)
