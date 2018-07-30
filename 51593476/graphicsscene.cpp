@@ -9,7 +9,7 @@ GraphicsScene::GraphicsScene(QObject *parent):
 
 void GraphicsScene::moveSelecteds(Qt::Alignment aligment){
     QList<QGraphicsItem *> its= selectedItems();
-    if(its.isEmpty())
+    if(its.size() < 2)
         return;
     if(!its.removeOne(mRef))
         return;
