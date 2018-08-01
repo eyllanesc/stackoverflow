@@ -15,9 +15,7 @@ QVariant AppendProxyModel::data(const QModelIndex &index, int role) const
 
 int AppendProxyModel::rowCount(const QModelIndex &parent) const
 {
-    Q_UNUSED(parent)
-    int rc = sourceModel() ? sourceModel()->rowCount() : 0;
-    return  mDefaults.size()+ rc;
+    return  mDefaults.size()+ QIdentityProxyModel::rowCount(parent);
 }
 
 QModelIndex AppendProxyModel::index(int row, int column, const QModelIndex &parent) const

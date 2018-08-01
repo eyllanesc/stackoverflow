@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     QSqlQueryModel model;
     model.setQuery("select DISTINCT firstname from person");
     AppendProxyModel proxy;
-    //proxy.setDefaults({"all", "option1", "option2"});
+    proxy.setDefaults({"all", "option1", "option2"});
     proxy.setSourceModel(&model);
     QObject::connect(&combo, &QComboBox::currentTextChanged, [](const QString & currentText){
         qDebug()<<"currentText: "<<currentText;

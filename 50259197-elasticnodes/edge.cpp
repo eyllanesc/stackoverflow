@@ -62,7 +62,7 @@ void Edge::adjust()
 }
 
 QPainterPath Edge::shape() const {
-    QPainterPath path;
+    m_path;
     if (source != dest) {
         QLineF line = QLineF(sourcePoint.x(), sourcePoint.y(), destPoint.x(), destPoint.y());
         qreal radAngle = line.angle() * M_PI / 180;
@@ -71,16 +71,16 @@ QPainterPath Edge::shape() const {
         qreal dy = selectionOffset * cos(radAngle);
         QPointF offset1 = QPointF(dx, dy);
         QPointF offset2 = QPointF(-dx, -dy);
-        path.moveTo(line.p1() + offset1);
-        path.lineTo(line.p1() + offset2);
-        path.lineTo( line.p2() + offset2);
-        path.lineTo( line.p2() + offset1);
+        m_path.moveTo(line.p1() + offset1);
+        m_path.lineTo(line.p1() + offset2);
+        m_path.lineTo( line.p2() + offset2);
+        m_path.lineTo( line.p2() + offset1);
     } else {
         QRectF r= mapRectFromItem(source, source->boundingRect());
         r.moveCenter(r.topRight());
-        path.addRect(r);
+        m_path.addRect(r);
     }
-    return path;
+    return m_path;
 }
 
 QRectF Edge::boundingRect() const
@@ -88,7 +88,7 @@ QRectF Edge::boundingRect() const
     if (!source || !dest)
         return QRectF();
 
-    return shape().boundingRect();
+    return m_path.boundingRect();
 
 }
 
