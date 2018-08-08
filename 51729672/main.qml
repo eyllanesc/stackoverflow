@@ -9,4 +9,12 @@ Window {
     height: 480
     title: qsTr("Hello World")
     property Control ctrl: DomainManager.controlWriter(">>>>>>")
+
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        console.log(ctrl)
+        ctrl = null
+      }
+    }
 }
