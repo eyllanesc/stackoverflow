@@ -9,10 +9,10 @@ QT_CHARTS_USE_NAMESPACE
 class UiData: public QObject{
     Q_OBJECT
     Q_PROPERTY(QLineSeries* xy READ xy WRITE setXy NOTIFY xyChanged)
-    Q_PROPERTY(qreal xmin READ xmin WRITE setXmin NOTIFY xminChanged)
-    Q_PROPERTY(qreal xmax READ xmax WRITE setXmax NOTIFY xmaxChanged)
-    Q_PROPERTY(qreal ymin READ ymin WRITE setYmin NOTIFY yminChanged)
-    Q_PROPERTY(qreal ymax READ ymax WRITE setYmax NOTIFY ymaxChanged)
+    Q_PROPERTY(qreal xmin READ xmin NOTIFY xminChanged)
+    Q_PROPERTY(qreal xmax READ xmax NOTIFY xmaxChanged)
+    Q_PROPERTY(qreal ymin READ ymin NOTIFY yminChanged)
+    Q_PROPERTY(qreal ymax READ ymax NOTIFY ymaxChanged)
 public:
     UiData(QObject *parent=nullptr);
 
@@ -20,16 +20,9 @@ public:
     void setXy(QLineSeries *xy);
 
     qreal xmin() const;
-    void setXmin(const qreal &xmin);
-
     qreal xmax() const;
-    void setXmax(const qreal &xmax);
-
     qreal ymin() const;
-    void setYmin(const qreal &ymin);
-
     qreal ymax() const;
-    void setYmax(const qreal &ymax);
 
 public slots:
     void newData(qreal x, qreal y);

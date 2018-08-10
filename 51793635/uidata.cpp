@@ -27,25 +27,9 @@ qreal UiData::xmin() const{
     return mXmin;
 }
 
-void UiData::setXmin(const qreal &xmin)
-{
-    if(mXmin == xmin)
-        return;
-    mXmin = xmin;
-    emit xminChanged();
-}
-
 qreal UiData::xmax() const
 {
     return mXmax;
-}
-
-void UiData::setXmax(const qreal &xmax)
-{
-    if(mXmax == xmax)
-        return;
-    mXmax = xmax;
-    emit xmaxChanged();
 }
 
 qreal UiData::ymin() const
@@ -53,39 +37,32 @@ qreal UiData::ymin() const
     return mYmin;
 }
 
-void UiData::setYmin(const qreal &ymin)
-{
-    if(mYmin == ymin)
-        return;
-    mYmin = ymin;
-    emit yminChanged();
-
-}
 
 qreal UiData::ymax() const
 {
     return mYmax;
 }
 
-void UiData::setYmax(const qreal &ymax)
-{
-    if(mYmax == ymax)
-        return;
-    mYmax = ymax;
-    emit ymaxChanged();
-}
-
 void UiData::newData(qreal x, qreal y){
     if(mXy){
-        if(x > xmax())
-            setXmax(x);
-        else if (x < xmin())
-            setXmin(x);
 
-        if(y > ymax())
-            setYmax(y);
-        else if (y < ymin())
-            setYmin(y);
+        if(x > mXmax){
+            mXmax = x;
+            emit xmaxChanged();
+        }
+        else if (x < mXmin){
+            mXmin = x;
+            emit xminChanged();
+        }
+
+        if(y > mYmax){
+            mYmax = y;
+            emit ymaxChanged();
+        }
+        else if (y < mYmin){
+            mYmin = y;
+            emit yminChanged();
+        }
         mXy->append(x, y);
     }
 }
