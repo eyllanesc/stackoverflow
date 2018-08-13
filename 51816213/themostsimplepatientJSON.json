@@ -1,0 +1,29 @@
+{
+  "resourceType": "Patient",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns='http://www.w3.org/1999/xhtml'>This is a test patient<a name='mm'/></div>"
+  },
+  "name": [
+    {
+      "use": "usual",
+      "prefix": [
+        "Mr"
+      ],
+      "given": [
+        "Teppo",
+        "Testi"
+      ],
+      "family": "Testinen"
+    }
+  ],
+  "telecom": [
+    {
+      "value": "123456789",
+      "system": "phone",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2018-08-21"
+}

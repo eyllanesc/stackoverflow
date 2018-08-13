@@ -1,0 +1,5 @@
+TEMPLATE = subdirs
+
+SUBDIRS += \
+    51816213-1 \
+    51816213-2
