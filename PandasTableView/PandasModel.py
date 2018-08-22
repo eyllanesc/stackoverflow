@@ -9,28 +9,28 @@ class PandasModel(QtCore.QAbstractTableModel):
 
     def headerData(self, section, orientation, role=QtCore.Qt.DisplayRole):
         if role != QtCore.Qt.DisplayRole:
-            return QtCore.QVariant()
+            return None
 
         if orientation == QtCore.Qt.Horizontal:
             try:
                 return self._df.columns.tolist()[section]
             except (IndexError, ):
-                return QtCore.QVariant()
+                return None
         elif orientation == QtCore.Qt.Vertical:
             try:
                 # return self.df.index.tolist()
                 return self._df.index.tolist()[section]
             except (IndexError, ):
-                return QtCore.QVariant()
+                return None
 
     def data(self, index, role=QtCore.Qt.DisplayRole):
         if role != QtCore.Qt.DisplayRole:
-            return QtCore.QVariant()
+            return None
 
         if not index.isValid():
-            return QtCore.QVariant()
+            return None
 
-        return QtCore.QVariant(str(self._df.ix[index.row(), index.column()]))
+        return str(self._df.ix[index.row(), index.column()])
 
     def setData(self, index, value, role):
         row = self._df.index[index.row()]
