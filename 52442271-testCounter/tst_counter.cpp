@@ -59,7 +59,7 @@ void tst_Counter::initTestCD(){
         int checkInt = check_ms.count();
         int delta_s = randsec + randmin*60;
         int delta = std::abs(checkInt - delta_s);
-        QVERIFY(delta);
+        QVERIFY(delta < epsilon);
 
         qDebug() << "Sec counted: " << counter.count/10;
         qDebug() << "msec passed: " << checkInt;
