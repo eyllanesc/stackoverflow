@@ -2,5 +2,5 @@
 
 Device::Device(QWidget *parent) : QWidget(parent)
 {
-    setStyleSheet("Device { background: red; }");
+    setStyleSheet("QWidget { background: red; }");
 }
