@@ -40,8 +40,24 @@ QImage ImageProvider::requestImage(const QString &id, QSize *size, const QSize &
     bool showEdited = url.query() == "edit=true";
     if (showEdited) {
         cv::Mat src = cv::imread(url.toLocalFile().toStdString());
-        cv::medianBlur(src, src, 5);
-        QImage img = convertMatToQImage(src);
+
+        ///begin process
+        cv::GaussianBlur(src, src, cv::Size(3,3), 0, 0, cv::BORDER_DEFAULT );
+        cv::Mat grad_x, grad_y;
+        cv::Mat abs_grad_x, abs_grad_y, src_gray, grad;
+        int scale = 1;
+        int delta = 0;
+        int ddepth = CV_16S;
+        cv::cvtColor( src, src_gray, CV_BGR2GRAY );
+        /// Gradient X
+        cv::Sobel( src_gray, grad_x, ddepth, 1, 0, 3, scale, delta, cv::BORDER_DEFAULT );
+        /// Gradient Y
+        cv::Sobel( src_gray, grad_y, ddepth, 0, 1, 3, scale, delta, cv::BORDER_DEFAULT );
+        convertScaleAbs( grad_x, abs_grad_x );
+        convertScaleAbs( grad_y, abs_grad_y );
+        addWeighted( abs_grad_x, 0.5, abs_grad_y, 0.5, 0, grad );
+        ///end process
+        QImage img = convertMatToQImage(grad);
         if (size)
             *size = QSize(img.width(), img.height());
         return img;
