@@ -21,8 +21,8 @@ Item {
 
     CVCapture{
     	id: capture
-    	index: 1
+    	index: 0
     	filters: [max_rgb_filter] //, gray_filter]
-    	Component.onCompleted: capture.start(0)
+    	Component.onCompleted: capture.start()
 	}
 }

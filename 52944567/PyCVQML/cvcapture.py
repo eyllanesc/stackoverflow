@@ -52,15 +52,6 @@ class CVCapture(QtCore.QObject):
             return
         if not self.m_busy:
             threading.Thread(target=self.process_image, args=(np.copy(frame),)).start()
-            # self.process_image(frame)
-            """loop = QtCore.QEventLoop()
-            QtCore.QTimer.singleShot(0, loop.quit)
-            loop.exec_()
-            self.process_image(frame)
-            QtCore.QMetaObject.invokeMethod(self,
-                                            "process_image",
-                                            QtCore.Qt.QueuedConnection,
-                                            QtCore.Q_ARG(np.ndarray, frame))"""
 
     @QtCore.pyqtSlot(np.ndarray)
     def process_image(self, frame):
