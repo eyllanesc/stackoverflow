@@ -1,4 +1,0 @@
-MemoryViewer
-=========
-
-![](Screenshot.png) 

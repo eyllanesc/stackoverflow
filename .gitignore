@@ -1,0 +1,6 @@
+*.pro.user*
+*.qmlproject.user*
+/build-*
+*/build-*
+*/*/build-*
+*.pyc

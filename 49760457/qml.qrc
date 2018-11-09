@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>Style.qml</file>
-        <file>Scene.qml</file>
-        <file>qmldir</file>
-    </qresource>
-</RCC>

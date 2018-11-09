@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/icons">
-        <file>tux.jpeg</file>
-    </qresource>
-    <qresource prefix="/video">
-        <file>SampleVideo_1280x720_1mb.mp4</file>
-    </qresource>
-</RCC>

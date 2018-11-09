@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>style.css</file>
-        <file>barcode.ttf</file>
-    </qresource>
-</RCC>

@@ -1,2 +1,0 @@
-SPATIALITE ON QT
-===============
