@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/default" >
+        <file>resources/train_digits.svg</file>
+        <file>resources/dial1.svg</file>
+        <file>resources/dial2.svg</file>
+        <file>resources/dial3.svg</file>
+        <file>resources/dial4.svg</file>
+    </qresource>
+</RCC>

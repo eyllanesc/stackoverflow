@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Curve1.qml</file>
+        <file>Curve2.qml</file>
+        <file>Curve3.qml</file>
+    </qresource>
+</RCC>

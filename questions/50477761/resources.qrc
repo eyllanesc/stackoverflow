@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icones/actu.png</file>
+        <file>icones/go.png</file>
+        <file>icones/home.png</file>
+        <file>icones/prec.png</file>
+        <file>icones/stop.png</file>
+        <file>icones/suiv.png</file>
+        <file>icones/web.png</file>
+    </qresource>
+</RCC>

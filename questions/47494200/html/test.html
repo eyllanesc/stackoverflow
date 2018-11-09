@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="file:///home/eyllanesc/Documents/projects/stackoverflow/47494200/html/qwebchannel.js"></script>
+    <script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" />
+    <link rel="stylesheet" href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" />
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <style> #map_c1904d7109bc425aa3883669945daa63 {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_c1904d7109bc425aa3883669945daa63" ></div>
+        
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_c1904d7109bc425aa3883669945daa63 = L.map(
+                                  'map_c1904d7109bc425aa3883669945daa63',
+                                  {center: [36,-108],
+                                  zoom: 5,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_a5bbee473a0647f9b1406b30fa6c7144 = L.tileLayer(
+                'https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_c1904d7109bc425aa3883669945daa63);
+        
+    
+                var poly_line_6e5b5b46d3ae4225a398694da118223a = L.polyline(
+                    [[40, -110], [50, -110]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "blue",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "blue",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 5
+}).addTo(map_c1904d7109bc425aa3883669945daa63);
+            
+    
+            var popup_1b37290b9ff54f61a27f9411ff725091 = L.popup({maxWidth: '500'});
+
+            
+                var i_frame_f987c4d2dbce4387b479f17c91939657 = $('<iframe src="data:text/html;charset=utf-8;base64,CiAgICA8IURPQ1RZUEUgaHRtbD4KPGhlYWQ+ICAgIAogICAgPG1ldGEgaHR0cC1lcXVpdj0iY29udGVudC10eXBlIiBjb250ZW50PSJ0ZXh0L2h0bWw7IGNoYXJzZXQ9VVRGLTgiIC8+CjwvaGVhZD4KPGJvZHk+ICAgIAogICAgPGJ1dHRvbiBpZD0ibXlCdG4iPlRyeSBpdDwvYnV0dG9uPgogICAgPHA+CiBURVNUIAo8L3A+CiAgICA8c2NyaXB0IHNyYz0iZmlsZTovLy9ob21lL2V5bGxhbmVzYy9Eb2N1bWVudHMvcHJvamVjdHMvc3RhY2tvdmVyZmxvdy80NzQ5NDIwMC9odG1sL3BvcHVwLmpzIj48L3NjcmlwdD4KPC9ib2R5Pgo8c2NyaXB0PiAgICAKPC9zY3JpcHQ+" width="500" style="border:none !important;" height="300"></iframe>')[0];
+                popup_1b37290b9ff54f61a27f9411ff725091.setContent(i_frame_f987c4d2dbce4387b479f17c91939657);
+            
+
+            poly_line_6e5b5b46d3ae4225a398694da118223a.bindPopup(popup_1b37290b9ff54f61a27f9411ff725091);
+
+            
+        
+</script>

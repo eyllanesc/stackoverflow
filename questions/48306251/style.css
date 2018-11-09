@@ -1,0 +1,8 @@
+@font-face {
+  font-family: K-O-D-E-39 Hidden;
+  src: url('qrc:/barcode.ttf');
+}
+#barcode{
+    font-family: 'K-O-D-E-39 Hidden';
+    font-size: larger;
+}

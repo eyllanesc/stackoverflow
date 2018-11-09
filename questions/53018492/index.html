@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script type="text/javascript" src="qrc:///qtwebchannel/qwebchannel.js"></script>
+</head>
+<body>
+    <div style="margin:auto; width:100%;">
+        <canvas id="canvas"></canvas>
+    </div>
+    <script>
+        // function to update the google
+        var updateMap = function (waypointData) {
+            // waypoint data is always a list of nulls
+            console.log(waypointData);
+            waypointData.forEach(function(element) {
+                console.log("name", element["name"]);
+                console.log("longitude", element["longitude"]);
+                console.log("latitude", element["latitude"]);
+                console.log("bearing", element["bearing"]);
+            });
+        }
+        // script called once web page loaded
+        window.onload = function () {
+            new QWebChannel(qt.webChannelTransport,
+                function (channel) {
+                    var dataSource = channel.objects.routeIPC;
+                    console.log(dataSource)
+                    dataSource.routesChanged.connect(updateMap);
+                }
+            );
+        }
+    </script>
+</body>
+</html>

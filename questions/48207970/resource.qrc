@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>map.qml</file>
+        <file>mm_20_gray.png</file>
+    </qresource>
+</RCC>

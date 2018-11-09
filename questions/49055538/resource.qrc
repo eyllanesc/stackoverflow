@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>player/Laura/run_right.gif</file>
+        <file>player/Laura/run_left.gif</file>
+        <file>player/Laura/idle_right.gif</file>
+        <file>player/Laura/idle_left.gif</file>
+    </qresource>
+</RCC>

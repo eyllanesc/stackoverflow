@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>AssetTrail.qml</file>
+        <file>MapMarker.qml</file>
+        <file>ArrowItem.qml</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/bluebubble.png</file>
+        <file>images/bluesplash.png</file>
+        <file>images/greenbubble.png</file>
+        <file>images/greensplash.png</file>
+        <file>images/redbubble.png</file>
+        <file>images/redsplash.png</file>
+    </qresource>
+</RCC>
