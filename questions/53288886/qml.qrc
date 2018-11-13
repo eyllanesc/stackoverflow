@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Global/qmldir</file>
+        <file>Global/Variables.qml</file>
+        <file>Tab1.ui.qml</file>
+        <file>Tab2.ui.qml</file>
+    </qresource>
+</RCC>
