@@ -14,7 +14,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.K1.minimize_signal.connect(self.on_minimize_k1)
         
     def on_minimize_k1(self):
-    	print("minimize k1")
+        spinbox = self.sender()
+        print(spinbox, "minimize k1")
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
