@@ -12,7 +12,8 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MyApp, self).__init__(parent)
         self.setupUi(self)
         self.K1.minimize_signal.connect(self.on_minimize_k1)
-        
+    
+    @QtCore.pyqtSlot()
     def on_minimize_k1(self):
         spinbox = self.sender()
         print(spinbox, "minimize k1")
