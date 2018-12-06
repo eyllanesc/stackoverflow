@@ -1,0 +1,12 @@
+#ifndef FOOMODULE_GLOBAL_H
+#define FOOMODULE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(FOOMODULE_LIBRARY)
+#  define FOOMODULESHARED_EXPORT Q_DECL_EXPORT
+#else
+#  define FOOMODULESHARED_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // FOOMODULE_GLOBAL_H
