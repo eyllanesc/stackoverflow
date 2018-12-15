@@ -18,7 +18,7 @@ public:
         AllRole
     };
     explicit DataSourceModel(QObject *parent = nullptr);
-    Q_INVOKABLE QVariantMap get(int row) const;
+    QVariantMap get(int row) const;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
 
