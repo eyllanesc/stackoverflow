@@ -12,7 +12,7 @@ Window {
         delegate: Text {
             width: 100
             height: 31
-            text: "" + all.value
+            text: JSON.stringify(all)
       }
     }
 }
