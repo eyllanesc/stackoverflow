@@ -1,0 +1,663 @@
+{
+  "datasources":[
+  {
+    "id": 1,
+    "name": "Engine Demand (Accelerator Pedal Position)",
+    "displayname": "accelpedpos"
+  },
+  {
+    "id": 3,
+    "name": "Lateral G",
+    "displayname": "accelx"
+  },
+  {
+    "id": 4,
+    "name": "Longitudinal G",
+    "displayname": "accely"
+  },
+  {
+    "id": 7,
+    "name": "Air Temp Sensor 2",
+    "displayname": "airtempensor2"
+  },
+  {
+    "id": 8,
+    "name": "Barometric Pressure",
+    "displayname": "ambipress"
+  },
+  {
+    "id": 18,
+    "name": "Average Fuel Economy",
+    "displayname": "avfueleconomy"
+  },
+  {
+    "id": 20,
+    "name": "Boost Control Output",
+    "displayname": "boostcontrol"
+  },
+  {
+    "id": 26,
+    "name": "Brake Pressure",
+    "displayname": "brakepress"
+  },
+  {
+    "id": 29,
+    "name": "Coolant Pressure",
+    "displayname": "coolantpress"
+  },
+  {
+    "id": 31,
+    "name": "Diff Oil Temperature",
+    "displayname": "diffoiltemp"
+  },
+  {
+    "id": 34,
+    "name": "EGT Sensor 1",
+    "displayname": "egt1"
+  },
+  {
+    "id": 35,
+    "name": "EGT Sensor 2",
+    "displayname": "egt2"
+  },
+  {
+    "id": 36,
+    "name": "EGT Sensor 3",
+    "displayname": "egt3"
+  },
+  {
+    "id": 37,
+    "name": "EGT Sensor 4",
+    "displayname": "egt4"
+  },
+  {
+    "id": 38,
+    "name": "EGT Sensor 5",
+    "displayname": "egt5"
+  },
+  {
+    "id": 39,
+    "name": "EGT Sensor 6",
+    "displayname": "egt6"
+  },
+  {
+    "id": 40,
+    "name": "EGT Sensor 7",
+    "displayname": "egt7"
+  },
+  {
+    "id": 41,
+    "name": "EGT Sensor 8",
+    "displayname": "egt8"
+  },
+  {
+    "id": 42,
+    "name": "EGT Sensor 9",
+    "displayname": "egt9"
+  },
+  {
+    "id": 43,
+    "name": "EGT Sensor 10",
+    "displayname": "egt10"
+  },
+  {
+    "id": 44,
+    "name": "EGT Sensor 11",
+    "displayname": "egt11"
+  },
+  {
+    "id": 45,
+    "name": "EGT Sensor 12",
+    "displayname": "egt12"
+  },
+  {
+    "id": 47,
+    "name": "Exhaust Cam Angle 1",
+    "displayname": "excamangle1"
+  },
+  {
+    "id": 48,
+    "name": "Exhaust Cam Angle 2",
+    "displayname": "excamangle2"
+  },
+  {
+    "id": 49,
+    "name": "Gear Switch",
+    "displayname": "Flag1"
+  },
+  {
+    "id": 50,
+    "name": "Decel Cut Active",
+    "displayname": "Flag2"
+  },
+  {
+    "id": 51,
+    "name": "Transient Throttle Active",
+    "displayname": "Flag3"
+  },
+  {
+    "id": 52,
+    "name": "Brake Pedal Switch",
+    "displayname": "Flag4"
+  },
+  {
+    "id": 53,
+    "name": "Clutch Switch",
+    "displayname": "Flag5"
+  },
+  {
+    "id": 54,
+    "name": "Anti-lag Active",
+    "displayname": "Flag6"
+  },
+  {
+    "id": 55,
+    "name": "Aux RPM Limiter Active",
+    "displayname": "Flag7"
+  },
+  {
+    "id": 56,
+    "name": "Flat Shift Switch",
+    "displayname": "Flag8"
+  },
+  {
+    "id": 57,
+    "name": "Torque Reduction Active",
+    "displayname": "Flag9"
+  },
+  {
+    "id": 58,
+    "name": "Check Engine Light",
+    "displayname": "Flag10"
+  },
+  {
+    "id": 59,
+    "name": "Battery Light Active",
+    "displayname": "Flag11"
+  },
+  {
+    "id": 60,
+    "name": "Engine Limiting Active",
+    "displayname": "Flag13"
+  },
+  {
+    "id": 60,
+    "name": "Ignition Switch",
+    "displayname": "Flag12"
+  },
+  {
+    "id": 62,
+    "name": "Nitrous Stage 1 Output State",
+    "displayname": "Flag14"
+  },
+  {
+    "id": 63,
+    "name": "Nitrous Stage 2 Output State",
+    "displayname": "Flag15"
+  },
+  {
+    "id": 64,
+    "name": "Nitrous Stage 3 Output State",
+    "displayname": "Flag16"
+  },
+  {
+    "id": 65,
+    "name": "Nitrous Stage 4 Output State",
+    "displayname": "Flag17"
+  },
+  {
+    "id": 66,
+    "name": "Nitrous Stage 5 Output State",
+    "displayname": "Flag18"
+  },
+  {
+    "id": 67,
+    "name": "Nitrous Stage 6 Output State",
+    "displayname": "Flag19"
+  },
+  {
+    "id": 74,
+    "name": "Ignition Angle Bank 1",
+    "displayname": ""
+  },
+  {
+    "id": 75,
+    "name": "Ignition Angle Bank 2",
+    "displayname": ""
+  },
+  {
+    "id": 76,
+    "name": "Torque Management Driveshaft RPM Target",
+    "displayname": ""
+  },
+  {
+    "id": 77,
+    "name": "Torque Management Driveshaft RPM Target Error",
+    "displayname": ""
+  },
+  {
+    "id": 78,
+    "name": "Torque Management Driveshaft RPM Target Error Ignition Correction",
+    "displayname": ""
+  },
+  {
+    "id": 79,
+    "name": "Torque Management Driveshaft RPM Timed Ignition Correction",
+    "displayname": ""
+  },
+  {
+    "id": 80,
+    "name": "Torque Management Combined Ignition Correction",
+    "displayname": ""
+  },
+  {
+    "id": 84,
+    "name": "Fuel Composition",
+    "displayname": "fuelcomposition"
+  },
+  {
+    "id": 85,
+    "name": "Fuel Consumption Rate",
+    "displayname": "fuelconsrate"
+  },
+  {
+    "id": 87,
+    "name": "Fuel Flow",
+    "displayname": "fuelflow"
+  },
+  {
+    "id": 88,
+    "name": "Fuel Flow Differential",
+    "displayname": "fuelflowdiff"
+  },
+  {
+    "id": 89,
+    "name": "Fuel Flow Return",
+    "displayname": "fuelflowret"
+  },
+  {
+    "id": 100,
+    "name": "Fuel Pressure",
+    "displayname": "FuelPress"
+  },
+  {
+    "id": 101,
+    "name": "Fuel Temperature",
+    "displayname": "Fueltemp"
+  },
+  {
+    "id": 102,
+    "name": "Fuel Trim Long Term Bank 1",
+    "displayname": "fueltrimlongtbank1"
+  },
+  {
+    "id": 103,
+    "name": "Fuel Trim Long Term Bank 2",
+    "displayname": "fueltrimlongtbank2"
+  },
+  {
+    "id": 104,
+    "name": "Fuel Trim Short Term Bank 1",
+    "displayname": "fueltrimshorttbank1"
+  },
+  {
+    "id": 105,
+    "name": "Fuel Trim Short Term Bank 2",
+    "displayname": "fueltrimshorttbank2"
+  },
+  {
+    "id": 106,
+    "name": "Gear",
+    "displayname": "Gear"
+  },
+  {
+    "id": 119,
+    "name": "Home Counter",
+    "displayname": "homeccounter"
+  },
+  {
+    "id": 126,
+    "name": "Intake Cam Angle 1",
+    "displayname": "incamangle1"
+  },
+  {
+    "id": 127,
+    "name": "Intake Cam Angle 2",
+    "displayname": "incamangle2"
+  },
+  {
+    "id": 129,
+    "name": "Injection Stage 1 Duty Cycle",
+    "displayname": "Inj1"
+  },
+  {
+    "id": 130,
+    "name": "Injection Stage 2 Duty Cycle",
+    "displayname": "Inj2"
+  },
+  {
+    "id": 131,
+    "name": "Injection Stage 3 Duty Cycle",
+    "displayname": ""
+  },
+  {
+    "id": 132,
+    "name": "Injection Stage 4 Duty Cycle",
+    "displayname": ""
+  },
+  {
+    "id": 135,
+    "name": "Air Temperature",
+    "displayname": "Intaketemp"
+  },
+  {
+    "id": 138,
+    "name": "Knock Level Logged",
+    "displayname": "knocklevlogged1"
+  },
+  {
+    "id": 139,
+    "name": "Knock Level Logged 2",
+    "displayname": "knocklevlogged2"
+  },
+  {
+    "id": 140,
+    "name": "Knock Retard - Bank 1",
+    "displayname": "knockretardbank1"
+  },
+  {
+    "id": 141,
+    "name": "Knock Retard - Bank 2",
+    "displayname": "knockretardbank2"
+  },
+  {
+    "id": 142,
+    "name": "Wideband Sensor 1 (Lambda1)",
+    "displayname": "LAMBDA"
+  },
+  {
+    "id": 143,
+    "name": "Wideband Sensor 2 (Lambda2)",
+    "displayname": "lambda2"
+  },
+  {
+    "id": 144,
+    "name": "Wideband Sensor 3 (Lambda3)",
+    "displayname": "lambda3"
+  },
+  {
+    "id": 145,
+    "name": "Wideband Sensor 4 (Lambda4)",
+    "displayname": "lambda4"
+  },
+  {
+    "id": 146,
+    "name": "Target Lambda",
+    "displayname": "LAMBDATarget"
+  },
+  {
+    "id": 147,
+    "name": "Launch Control Fuel Enrich",
+    "displayname": "launchcontolfuelenrich"
+  },
+  {
+    "id": 148,
+    "name": "Launch Control Ignition Retard",
+    "displayname": "launchctrolignretard"
+  },
+  {
+    "id": 149,
+    "name": "Ignition Angle (Leading)",
+    "displayname": "Leadingign"
+  },
+  {
+    "id": 155,
+    "name": "Manifold Pressure",
+    "displayname": "MAP"
+  },
+  {
+    "id": 158,
+    "name": "Trigger System Error Count",
+    "displayname": "missccount"
+  },
+  {
+    "id": 160,
+    "name": "Wheelspeed Rear",
+    "displayname": "MVSS"
+  },
+  {
+    "id": 164,
+    "name": "NOS Pressure Sensor 1",
+    "displayname": "nospress"
+  },
+  {
+    "id": 169,
+    "name": "Oil Pressure",
+    "displayname": "oilpres"
+  },
+  {
+    "id": 170,
+    "name": "Oil Temperature",
+    "displayname": "oiltemp"
+  },
+  {
+    "id": 179,
+    "name": "RPM",
+    "displayname": "rpm"
+  },
+  {
+    "id": 190,
+    "name": "Generic Output 1 Duty Cycle",
+    "displayname": ""
+  },
+  {
+    "id": 191,
+    "name": "Fuel Level",
+    "displayname": ""
+  },
+  {
+    "id": 192,
+    "name": "Turbo Timer - Time Remaining",
+    "displayname": ""
+  },
+  {
+    "id": 193,
+    "name": "Turbo Timer - Engine Time Remaining",
+    "displayname": ""
+  },
+  {
+    "id": 194,
+    "name": "Steering Wheel Angle",
+    "displayname": ""
+  },
+  {
+    "id": 195,
+    "name": "Driveshaft RPM",
+    "displayname": ""
+  },
+  {
+    "id": 196,
+    "name": "NOS Pressure Sensor 2",
+    "displayname": ""
+  },
+  {
+    "id": 197,
+    "name": "NOS Pressure Sensor 3",
+    "displayname": ""
+  },
+  {
+    "id": 198,
+    "name": "NOS Pressure Sensor 4",
+    "displayname": ""
+  },
+  {
+    "id": 199,
+    "name": "Vehicle Speed (General)",
+    "displayname": "Speed"
+  },
+  {
+    "id": 200,
+    "name": "Wheelspeed Front",
+    "displayname": "SVSS"
+  },
+  {
+    "id": 201,
+    "name": "Target Boost Level",
+    "displayname": "targetbstlelkpa"
+  },
+  {
+    "id": 203,
+    "name": "Timed Duty Output Duty",
+    "displayname": "imeddutyout1"
+  },
+  {
+    "id": 204,
+    "name": "Timed Duty Output Duty  2",
+    "displayname": "timeddutyout2"
+  },
+  {
+    "id": 210,
+    "name": "Throttle Position",
+    "displayname": "TPS"
+  },
+  {
+    "id": 211,
+    "name": "Ignition Angle (Trailing)",
+    "displayname": "Trailingign"
+  },
+  {
+    "id": 213,
+    "name": "Gearbox Oil Temperature",
+    "displayname": "transoiltemp"
+  },
+  {
+    "id": 214,
+    "name": "Trigger Counter",
+    "displayname": "triggerccounter"
+  },
+  {
+    "id": 215,
+    "name": "Triggers Since Last Home",
+    "displayname": "triggersrsinceasthome"
+  },
+  {
+    "id": 218,
+    "name": "Turbo Speed Sensor 1",
+    "displayname": "turborpm"
+  },
+  {
+    "id": 220,
+    "name": "Wastegate Pressure",
+    "displayname": "wastegatepress"
+  },
+  {
+    "id": 221,
+    "name": "Coolant Temperature",
+    "displayname": "Watertemp"
+  },
+  {
+    "id": 222,
+    "name": "Wheel Diff",
+    "displayname": "wheeldiff"
+  },
+  {
+    "id": 223,
+    "name": "Wheel Slip",
+    "displayname": "wheelslip"
+  },
+  {
+    "id": 224,
+    "name": "Wheel Speed Front Left",
+    "displayname": "wheelspdftleft"
+  },
+  {
+    "id": 225,
+    "name": "Wheel Speed Front Right",
+    "displayname": "wheelspdftright"
+  },
+  {
+    "id": 226,
+    "name": "Wheel Speed Rear Left",
+    "displayname": "wheelspdrearleft"
+  },
+  {
+    "id": 227,
+    "name": "Wheel Speed Rear Right",
+    "displayname": "twheelspdrearright"
+  },
+  {
+    "id": 228,
+    "name": "Battery Voltage",
+    "displayname": "BatteryV"
+  },
+  {
+    "id": 260,
+    "name": "Turbo Speed Sensor 2",
+    "displayname": ""
+  },
+  {
+    "id": 261,
+    "name": "Generic Sensor 1",
+    "displayname": ""
+  },
+  {
+    "id": 262,
+    "name": "Generic Sensor 2",
+    "displayname": ""
+  },
+  {
+    "id": 263,
+    "name": "Generic Sensor 3",
+    "displayname": ""
+  },
+  {
+    "id": 264,
+    "name": "Generic Sensor 4",
+    "displayname": ""
+  },
+  {
+    "id": 265,
+    "name": "Generic Sensor 5",
+    "displayname": ""
+  },
+  {
+    "id": 266,
+    "name": "Generic Sensor 6",
+    "displayname": ""
+  },
+  {
+    "id": 267,
+    "name": "Generic Sensor 7",
+    "displayname": ""
+  },
+  {
+    "id": 268,
+    "name": "Generic Sensor 8",
+    "displayname": ""
+  },
+  {
+    "id": 269,
+    "name": "Generic Sensor 9",
+    "displayname": ""
+  },
+  {
+    "id": 270,
+    "name": "Generic Sensor 10",
+    "displayname": ""
+  },
+  {
+    "id": 271,
+    "name": "Gearbox Oil Pressure",
+    "displayname": ""
+  },
+  {
+    "id": 274,
+    "name": "Crank Case Pressure",
+    "displayname": ""
+  },
+  {
+    "id": 275,
+    "name": "Race Timer",
+    "displayname": ""
+  }
+]}
