@@ -1,7 +1,7 @@
 PyQt Material Qml
 ===========
 
-### UPDATE: In [this answer](https://stackoverflow.com/a/48583334/6622587) you can find other methods to enable the material design style of QML from python, the new forms are implemented in main2.py and main3.py.
+### UPDATE: In [this answer](https://stackoverflow.com/a/48583334/6622587) you can find other methods to enable the material design style of QML from python, the new methods are implemented in main2.py and main3.py.
 
 _______________________________________________________
 
