@@ -1,0 +1,7 @@
+class RemoteMinimal
+{
+    SIGNAL(sendData(const QString &, const QString &));
+    SLOT(printData(const QString &));
+    SLOT(void process(const QString &, const QString &));
+    SLOT(void triggerSendData());
+};
