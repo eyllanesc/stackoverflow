@@ -10,4 +10,4 @@ SOURCES += \
 
 HEADERS += objects.h
 
-REPC_REPLICA += remoteminimal.rep
+REPC_REPLICA += ../remoteminimal.rep

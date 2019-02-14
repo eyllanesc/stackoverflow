@@ -10,4 +10,4 @@ SOURCES += \
 HEADERS += \
     minimalsource.h
 
-REPC_SOURCE += remoteminimal.rep
+REPC_SOURCE += ../remoteminimal.rep
