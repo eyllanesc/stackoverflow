@@ -1,6 +1,9 @@
 PyQt Material Qml
 ===========
 
+### In [this answer](https://stackoverflow.com/a/48583334/6622587) you can find other methods to enable the material design style of QML from python.
+
+_______________________________________________________
 
 - PyQt 5.8
 
