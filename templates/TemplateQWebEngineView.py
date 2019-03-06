@@ -1,4 +1,4 @@
-from PyQt5 import QtWebEngineWidgets, QtWidgets, QtCore
+from PyQt5 import QtCore, QtWidgets,QtWebEngineWidgets
 
 if __name__ == '__main__':
     import sys
@@ -7,6 +7,6 @@ if __name__ == '__main__':
     sys.argv.append("--disable-web-security")
     app = QtWidgets.QApplication(sys.argv)
     view = QtWebEngineWidgets.QWebEngineView()
-    view.load(QtCore.QUrl("https://www.qt.io"))
+    view.load(QtCore.QUrl("https://www.qt.io")) #"http://localhost:8000"))
     view.show()
     sys.exit(app.exec_())
