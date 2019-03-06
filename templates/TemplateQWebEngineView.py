@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtWidgets,QtWebEngineWidgets
+from PyQt5 import QtCore, QtWidgets, QtWebEngineWidgets
 
 if __name__ == '__main__':
     import sys
