@@ -15,6 +15,10 @@ Window {
             width: model.rectrole.width
             height: model.rectrole.height
             color:  model.colorrole
+            Text{
+            	anchors.centerIn: parent
+                text: model.namerole
+            }
         }
     }
 
@@ -26,7 +30,6 @@ Window {
                 //  QRect([0-200], [0-300], *, *)
                 expression: (model.rectrole.x >= 0 && model.rectrole.x <= 200) && (model.rectrole.y >= 0 && model.rectrole.y <= 300)
             }
-
         ]
     }
 

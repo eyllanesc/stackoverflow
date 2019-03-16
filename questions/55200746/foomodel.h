@@ -5,8 +5,6 @@
 #include <QRect>
 #include <QColor>
 
-#include <QDebug>
-
 struct Foo{
     QString name;
     QRect rect;
