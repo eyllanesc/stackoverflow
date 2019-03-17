@@ -1,0 +1,193 @@
+From 890c16a2cf0033f2ca815975c5eef95b6abc82de Mon Sep 17 00:00:00 2001
+From: eyllanesc <e.yllanescucho@gmail.com>
+Date: Sat, 16 Mar 2019 23:37:12 -0500
+Subject: [PATCH] proxy-location
+
+---
+ .../osm/qgeocodingmanagerengineosm.cpp        | 26 +++++++++++++++++
+ .../osm/qgeoroutingmanagerengineosm.cpp       | 28 +++++++++++++++++++
+ .../osm/qgeotiledmappingmanagerengineosm.cpp  | 27 ++++++++++++++++++
+ .../osm/qplacemanagerengineosm.cpp            | 27 ++++++++++++++++++
+ 4 files changed, 108 insertions(+)
+
+diff --git a/src/plugins/geoservices/osm/qgeocodingmanagerengineosm.cpp b/src/plugins/geoservices/osm/qgeocodingmanagerengineosm.cpp
+index d7751287..f0ceea05 100644
+--- a/src/plugins/geoservices/osm/qgeocodingmanagerengineosm.cpp
++++ b/src/plugins/geoservices/osm/qgeocodingmanagerengineosm.cpp
+@@ -46,6 +46,7 @@
+ #include <QtCore/QLocale>
+ #include <QtNetwork/QNetworkAccessManager>
+ #include <QtNetwork/QNetworkRequest>
++#include <QtNetwork/QNetworkProxy>
+ #include <QtPositioning/QGeoCoordinate>
+ #include <QtPositioning/QGeoAddress>
+ #include <QtPositioning/QGeoShape>
+@@ -75,6 +76,31 @@ QGeoCodingManagerEngineOsm::QGeoCodingManagerEngineOsm(const QVariantMap &parame
+                                                        QString *errorString)
+ :   QGeoCodingManagerEngine(parameters), m_networkManager(new QNetworkAccessManager(this))
+ {
++
++	QString proxy = parameters.value(QStringLiteral("proxy")).toString();
++    if (!proxy.isEmpty()) {
++#ifndef QT_NO_NETWORKPROXY
++        if (proxy.toLower() != QStringLiteral("system")) {
++            QUrl proxyUrl(proxy);
++            if (proxyUrl.isValid()) {
++                qDebug() << "Setting proxy to " << proxyUrl.toString();
++                m_networkManager->setProxy(
++                            QNetworkProxy(QNetworkProxy::HttpProxy,
++                                          proxyUrl.host(),
++                                          proxyUrl.port(8080),
++                                          proxyUrl.userName(),
++                                          proxyUrl.password()));
++            }
++        } else if (QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
++            QNetworkProxyFactory::setUseSystemConfiguration(true);
++            qDebug() << "Setting system proxy.";
++        }
++#else
++        qDebug() << "No proxy support";
++#endif
++    } else {
++        qDebug() << "No proxy parameter specified.";
++    }
+     if (parameters.contains(QStringLiteral("osm.useragent")))
+         m_userAgent = parameters.value(QStringLiteral("osm.useragent")).toString().toLatin1();
+     else
+diff --git a/src/plugins/geoservices/osm/qgeoroutingmanagerengineosm.cpp b/src/plugins/geoservices/osm/qgeoroutingmanagerengineosm.cpp
+index 29a35aaa..c325d196 100644
+--- a/src/plugins/geoservices/osm/qgeoroutingmanagerengineosm.cpp
++++ b/src/plugins/geoservices/osm/qgeoroutingmanagerengineosm.cpp
+@@ -46,11 +46,39 @@
+ 
+ #include <QtCore/QDebug>
+ 
++#include <QtNetwork/QNetworkProxy>
++
+ QGeoRoutingManagerEngineOsm::QGeoRoutingManagerEngineOsm(const QVariantMap &parameters,
+                                                          QGeoServiceProvider::Error *error,
+                                                          QString *errorString)
+ :   QGeoRoutingManagerEngine(parameters), m_networkManager(new QNetworkAccessManager(this))
+ {
++
++    QString proxy = parameters.value(QStringLiteral("proxy")).toString();
++    if (!proxy.isEmpty()) {
++#ifndef QT_NO_NETWORKPROXY
++        if (proxy.toLower() != QStringLiteral("system")) {
++            QUrl proxyUrl(proxy);
++            if (proxyUrl.isValid()) {
++                qDebug() << "Setting proxy to " << proxyUrl.toString();
++                m_networkManager->setProxy(
++                            QNetworkProxy(QNetworkProxy::HttpProxy,
++                                          proxyUrl.host(),
++                                          proxyUrl.port(8080),
++                                          proxyUrl.userName(),
++                                          proxyUrl.password()));
++            }
++        } else if (QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
++            QNetworkProxyFactory::setUseSystemConfiguration(true);
++            qDebug() << "Setting system proxy.";
++        }
++#else
++        qDebug() << "No proxy support";
++#endif
++    } else {
++        qDebug() << "No proxy parameter specified.";
++    }
++
+     if (parameters.contains(QStringLiteral("osm.useragent")))
+         m_userAgent = parameters.value(QStringLiteral("osm.useragent")).toString().toLatin1();
+     else
+diff --git a/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp b/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
+index 9174ad62..8f0846a2 100644
+--- a/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
++++ b/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
+@@ -48,6 +48,7 @@
+ #include <QtLocation/private/qgeofiletilecache_p.h>
+ 
+ #include <QtNetwork/QNetworkAccessManager>
++#include <QtNetwork/QNetworkProxy>
+ 
+ QT_BEGIN_NAMESPACE
+ 
+@@ -69,6 +70,32 @@ QGeoTiledMappingManagerEngineOsm::QGeoTiledMappingManagerEngineOsm(const QVarian
+     setTileSize(QSize(256, 256));
+ 
+     QNetworkAccessManager *nm = new QNetworkAccessManager();
++
++    QString proxy = parameters.value(QStringLiteral("proxy")).toString();
++    if (!proxy.isEmpty()) {
++#ifndef QT_NO_NETWORKPROXY
++        if (proxy.toLower() != QStringLiteral("system")) {
++            QUrl proxyUrl(proxy);
++            if (proxyUrl.isValid()) {
++                qDebug() << "Setting proxy to " << proxyUrl.toString();
++                nm->setProxy(
++                            QNetworkProxy(QNetworkProxy::HttpProxy,
++                                          proxyUrl.host(),
++                                          proxyUrl.port(8080),
++                                          proxyUrl.userName(),
++                                          proxyUrl.password()));
++            }
++        } else if (QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
++            QNetworkProxyFactory::setUseSystemConfiguration(true);
++            qDebug() << "Setting system proxy.";
++        }
++#else
++        qDebug() << "No proxy support";
++#endif
++    } else {
++        qDebug() << "No proxy parameter specified.";
++    }
++
+     QString domain = QStringLiteral("http://maps-redirect.qt.io/osm/5.8/");
+     if (parameters.contains(QStringLiteral("osm.mapping.providersrepository.address"))) {
+         QString customAddress = parameters.value(QStringLiteral("osm.mapping.providersrepository.address")).toString();
+diff --git a/src/plugins/geoservices/osm/qplacemanagerengineosm.cpp b/src/plugins/geoservices/osm/qplacemanagerengineosm.cpp
+index be66414f..4dab1e71 100644
+--- a/src/plugins/geoservices/osm/qplacemanagerengineosm.cpp
++++ b/src/plugins/geoservices/osm/qplacemanagerengineosm.cpp
+@@ -47,6 +47,7 @@
+ #include <QtNetwork/QNetworkAccessManager>
+ #include <QtNetwork/QNetworkRequest>
+ #include <QtNetwork/QNetworkReply>
++#include <QtNetwork/QNetworkProxy>
+ #include <QtPositioning/QGeoCircle>
+ #include <QtLocation/private/unsupportedreplies_p.h>
+ 
+@@ -98,6 +99,32 @@ QPlaceManagerEngineOsm::QPlaceManagerEngineOsm(const QVariantMap &parameters,
+ :   QPlaceManagerEngine(parameters), m_networkManager(new QNetworkAccessManager(this)),
+     m_categoriesReply(0)
+ {
++
++    QString proxy = parameters.value(QStringLiteral("proxy")).toString();
++    if (!proxy.isEmpty()) {
++#ifndef QT_NO_NETWORKPROXY
++        if (proxy.toLower() != QStringLiteral("system")) {
++            QUrl proxyUrl(proxy);
++            if (proxyUrl.isValid()) {
++                qDebug() << "Setting proxy to " << proxyUrl.toString();
++                m_networkManager->setProxy(
++                            QNetworkProxy(QNetworkProxy::HttpProxy,
++                                          proxyUrl.host(),
++                                          proxyUrl.port(8080),
++                                          proxyUrl.userName(),
++                                          proxyUrl.password()));
++            }
++        } else if (QNetworkProxy::applicationProxy().type() == QNetworkProxy::NoProxy) {
++            QNetworkProxyFactory::setUseSystemConfiguration(true);
++            qDebug() << "Setting system proxy.";
++        }
++#else
++        qDebug() << "No proxy support";
++#endif
++    } else {
++        qDebug() << "No proxy parameter specified.";
++    }
++
+     if (parameters.contains(QStringLiteral("osm.useragent")))
+         m_userAgent = parameters.value(QStringLiteral("osm.useragent")).toString().toLatin1();
+     else
+-- 
+2.21.0
+
