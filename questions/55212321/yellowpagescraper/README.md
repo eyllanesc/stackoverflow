@@ -1,7 +1,7 @@
 # ComandLine:
 
 ```bash
-scrapy crawl yellow -a parameters='{"search_item": "house", "locations": ["usa", "germany"]}'
+scrapy crawl yellow -a parameters='{"search_item": "house", "locations": ["usa", "germany", "brazil"]}'
 ```  
 
 # GUI:
