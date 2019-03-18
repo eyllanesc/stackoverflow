@@ -85,9 +85,10 @@ class LocationWidget(QtWidgets.QWidget):
                 locations.append(le.text())
         return locations
 
-class YelloWidget(QtWidgets.QMainWindow):
+class YellowWidget(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
-        super(YelloWidget, self).__init__(parent)
+        super(YellowWidget, self).__init__(parent)
+        self.setWindowTitle('Yellow Pages Scrapper')
         self.scrapy_worker = ScrapyWorker(self)
         self.search_item_le = QtWidgets.QLineEdit()
         self.location_widget = LocationWidget()
@@ -133,7 +134,7 @@ if __name__ == '__main__':
     import sys
     app = QtWidgets.QApplication(sys.argv)
     app.setStyle('fusion')
-    w = YelloWidget()
+    w = YellowWidget()
     w.resize(640, 480)
     w.show()
     sys.exit(app.exec_())
