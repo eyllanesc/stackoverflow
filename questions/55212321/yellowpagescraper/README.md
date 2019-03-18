@@ -26,7 +26,6 @@ Do you want to add a new location?: [y/n]: n
 
 ```bash
 foo@bar:~$ python gui.py
-...
 ``` 
 
   ![](screenshot.png) 
