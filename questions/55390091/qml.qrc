@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+    </qresource>
+    <qresource prefix="/views">
+        <file>marker.qml</file>
+        <file>marker.png</file>
+    </qresource>
+</RCC>
