@@ -5,23 +5,22 @@
 #include <QWidget>
 #include <opencv2/opencv.hpp>
 
-class cameraimage : public QWidget
-{
-    Q_OBJECT
+class cameraimage : public QWidget {
+  Q_OBJECT
 public:
-    explicit cameraimage(QWidget *parent = nullptr);
+  explicit cameraimage(QWidget *parent = nullptr);
+
 private:
-    QPoint mPoint;
-    QTimer *timer;
-    cv::VideoCapture captureVideo;
+  QPoint mPoint;
+  QTimer *timer;
+  cv::VideoCapture captureVideo;
 
 public slots:
-    void startStreaming();
-    void stopStreaming();
+  void startStreaming();
+  void stopStreaming();
 
 protected:
-    void paintEvent(QPaintEvent *);
-
+  void paintEvent(QPaintEvent *);
 };
 
 #endif // CAMERAIMAGE_H

@@ -3,12 +3,11 @@
 
 #include <QObject>
 
-class MouseMemory : public QObject
-{
-    Q_OBJECT
+class MouseMemory : public QObject {
+  Q_OBJECT
 public:
-    explicit MouseMemory(QObject *parent = nullptr);
-    Q_INVOKABLE void clear();
+  explicit MouseMemory(QObject *parent = nullptr);
+  Q_INVOKABLE void clear();
 };
 
 #endif // MOUSEMEMORY_H

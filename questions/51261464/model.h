@@ -51,45 +51,39 @@
 #include <QStringList>
 
 //![0]
-class Animal
-{
+class Animal {
 public:
-    Animal(const QString &type, const QString &size);
-//![0]
+  Animal(const QString &type, const QString &size);
+  //![0]
 
-    QString type() const;
-    QString size() const;
+  QString type() const;
+  QString size() const;
 
 private:
-    QString m_type;
-    QString m_size;
-//![1]
+  QString m_type;
+  QString m_size;
+  //![1]
 };
 
-class AnimalModel : public QAbstractListModel
-{
-    Q_OBJECT
+class AnimalModel : public QAbstractListModel {
+  Q_OBJECT
 public:
-    enum AnimalRoles {
-        TypeRole = Qt::UserRole + 1,
-        SizeRole
-    };
+  enum AnimalRoles { TypeRole = Qt::UserRole + 1, SizeRole };
 
-    AnimalModel(QObject *parent = 0);
-//![1]
+  AnimalModel(QObject *parent = 0);
+  //![1]
 
-    void addAnimal(const Animal &animal);
+  void addAnimal(const Animal &animal);
 
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
+  int rowCount(const QModelIndex &parent = QModelIndex()) const;
 
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
+  QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
 
 protected:
-    QHash<int, QByteArray> roleNames() const;
+  QHash<int, QByteArray> roleNames() const;
+
 private:
-    QList<Animal> m_animals;
-//![2]
+  QList<Animal> m_animals;
+  //![2]
 };
 //![2]
-
-

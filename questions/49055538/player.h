@@ -3,16 +3,18 @@
 
 #include <QLabel>
 
-class Player : public QLabel
-{
-    enum{IDLE_LEFT, IDLE_RIGHT, RUN_LEFT, RUN_RIGHT};
+class Player : public QLabel {
+  enum { IDLE_LEFT, IDLE_RIGHT, RUN_LEFT, RUN_RIGHT };
+
 public:
-    Player(qreal playerSize, QSize sceneSize, QWidget *parent=Q_NULLPTR);
+  Player(qreal playerSize, QSize sceneSize, QWidget *parent = Q_NULLPTR);
+
 protected:
-    void keyPressEvent(QKeyEvent *event);
+  void keyPressEvent(QKeyEvent *event);
+
 private:
-    void setCurrentAnimation(int animationCode);
-    int curr_Animation_Code;
+  void setCurrentAnimation(int animationCode);
+  int curr_Animation_Code;
 };
 
 #endif // PLAYER_H

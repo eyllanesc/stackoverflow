@@ -1,6 +1,3 @@
 #include "calculos.h"
 
-calculos::calculos()
-{
-
-}
+calculos::calculos() {}

@@ -3,13 +3,13 @@
 
 #include <QSqlRelationalTableModel>
 
-class SqlRelationalTableModel : public QSqlRelationalTableModel
-{
-    Q_OBJECT
+class SqlRelationalTableModel : public QSqlRelationalTableModel {
+  Q_OBJECT
 public:
-    SqlRelationalTableModel(QObject * parent = 0, QSqlDatabase db = QSqlDatabase());
+  SqlRelationalTableModel(QObject *parent = 0,
+                          QSqlDatabase db = QSqlDatabase());
 
-     QVariant data(const QModelIndex & item, int role = Qt::DisplayRole) const;
+  QVariant data(const QModelIndex &item, int role = Qt::DisplayRole) const;
 };
 
 #endif // SQLRELATIONALTABLEMODEL_H

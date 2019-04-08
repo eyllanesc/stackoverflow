@@ -3,33 +3,32 @@
 
 #include <QMainWindow>
 
-#include "graphicsscene.h"
 #include "graphicspixmapitem.h"
+#include "graphicsscene.h"
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 private slots:
-    void on_actionOpen_triggered();
-    void onNewPixmap(const QPixmap pixmap);
+  void on_actionOpen_triggered();
+  void onNewPixmap(const QPixmap pixmap);
 
 private:
-    Ui::MainWindow *ui;
+  Ui::MainWindow *ui;
 
-    GraphicsPixmapItem *item;
-    GraphicsScene *scene;
+  GraphicsPixmapItem *item;
+  GraphicsScene *scene;
 
-    QPixmap original_pixmap;
-    QPixmap new_pixmap;
+  QPixmap original_pixmap;
+  QPixmap new_pixmap;
 };
 
 #endif // MAINWINDOW_H

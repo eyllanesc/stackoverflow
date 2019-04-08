@@ -3,20 +3,20 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 #if defined(Q_OS_WIN)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-    QGuiApplication app(argc, argv);
+  QGuiApplication app(argc, argv);
 
-    qmlRegisterType<SerialPortManager>("com.MyApp.qml", 1, 0, "SerialPortManager");
+  qmlRegisterType<SerialPortManager>("com.MyApp.qml", 1, 0,
+                                     "SerialPortManager");
 
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+  QQmlApplicationEngine engine;
+  engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+  if (engine.rootObjects().isEmpty())
+    return -1;
 
-    return app.exec();
+  return app.exec();
 }

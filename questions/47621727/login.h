@@ -9,20 +9,19 @@ namespace Ui {
 class Login;
 }
 
-class Login : public QDialog
-{
-    Q_OBJECT
+class Login : public QDialog {
+  Q_OBJECT
 
 public:
-    explicit Login(QWidget *parent = 0);
-    ~Login();
+  explicit Login(QWidget *parent = 0);
+  ~Login();
 signals:
-    void accept(const User & user);
+  void accept(const User &user);
 private slots:
-    void on_buttonBox_accepted();
+  void on_buttonBox_accepted();
 
 private:
-    Ui::Login *ui;
+  Ui::Login *ui;
 };
 
 #endif // LOGIN_H

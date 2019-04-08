@@ -9,17 +9,16 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-    TutoWidget *tuto;
+  Ui::MainWindow *ui;
+  TutoWidget *tuto;
 };
 
 #endif // MAINWINDOW_H

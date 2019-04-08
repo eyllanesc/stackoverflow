@@ -3,11 +3,10 @@
 
 #include <QWidget>
 
-class Device : public QWidget
-{
-    Q_OBJECT
+class Device : public QWidget {
+  Q_OBJECT
 public:
-    explicit Device(QWidget *parent = nullptr);
+  explicit Device(QWidget *parent = nullptr);
 
 signals:
 

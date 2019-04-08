@@ -9,47 +9,47 @@ class DownloadManager;
 
 #define HOME_URL "http://www.lebbadi.fr"
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    WebPage *currentPage();
-    void askGoForward();
+  MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+  WebPage *currentPage();
+  void askGoForward();
 public slots:
-    void addTab();
-    void removeTab(int index);
-    DownloadManager *downloadManager();
-    void showToolBar();
-    void hideToolBar();
-    void askGoBack();
-    void checkForwardBack();
-    void askReload();
-    void askGoHome();
-    void askLoad(const QString & url="");
-    void changeUrlField(QString newText);
+  void addTab();
+  void removeTab(int index);
+  DownloadManager *downloadManager();
+  void showToolBar();
+  void hideToolBar();
+  void askGoBack();
+  void checkForwardBack();
+  void askReload();
+  void askGoHome();
+  void askLoad(const QString &url = "");
+  void changeUrlField(QString newText);
+
 private:
-    QTabWidget *m_tabs;
-    QAction *m_addTab;
-    QAction *m_deleteTab;
-    QAction *m_quit;
+  QTabWidget *m_tabs;
+  QAction *m_addTab;
+  QAction *m_deleteTab;
+  QAction *m_quit;
 
-    QToolBar *m_toolBar;
+  QToolBar *m_toolBar;
 
-    QAction *m_previousPage;
-    QAction *m_nextPage;
-    QAction *m_reload;
-    QAction *m_home;
-    QLineEdit *m_urlField;
-    QAction *m_load;
+  QAction *m_previousPage;
+  QAction *m_nextPage;
+  QAction *m_reload;
+  QAction *m_home;
+  QLineEdit *m_urlField;
+  QAction *m_load;
 
-    QAction *m_aboutMyChrome;
+  QAction *m_aboutMyChrome;
 
-    QProgressBar *m_progress;
-    QAction *m_aboutQt;
-    DownloadManager *m_downloadManager;
+  QProgressBar *m_progress;
+  QAction *m_aboutQt;
+  DownloadManager *m_downloadManager;
 };
 
 #endif // MAINWINDOW_H

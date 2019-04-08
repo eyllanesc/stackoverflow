@@ -10,20 +10,20 @@ class MainWindow;
 class QNetworkReply;
 class QNetworkAccessManager;
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 public slots:
-    void onResult(QNetworkReply *reply);
-private:
-    Ui::MainWindow *ui;
+  void onResult(QNetworkReply *reply);
 
-    QNetworkAccessManager *nam;
+private:
+  Ui::MainWindow *ui;
+
+  QNetworkAccessManager *nam;
 };
 
 #endif // MAINWINDOW_H

@@ -1,15 +1,14 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
 #include "backend.h"
 #include "custom_class.h"
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
 void register_Qml_types() {
   qmlRegisterType<Backend>("customApi", 1, 0, "Backend");
   qmlRegisterType<CustomClass>("customApi", 1, 0, "CustomClass");
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
   QGuiApplication app(argc, argv);
 
   register_Qml_types();

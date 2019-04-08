@@ -5,36 +5,30 @@
 
 #include <QDebug>
 
-class HelloWorldTestTest : public QObject
-{
-    Q_OBJECT
+class HelloWorldTestTest : public QObject {
+  Q_OBJECT
 
 public:
-    HelloWorldTestTest();
+  HelloWorldTestTest();
 
 private Q_SLOTS:
-    void testCase1_data();
-    void testCase1();
+  void testCase1_data();
+  void testCase1();
 };
 
-HelloWorldTestTest::HelloWorldTestTest()
-{
+HelloWorldTestTest::HelloWorldTestTest() {}
+
+void HelloWorldTestTest::testCase1_data() {
+  QTest::addColumn<QString>("data");
+  QTest::newRow("0") << QString();
 }
 
-void HelloWorldTestTest::testCase1_data()
-{
-    QTest::addColumn<QString>("data");
-    QTest::newRow("0") << QString();
-}
+void HelloWorldTestTest::testCase1() {
+  QFETCH(QString, data);
+  QVERIFY2(true, "Failure");
 
-void HelloWorldTestTest::testCase1()
-{
-    QFETCH(QString, data);
-    QVERIFY2(true, "Failure");
-
-    HelloWorldLib hw;
-    QVERIFY(hw.returnTrue());
-
+  HelloWorldLib hw;
+  QVERIFY(hw.returnTrue());
 }
 
 QTEST_APPLESS_MAIN(HelloWorldTestTest)

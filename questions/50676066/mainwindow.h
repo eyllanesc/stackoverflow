@@ -11,21 +11,20 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
-    bool eventFilter(QObject *watched, QEvent *event);
+  bool eventFilter(QObject *watched, QEvent *event);
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsScene *scene;
-    QGraphicsPixmapItem *player;
-    QGraphicsView *view;
+  Ui::MainWindow *ui;
+  QGraphicsScene *scene;
+  QGraphicsPixmapItem *player;
+  QGraphicsView *view;
 };
 
 #endif // MAINWINDOW_H

@@ -4,13 +4,12 @@
 
 #include <QDebug>
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication a(argc, argv);
+int main(int argc, char *argv[]) {
+  QCoreApplication a(argc, argv);
 
-    HttpController controller;
+  HttpController controller;
 
-    qDebug()<< controller.Get("http://doc.qt.io/qt-4.8/qtnetwork-module.html");
+  qDebug() << controller.Get("http://doc.qt.io/qt-4.8/qtnetwork-module.html");
 
-    return a.exec();
+  return a.exec();
 }

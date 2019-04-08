@@ -3,17 +3,18 @@
 
 #include <QGraphicsView>
 
-class GraphicsView : public QGraphicsView
-{
+class GraphicsView : public QGraphicsView {
 public:
-    GraphicsView(QWidget *parent=nullptr);
-    void setModifiers(const Qt::KeyboardModifiers &modifiers);
+  GraphicsView(QWidget *parent = nullptr);
+  void setModifiers(const Qt::KeyboardModifiers &modifiers);
+
 protected:
-    void wheelEvent(QWheelEvent *event) override;
+  void wheelEvent(QWheelEvent *event) override;
+
 private:
-    void applyZoom(double factor, const QPoint &fixedViewPos);
-    Qt::KeyboardModifiers m_modifiers;
-    const double base = 1.0015;
+  void applyZoom(double factor, const QPoint &fixedViewPos);
+  Qt::KeyboardModifiers m_modifiers;
+  const double base = 1.0015;
 };
 
 #endif // GRAPHICSVIEW_H

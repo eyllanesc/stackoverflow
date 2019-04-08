@@ -5,20 +5,19 @@
 
 class QLabel;
 
-class testsize : public QWidget
-{
-    Q_OBJECT
+class testsize : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit testsize(QWidget *parent = 0);
-    ~testsize();
+  explicit testsize(QWidget *parent = 0);
+  ~testsize();
 
 private:
-    QLabel *image;
-    QPixmap original_px;
+  QLabel *image;
+  QPixmap original_px;
 
 protected:
-    void resizeEvent(QResizeEvent *event);
+  void resizeEvent(QResizeEvent *event);
 };
 
 #endif // TESTSIZE_H

@@ -3,20 +3,12 @@
 
 #include <QDebug>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-    connect(ui->listWidget, SIGNAL(blankSpaceClicked()), this, SLOT(print()));
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainWindow) {
+  ui->setupUi(this);
+  connect(ui->listWidget, SIGNAL(blankSpaceClicked()), this, SLOT(print()));
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() { delete ui; }
 
-void MainWindow::print()
-{
-    qDebug()<<"blankSpaceClicked";
-}
+void MainWindow::print() { qDebug() << "blankSpaceClicked"; }

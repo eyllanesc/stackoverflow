@@ -3,29 +3,28 @@
 #include "userlistmodel.h"
 
 #include <QApplication>
-#include <QListView>
 #include <QDebug>
+#include <QListView>
 
-int main(int argc, char *argv[])
-{
-   QApplication a(argc, argv);
+int main(int argc, char *argv[]) {
+  QApplication a(argc, argv);
 
-   qRegisterMetaType<UserInfo>("UserInfo");
-   qDebug() << QMetaType::type("UserInfo");
+  qRegisterMetaType<UserInfo>("UserInfo");
+  qDebug() << QMetaType::type("UserInfo");
 
-   auto lm = new UserListModel();
-   lm->insertRows(0, 5);
+  auto lm = new UserListModel();
+  lm->insertRows(0, 5);
 
-   auto widget = new QListView();
-   widget->setModel(lm);
+  auto widget = new QListView();
+  widget->setModel(lm);
 
-   widget->setItemDelegate(new UserItemDelegate());
-   for(int i=0; i<5; i++){
-       widget->openPersistentEditor(lm->index(i, 0));
-   }
+  widget->setItemDelegate(new UserItemDelegate());
+  for (int i = 0; i < 5; i++) {
+    widget->openPersistentEditor(lm->index(i, 0));
+  }
 
-   widget->resize(500, 300);
-   widget->show();
+  widget->resize(500, 300);
+  widget->show();
 
-   return a.exec();
+  return a.exec();
 }

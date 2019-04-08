@@ -65,30 +65,36 @@
     connect to a database.
 */
 //! [0]
-static bool createConnection()
-{
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(":memory:");
-    if (!db.open()) {
-        QMessageBox::critical(nullptr, QObject::tr("Cannot open database"),
-            QObject::tr("Unable to establish a database connection.\n"
-                        "This example needs SQLite support. Please read "
-                        "the Qt SQL driver documentation for information how "
-                        "to build it.\n\n"
-                        "Click Cancel to exit."), QMessageBox::Cancel);
-        return false;
-    }
+static bool createConnection() {
+  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+  db.setDatabaseName(":memory:");
+  if (!db.open()) {
+    QMessageBox::critical(
+        nullptr, QObject::tr("Cannot open database"),
+        QObject::tr("Unable to establish a database connection.\n"
+                    "This example needs SQLite support. Please read "
+                    "the Qt SQL driver documentation for information how "
+                    "to build it.\n\n"
+                    "Click Cancel to exit."),
+        QMessageBox::Cancel);
+    return false;
+  }
 
-    QSqlQuery query;
-    query.exec("create table person (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-               "firstname VARCHAR(20), lastname VARCHAR(20))");
-    query.exec("insert into person(firstname, lastname) values('Danny', 'Young')");
-    query.exec("insert into person(firstname, lastname) values('Christine', 'Holand')");
-    query.exec("insert into person(firstname, lastname) values('Lars', 'Gordon')");
-    query.exec("insert into person(firstname, lastname) values('Roberto', 'Robitaille')");
-    query.exec("insert into person(firstname, lastname) values('Maria', 'Papadopoulos')");
+  QSqlQuery query;
+  query.exec("create table person (id INTEGER PRIMARY KEY AUTOINCREMENT, "
+             "firstname VARCHAR(20), lastname VARCHAR(20))");
+  query.exec(
+      "insert into person(firstname, lastname) values('Danny', 'Young')");
+  query.exec(
+      "insert into person(firstname, lastname) values('Christine', 'Holand')");
+  query.exec(
+      "insert into person(firstname, lastname) values('Lars', 'Gordon')");
+  query.exec("insert into person(firstname, lastname) values('Roberto', "
+             "'Robitaille')");
+  query.exec("insert into person(firstname, lastname) values('Maria', "
+             "'Papadopoulos')");
 
-    return true;
+  return true;
 }
 
 #endif

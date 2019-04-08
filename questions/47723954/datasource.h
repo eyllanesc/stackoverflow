@@ -30,9 +30,9 @@
 #ifndef DATASOURCE_H
 #define DATASOURCE_H
 
-#include <QtCore/QObject>
-#include <QtCharts/QAbstractSeries>
 #include <QXYSeries>
+#include <QtCharts/QAbstractSeries>
+#include <QtCore/QObject>
 class QTimer;
 
 QT_BEGIN_NAMESPACE
@@ -41,25 +41,24 @@ QT_END_NAMESPACE
 
 QT_CHARTS_USE_NAMESPACE
 
-class DataSource : public QObject
-{
-    Q_OBJECT
+class DataSource : public QObject {
+  Q_OBJECT
 public:
-    explicit DataSource(QQuickView *appViewer, QObject *parent = 0);
+  explicit DataSource(QQuickView *appViewer, QObject *parent = 0);
 
-    Q_INVOKABLE void setSeries(QAbstractSeries *series);
-    Q_INVOKABLE void setInterval(int interval);
+  Q_INVOKABLE void setSeries(QAbstractSeries *series);
+  Q_INVOKABLE void setInterval(int interval);
 
 public slots:
-    void generateData(int type, int rowCount, int colCount);
-    void update();
+  void generateData(int type, int rowCount, int colCount);
+  void update();
 
 private:
-    QQuickView *m_appViewer;
-    QList<QVector<QPointF> > m_data;
-    int m_index;
-    QXYSeries *mSeries;
-    QTimer *timer;
+  QQuickView *m_appViewer;
+  QList<QVector<QPointF>> m_data;
+  int m_index;
+  QXYSeries *mSeries;
+  QTimer *timer;
 };
 
 #endif // DATASOURCE_H

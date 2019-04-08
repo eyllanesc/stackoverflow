@@ -4,16 +4,15 @@
 #include <QGraphicsView>
 #include <QParallelAnimationGroup>
 
-class GraphicsView : public QGraphicsView
-{
-    Q_OBJECT
+class GraphicsView : public QGraphicsView {
+  Q_OBJECT
 public:
-    GraphicsView(QWidget *parent = Q_NULLPTR);
+  GraphicsView(QWidget *parent = Q_NULLPTR);
 
-    void closeEvent(QCloseEvent *event);
+  void closeEvent(QCloseEvent *event);
 
 private:
-    QParallelAnimationGroup *group;
+  QParallelAnimationGroup *group;
 };
 
 #endif // GRAPHICSVIEW_H

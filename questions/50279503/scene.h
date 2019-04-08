@@ -4,14 +4,14 @@
 #include <QGraphicsScene>
 class QGraphicsSceneDragDropEvent;
 
-class Scene: public QGraphicsScene{
+class Scene : public QGraphicsScene {
 public:
-    Scene(QObject *parent=nullptr);
-protected:
-    void dragEnterEvent(QGraphicsSceneDragDropEvent *event);
-    void dragMoveEvent(QGraphicsSceneDragDropEvent *event);
-    void dropEvent(QGraphicsSceneDragDropEvent *event);
-};
+  Scene(QObject *parent = nullptr);
 
+protected:
+  void dragEnterEvent(QGraphicsSceneDragDropEvent *event);
+  void dragMoveEvent(QGraphicsSceneDragDropEvent *event);
+  void dropEvent(QGraphicsSceneDragDropEvent *event);
+};
 
 #endif // SCENE_H

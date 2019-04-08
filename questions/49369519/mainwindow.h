@@ -9,23 +9,23 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    bool eventFilter(QObject *watched, QEvent *event);
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+  bool eventFilter(QObject *watched, QEvent *event);
+
 private:
-    void showCalendar();
-    Q_SLOT void onSelectedDate();
+  void showCalendar();
+  Q_SLOT void onSelectedDate();
 
-    QObject *dialog = Q_NULLPTR;
-    QQmlEngine *engine;
-    QQmlComponent *component;
+  QObject *dialog = Q_NULLPTR;
+  QQmlEngine *engine;
+  QQmlComponent *component;
 
-    Ui::MainWindow *ui;
+  Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

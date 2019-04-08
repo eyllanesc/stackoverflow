@@ -51,9 +51,9 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QWidget>
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QAbstractItemView;
@@ -71,79 +71,77 @@ class PlaylistModel;
 class HistogramWidget;
 class Slider;
 
-class Player : public QWidget
-{
-    Q_OBJECT
+class Player : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit Player(QWidget *parent = nullptr);
-    ~Player();
+  explicit Player(QWidget *parent = nullptr);
+  ~Player();
 
-    bool isPlayerAvailable() const;
+  bool isPlayerAvailable() const;
 
-    void addToPlaylist(const QList<QUrl> &urls);
+  void addToPlaylist(const QList<QUrl> &urls);
 
 signals:
-    void fullScreenChanged(bool fullScreen);
+  void fullScreenChanged(bool fullScreen);
 
 private slots:
-    void open();
-    void durationChanged(qint64 duration);
-    void positionChanged(qint64 progress);
-    void metaDataChanged();
+  void open();
+  void durationChanged(qint64 duration);
+  void positionChanged(qint64 progress);
+  void metaDataChanged();
 
-    void previousClicked();
+  void previousClicked();
 
-    void seek(int seconds);
-    void jump(const QModelIndex &index);
-    void playlistPositionChanged(int);
+  void seek(int seconds);
+  void jump(const QModelIndex &index);
+  void playlistPositionChanged(int);
 
-    void statusChanged(QMediaPlayer::MediaStatus status);
-    void stateChanged(QMediaPlayer::State state);
-    void bufferingProgress(int progress);
-    void videoAvailableChanged(bool available);
+  void statusChanged(QMediaPlayer::MediaStatus status);
+  void stateChanged(QMediaPlayer::State state);
+  void bufferingProgress(int progress);
+  void videoAvailableChanged(bool available);
 
-    void displayErrorMessage();
+  void displayErrorMessage();
 
-    void showColorDialog();
+  void showColorDialog();
 
 private:
-    void clearHistogram();
-    void setTrackInfo(const QString &info);
-    void setStatusInfo(const QString &info);
-    void handleCursor(QMediaPlayer::MediaStatus status);
-    void updateDurationInfo(qint64 currentInfo);
+  void clearHistogram();
+  void setTrackInfo(const QString &info);
+  void setStatusInfo(const QString &info);
+  void handleCursor(QMediaPlayer::MediaStatus status);
+  void updateDurationInfo(qint64 currentInfo);
 
-    QMediaPlayer *m_player = nullptr;
-    QMediaPlaylist *m_playlist = nullptr;
-    QVideoWidget *m_videoWidget = nullptr;
-    QLabel *m_coverLabel = nullptr;
-    Slider *m_slider = nullptr;
-    QLabel *m_labelDuration = nullptr;
-    QPushButton *m_fullScreenButton = nullptr;
-    QPushButton *m_colorButton = nullptr;
-    QDialog *m_colorDialog = nullptr;
+  QMediaPlayer *m_player = nullptr;
+  QMediaPlaylist *m_playlist = nullptr;
+  QVideoWidget *m_videoWidget = nullptr;
+  QLabel *m_coverLabel = nullptr;
+  Slider *m_slider = nullptr;
+  QLabel *m_labelDuration = nullptr;
+  QPushButton *m_fullScreenButton = nullptr;
+  QPushButton *m_colorButton = nullptr;
+  QDialog *m_colorDialog = nullptr;
 
-    QLabel *m_labelHistogram = nullptr;
-    HistogramWidget *m_videoHistogram = nullptr;
-    HistogramWidget *m_audioHistogram = nullptr;
-    QVideoProbe *m_videoProbe = nullptr;
-    QAudioProbe *m_audioProbe = nullptr;
+  QLabel *m_labelHistogram = nullptr;
+  HistogramWidget *m_videoHistogram = nullptr;
+  HistogramWidget *m_audioHistogram = nullptr;
+  QVideoProbe *m_videoProbe = nullptr;
+  QAudioProbe *m_audioProbe = nullptr;
 
-    PlaylistModel *m_playlistModel = nullptr;
-    QAbstractItemView *m_playlistView = nullptr;
-    QString m_trackInfo;
-    QString m_statusInfo;
-    qint64 m_duration;
+  PlaylistModel *m_playlistModel = nullptr;
+  QAbstractItemView *m_playlistView = nullptr;
+  QString m_trackInfo;
+  QString m_statusInfo;
+  qint64 m_duration;
 
-    QVideoWidget *video_preview;
-    QMediaPlayer *m_player_preview = nullptr;
-    QMediaPlaylist *m_playlist_preview;
+  QVideoWidget *video_preview;
+  QMediaPlayer *m_player_preview = nullptr;
+  QMediaPlaylist *m_playlist_preview;
 
-
-    // QWidget interface
+  // QWidget interface
 protected:
-    void mouseMoveEvent(QMouseEvent *event) override;
+  void mouseMoveEvent(QMouseEvent *event) override;
 };
 
 #endif // PLAYER_H

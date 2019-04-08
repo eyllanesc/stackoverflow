@@ -8,27 +8,26 @@
 #include <QTime>
 #include <QTimer>
 
-int main(int argc, char *argv[])
-{
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+int main(int argc, char *argv[]) {
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QGuiApplication app(argc, argv);
+  QGuiApplication app(argc, argv);
 
-    SampleManager manager;
-    manager.setModel(new SampleModel);
+  SampleManager manager;
+  manager.setModel(new SampleModel);
 
-    // test
-    QTimer timer;
-    QObject::connect(&timer, &QTimer::timeout, [&manager](){
-        manager.model()->appendSample(new Sample(QTime::currentTime().toString()));
-    });
-    timer.start(1000);
+  // test
+  QTimer timer;
+  QObject::connect(&timer, &QTimer::timeout, [&manager]() {
+    manager.model()->appendSample(new Sample(QTime::currentTime().toString()));
+  });
+  timer.start(1000);
 
-    QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("manager", &manager);
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+  QQmlApplicationEngine engine;
+  engine.rootContext()->setContextProperty("manager", &manager);
+  engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+  if (engine.rootObjects().isEmpty())
+    return -1;
 
-    return app.exec();
+  return app.exec();
 }

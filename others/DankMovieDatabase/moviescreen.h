@@ -9,29 +9,25 @@ namespace Ui {
 class MovieScreen;
 }
 
-class MovieScreen : public QWidget
-{
-    Q_OBJECT
+class MovieScreen : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit MovieScreen(QWidget *parent = 0);
-    ~MovieScreen();
+  explicit MovieScreen(QWidget *parent = 0);
+  ~MovieScreen();
 
-
-    QJsonObject getObject() const;
-    void setObject(const QJsonObject &value);
+  QJsonObject getObject() const;
+  void setObject(const QJsonObject &value);
 
 private slots:
-    void setPoster();
+  void setPoster();
 
 private:
+  Ui::MovieScreen *ui;
+  QJsonObject object;
+  QMovie *movie;
 
-    Ui::MovieScreen *ui;
-    QJsonObject object;
-    QMovie *movie;
-
-    void setInfo();
-
+  void setInfo();
 };
 
 #endif // MOVIESCREEN_H

@@ -51,12 +51,12 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
 
+#include <QDateTime>
 #include <QMessageBox>
 #include <QSqlDatabase>
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QVariant>
-#include <QDateTime>
 #include <QtMath>
 
 /*
@@ -68,34 +68,36 @@
     connect to a database.
 */
 //! [0]
-static bool createConnection()
-{
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName(":memory:");
-    if (!db.open()) {
-        QMessageBox::critical(nullptr, QObject::tr("Cannot open database"),
-            QObject::tr("Unable to establish a database connection.\n"
-                        "This example needs SQLite support. Please read "
-                        "the Qt SQL driver documentation for information how "
-                        "to build it.\n\n"
-                        "Click Cancel to exit."), QMessageBox::Cancel);
-        return false;
-    }
+static bool createConnection() {
+  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+  db.setDatabaseName(":memory:");
+  if (!db.open()) {
+    QMessageBox::critical(
+        nullptr, QObject::tr("Cannot open database"),
+        QObject::tr("Unable to establish a database connection.\n"
+                    "This example needs SQLite support. Please read "
+                    "the Qt SQL driver documentation for information how "
+                    "to build it.\n\n"
+                    "Click Cancel to exit."),
+        QMessageBox::Cancel);
+    return false;
+  }
 
-    QSqlQuery query;
-    query.exec("create table empdata (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-               "time DATETIME, temperature REAL)");
+  QSqlQuery query;
+  query.exec("create table empdata (id INTEGER PRIMARY KEY AUTOINCREMENT, "
+             "time DATETIME, temperature REAL)");
 
-    query.prepare("insert into empdata(time, temperature) values(datetime(?), ?)");
-    QDateTime datetime = QDateTime::currentDateTime();
+  query.prepare(
+      "insert into empdata(time, temperature) values(datetime(?), ?)");
+  QDateTime datetime = QDateTime::currentDateTime();
 
-    for(int i=0; i<100; i++){
-        datetime = datetime.addSecs(1);
-        query.addBindValue(QVariant(datetime.toString(Qt::ISODate)));
-        query.addBindValue(QVariant(100*qSin(M_PI*i/10)*qExp(-.05*i)));
-        query.exec();
-    }
-    return true;
+  for (int i = 0; i < 100; i++) {
+    datetime = datetime.addSecs(1);
+    query.addBindValue(QVariant(datetime.toString(Qt::ISODate)));
+    query.addBindValue(QVariant(100 * qSin(M_PI * i / 10) * qExp(-.05 * i)));
+    query.exec();
+  }
+  return true;
 }
 
 #endif

@@ -4,12 +4,12 @@
 
 #include <QLoggingCategory>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
 
-    QCoreApplication a(argc, argv);
-    QLoggingCategory::setFilterRules("*.debug=true");
+  QCoreApplication a(argc, argv);
+  QLoggingCategory::setFilterRules("*.debug=true");
 
-    SslServer *myTestServer = new SslServer();
+  SslServer *myTestServer = new SslServer();
 
-    return a.exec();
+  return a.exec();
 }

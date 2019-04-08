@@ -7,20 +7,19 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
 private slots:
-    void on_loadBtn_clicked();
+  void on_loadBtn_clicked();
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsScene *scene;
+  Ui::MainWindow *ui;
+  QGraphicsScene *scene;
 };
 
 #endif // MAINWINDOW_H

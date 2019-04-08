@@ -6,21 +6,20 @@
 #include <QTcpSocket>
 #include <QTimer>
 
-class SslServer : public QObject
-{
-    Q_OBJECT
+class SslServer : public QObject {
+  Q_OBJECT
 public:
-    explicit SslServer(QObject *parent = nullptr);
+  explicit SslServer(QObject *parent = nullptr);
 
 private slots:
-    void newTestConnection();
-    void sendTestdata();
-    void connectionWasClosed(QAbstractSocket::SocketState state);
+  void newTestConnection();
+  void sendTestdata();
+  void connectionWasClosed(QAbstractSocket::SocketState state);
 
 private:
-    QTcpServer *testServer;
-    QTcpSocket *testSocket;
-    QTimer *testTimer;
+  QTcpServer *testServer;
+  QTcpSocket *testSocket;
+  QTimer *testTimer;
 };
 
 #endif // SSLSERVER_H

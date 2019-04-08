@@ -1,53 +1,26 @@
 #include "assetitem.h"
 
-QString AssetItem::name() const
-{
-    return mName;
+QString AssetItem::name() const { return mName; }
+
+void AssetItem::setName(const QString &name) { mName = name; }
+
+QGeoCoordinate AssetItem::asset() const { return mAsset; }
+
+void AssetItem::setAsset(const QGeoCoordinate &asset) {
+
+  if (mAsset.isValid())
+    appendHistory(mAsset);
+  mAsset = asset;
 }
 
-void AssetItem::setName(const QString &name)
-{
-    mName = name;
-}
+void AssetItem::appendHistory(const QGeoCoordinate &value) { history << value; }
 
-QGeoCoordinate AssetItem::asset() const
-{
-    return mAsset;
-}
+QList<QGeoCoordinate> AssetItem::getHistory() const { return history; }
 
-void AssetItem::setAsset(const QGeoCoordinate &asset)
-{
+QColor AssetItem::getColor() const { return mColor; }
 
-    if(mAsset.isValid())
-        appendHistory(mAsset);
-     mAsset = asset;
-}
+void AssetItem::setColor(const QColor &color) { mColor = color; }
 
-void AssetItem::appendHistory(const QGeoCoordinate &value)
-{
-    history<< value;
-}
+int AssetItem::getAngle() const { return mAngle; }
 
-QList<QGeoCoordinate> AssetItem::getHistory() const{
-    return history;
-}
-
-QColor AssetItem::getColor() const
-{
-    return mColor;
-}
-
-void AssetItem::setColor(const QColor &color)
-{
-    mColor = color;
-}
-
-int AssetItem::getAngle() const
-{
-    return mAngle;
-}
-
-void AssetItem::setAngle(int angle)
-{
-    mAngle = angle;
-}
+void AssetItem::setAngle(int angle) { mAngle = angle; }

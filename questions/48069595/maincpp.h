@@ -5,22 +5,21 @@
 
 #include <QObject>
 
-class MainCpp : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(int someValue READ someValue NOTIFY someValueChanged)
+class MainCpp : public QObject {
+  Q_OBJECT
+  Q_PROPERTY(int someValue READ someValue NOTIFY someValueChanged)
 public:
-    explicit MainCpp(QObject *parent = nullptr);
+  explicit MainCpp(QObject *parent = nullptr);
 
-    int someValue(){return m_someValue;}
+  int someValue() { return m_someValue; }
 
-    Q_INVOKABLE void update(int var);
+  Q_INVOKABLE void update(int var);
 
 signals:
-    void someValueChanged();
+  void someValueChanged();
 
 private:
-    int    m_someValue;
+  int m_someValue;
 };
 
 #endif // MAINCPP_H

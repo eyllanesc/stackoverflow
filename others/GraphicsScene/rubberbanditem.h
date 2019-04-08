@@ -3,23 +3,19 @@
 
 #include <QGraphicsLineItem>
 
-class RubberBandItem : public QGraphicsLineItem
-{
+class RubberBandItem : public QGraphicsLineItem {
 public:
-    RubberBandItem(QGraphicsItem *parent=0);
+  RubberBandItem(QGraphicsItem *parent = 0);
 
+  QPointF p1() const;
+  void setP1(const QPointF &p1);
 
-    QPointF p1() const;
-    void setP1(const QPointF &p1);
-
-    QPointF p2() const;
-    void setP2(const QPointF &p2);
+  QPointF p2() const;
+  void setP2(const QPointF &p2);
 
 private:
-
-    QPointF mP1;
-    QPointF mP2;
-
+  QPointF mP1;
+  QPointF mP2;
 };
 
 #endif // RUBBERBANDITEM_H

@@ -1,12 +1,6 @@
 #include "test.h"
 #include <QDebug>
 
-test::test(QObject *parent) : QObject(parent)
-{
+test::test(QObject *parent) : QObject(parent) {}
 
-}
-
-void test::testFunc()
-{
-    qDebug() <<  "Hello from C++!";
-}
+void test::testFunc() { qDebug() << "Hello from C++!"; }

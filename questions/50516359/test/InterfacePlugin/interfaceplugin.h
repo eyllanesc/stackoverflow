@@ -5,18 +5,17 @@
 
 #include <QObject>
 
-class INTERFACEPLUGINSHARED_EXPORT Interface : public QObject
-{
-    Q_OBJECT
+class INTERFACEPLUGINSHARED_EXPORT Interface : public QObject {
+  Q_OBJECT
 public:
-    virtual ~Interface() {}
+  virtual ~Interface() {}
 
-    // Slot which should cause emission of `name` signal.
-    virtual void getName() = 0;
+  // Slot which should cause emission of `name` signal.
+  virtual void getName() = 0;
 
 signals:
-    // Signal to be emitted in getName()
-    void name(QString);
+  // Signal to be emitted in getName()
+  void name(QString);
 };
 
 #define InterfaceIID "interface"

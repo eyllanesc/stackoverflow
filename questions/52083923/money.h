@@ -6,37 +6,24 @@
 #include <QObject>
 
 class Money {
-    Q_GADGET
+  Q_GADGET
 
-    Q_PROPERTY(int amount READ getAmount CONSTANT)
-    Q_PROPERTY(Currency currency READ getCurrency CONSTANT)
+  Q_PROPERTY(int amount READ getAmount CONSTANT)
+  Q_PROPERTY(Currency currency READ getCurrency CONSTANT)
 
 public:
-    Money() :
-        Money(0, Currency())
-    {
+  Money() : Money(0, Currency()) {}
 
-    }
+  Money(int amount, const Currency &currency)
+      : amount(amount), currency(currency) {}
 
-    Money(int amount, const Currency& currency) :
-        amount(amount),
-        currency(currency)
-    {
+  int getAmount() { return this->amount; }
 
-    }
-
-
-    int getAmount() {
-        return this->amount;
-    }
-
-    Currency getCurrency() {
-        return this->currency;
-    }
+  Currency getCurrency() { return this->currency; }
 
 private:
-    int amount;
-    Currency currency;
+  int amount;
+  Currency currency;
 };
 
 #endif // MONEY_H

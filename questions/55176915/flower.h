@@ -3,12 +3,11 @@
 
 #include <QObject>
 
-class Flower : public QObject
-{
-    Q_OBJECT
+class Flower : public QObject {
+  Q_OBJECT
 public:
-    explicit Flower(QObject *parent = nullptr);
-    Q_SLOT void onClicked();
+  explicit Flower(QObject *parent = nullptr);
+  Q_SLOT void onClicked();
 };
 
 #endif // FLOWER_H

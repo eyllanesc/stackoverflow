@@ -19,103 +19,89 @@
 #include "pdfModel.h"
 #include "pageImageProvider.h"
 
-#include <poppler/qt5/poppler-qt5.h>
 #include <QDebug>
-#include <QQmlEngine>
 #include <QQmlContext>
+#include <QQmlEngine>
+#include <poppler/qt5/poppler-qt5.h>
 
-PdfModel::PdfModel(QQuickItem *parent):
-    QQuickItem(parent),
-    numPages(0),
-    loaded(false),
-    document(nullptr)
-{
+PdfModel::PdfModel(QQuickItem *parent)
+    : QQuickItem(parent), numPages(0), loaded(false), document(nullptr) {}
+
+void PdfModel::setPath(QString &pathName) {
+  if (pathName.isEmpty()) {
+    return;
+  }
+
+  this->path = pathName;
+
+  emit pathChanged(pathName);
+
+  loaded = false;
+  emit loadedChanged();
+
+  if (!loadDocument(pathName)) {
+    return;
+  }
+
+  loadProvider();
+
+  loaded = true;
+  emit loadedChanged();
 }
 
-void PdfModel::setPath(QString &pathName)
-{
-    if (pathName.isEmpty())
-    {
-        return;
-    }
+int PdfModel::loadDocument(QString &pathName) {
+  DEBUG << "Loading document...";
 
-    this->path = pathName;
+  if (pathName.isEmpty()) {
+    qWarning() << "Can't load the document, path is empty.";
+    return 0;
+  }
 
-    emit pathChanged(pathName);
+  this->document = Poppler::Document::load(pathName);
 
-    loaded = false;
-    emit loadedChanged();
+  if (!document || document->isLocked()) {
+    qWarning() << "ERROR : Can't open the document located at " + pathName;
+    emit error("Can't open the document located at " + pathName);
 
-    if ( !loadDocument(pathName) ) {
-        return;
-    }
+    delete document;
+    return 0;
+  }
 
-    loadProvider();
+  DEBUG << "Document loaded successfully !";
 
-    loaded = true;
-    emit loadedChanged();
+  document->setRenderHint(Poppler::Document::Antialiasing, true);
+  document->setRenderHint(Poppler::Document::TextAntialiasing, true);
+
+  if (numPages != document->numPages())
+    emit numPagesChanged(document->numPages());
+
+  return 1;
 }
 
-int PdfModel::loadDocument(QString &pathName)
-{
-    DEBUG << "Loading document...";
+int PdfModel::getNumPages() {
+  if (!document) {
+    return 0;
+  }
 
-    if (pathName.isEmpty()) {
-        qWarning() << "Can't load the document, path is empty.";
-        return 0;
-    }
+  numPages = document->numPages();
 
-    this->document = Poppler::Document::load(pathName);
-
-    if (!document || document->isLocked()) {
-        qWarning() << "ERROR : Can't open the document located at " + pathName;
-        emit error("Can't open the document located at " + pathName);
-
-        delete document;
-        return 0;
-    }
-
-    DEBUG << "Document loaded successfully !";
-
-    document->setRenderHint(Poppler::Document::Antialiasing, true);
-    document->setRenderHint(Poppler::Document::TextAntialiasing, true);
-
-    if (numPages != document->numPages())
-      emit numPagesChanged(document->numPages());
-
-    return 1;
+  return numPages;
 }
 
-int PdfModel::getNumPages()
-{
-    if (!document) {
-        return 0;
-    }
+bool PdfModel::getLoaded() const { return loaded; }
 
-    numPages = document->numPages();
+int PdfModel::loadProvider() {
+  DEBUG << "Loading image provider...";
+  QQmlEngine *engine = QQmlEngine::contextForObject(this)->engine();
 
-    return numPages;
+  engine->addImageProvider(QLatin1String("poppler"),
+                           new PageImageProvider(document));
+
+  DEBUG << "Image provider loaded successfully !";
+  return 1;
 }
 
-
-bool PdfModel::getLoaded() const
-{
-  return loaded;
-}
-
-int PdfModel::loadProvider()
-{
-    DEBUG << "Loading image provider...";
-    QQmlEngine *engine = QQmlEngine::contextForObject(this)->engine();
-
-    engine->addImageProvider(QLatin1String("poppler"), new PageImageProvider(document));
-
-    DEBUG << "Image provider loaded successfully !";
-    return 1;
-}
-
-PdfModel::~PdfModel()
-{
+PdfModel::~PdfModel() {
   if (document)
     delete document;
 }

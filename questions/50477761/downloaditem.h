@@ -8,25 +8,25 @@ class QLabel;
 class QAction;
 class QLabel;
 
-class DownloadItem : public QWidget
-{
-    Q_OBJECT
+class DownloadItem : public QWidget {
+  Q_OBJECT
 public:
-    explicit DownloadItem(QWebEngineDownloadItem *origin, QWidget *parent = nullptr);
+  explicit DownloadItem(QWebEngineDownloadItem *origin,
+                        QWidget *parent = nullptr);
 
 public slots:
-    void displayProgress(qint64 current, qint64 total);
-    void showContextMenu(QPoint pos);
-    void open();
-    void openInFiles();
-    void pauseRequest();
-    void displayState(QWebEngineDownloadItem::DownloadState state);
+  void displayProgress(qint64 current, qint64 total);
+  void showContextMenu(QPoint pos);
+  void open();
+  void openInFiles();
+  void pauseRequest();
+  void displayState(QWebEngineDownloadItem::DownloadState state);
 
 private:
-    QWebEngineDownloadItem *m_download;
-    QProgressBar *m_progress;
-    QAction *m_pause;
-    QLabel *m_state;
+  QWebEngineDownloadItem *m_download;
+  QProgressBar *m_progress;
+  QAction *m_pause;
+  QLabel *m_state;
 };
 
 #endif // DOWNLOADITEM_H

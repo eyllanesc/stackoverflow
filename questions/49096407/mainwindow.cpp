@@ -5,42 +5,36 @@
 #include <QTextEdit>
 #include <QVBoxLayout>
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-{
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
-    QMenuBar *menuBar = new QMenuBar(this);
-    setMenuBar(menuBar);
+  QMenuBar *menuBar = new QMenuBar(this);
+  setMenuBar(menuBar);
 
-    QMenu* fileMenu = new QMenu("&File", this);
-    menuBar->addMenu(fileMenu);
+  QMenu *fileMenu = new QMenu("&File", this);
+  menuBar->addMenu(fileMenu);
 
-    QAction *newTabAction = new QAction("&New Tab", this);
-    fileMenu->addAction(newTabAction);
-    connect(newTabAction, &QAction::triggered, this, &MainWindow::newTabActionHandler);
+  QAction *newTabAction = new QAction("&New Tab", this);
+  fileMenu->addAction(newTabAction);
+  connect(newTabAction, &QAction::triggered, this,
+          &MainWindow::newTabActionHandler);
 
-    tabWidget = new QTabWidget(this);
-    tabWidget->setMovable(true);
-    tabWidget->setTabsClosable(true);
-    newTabActionHandler();
+  tabWidget = new QTabWidget(this);
+  tabWidget->setMovable(true);
+  tabWidget->setTabsClosable(true);
+  newTabActionHandler();
 
-    setCentralWidget(tabWidget);
+  setCentralWidget(tabWidget);
 }
 
-void MainWindow::newTabActionHandler()
-{
-    QWidget *widget = new QWidget(this);
-    widgetList << widget;
-    tabWidget->addTab(widget, QString("Tab %1").arg(widgetList.size()-1));
+void MainWindow::newTabActionHandler() {
+  QWidget *widget = new QWidget(this);
+  widgetList << widget;
+  tabWidget->addTab(widget, QString("Tab %1").arg(widgetList.size() - 1));
 
-    QTextEdit *textEdit =  new QTextEdit;
-    textEditList << textEdit;
-    QVBoxLayout* vBoxLayout = new QVBoxLayout(widget);
-    vBoxLayout->addWidget(textEdit);
+  QTextEdit *textEdit = new QTextEdit;
+  textEditList << textEdit;
+  QVBoxLayout *vBoxLayout = new QVBoxLayout(widget);
+  vBoxLayout->addWidget(textEdit);
 }
 
-
-MainWindow::~MainWindow()
-{
-
-}
+MainWindow::~MainWindow() {}

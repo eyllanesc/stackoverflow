@@ -33,68 +33,48 @@
 
 QT_CHARTS_USE_NAMESPACE
 
-QChartsPlugin::QChartsPlugin(QObject *parent) :
-    QObject(parent)
-{
+QChartsPlugin::QChartsPlugin(QObject *parent) : QObject(parent) {}
+
+QChartsPlugin::~QChartsPlugin() {}
+
+QString QChartsPlugin::name() const {
+  return QStringLiteral("QtCharts::QChartView");
 }
 
-QChartsPlugin::~QChartsPlugin()
-{
-}
-
-QString QChartsPlugin::name() const
-{
-    return QStringLiteral("QtCharts::QChartView");
-}
-
-QString QChartsPlugin::includeFile() const
-{
+QString QChartsPlugin::includeFile() const {
 #ifdef linux
-    QString myNewLine = QStringLiteral("\n");
+  QString myNewLine = QStringLiteral("\n");
 #endif
 #ifdef WIN32
-    QString myNewLine = QStringLiteral("\n\r");
+  QString myNewLine = QStringLiteral("\n\r");
 #endif
 #ifdef __APPLE__
-    QString myNewLine = QStringLiteral("\n");
+  QString myNewLine = QStringLiteral("\n");
 #endif
-    return QStringLiteral("<QtCharts/QChartView>") + myNewLine
-            + QStringLiteral("#include <QtCharts/chartsnamespace.h>");
+  return QStringLiteral("<QtCharts/QChartView>") + myNewLine +
+         QStringLiteral("#include <QtCharts/chartsnamespace.h>");
 }
 
-QString QChartsPlugin::group() const
-{
-    return tr("Qt Charts Widgets");
+QString QChartsPlugin::group() const { return tr("Qt Charts Widgets"); }
+
+QIcon QChartsPlugin::icon() const {
+  return QIcon(QStringLiteral(":/images/qcharts.png"));
 }
 
-QIcon QChartsPlugin::icon() const
-{
-    return QIcon(QStringLiteral(":/images/qcharts.png"));
+QString QChartsPlugin::toolTip() const { return tr("A Qt Charts view widget"); }
+
+QString QChartsPlugin::whatsThis() const {
+  return tr("This widget is presents QChartView widget");
 }
 
-QString QChartsPlugin::toolTip() const
-{
-    return tr("A Qt Charts view widget");
+bool QChartsPlugin::isContainer() const { return false; }
+
+QWidget *QChartsPlugin::createWidget(QWidget *parent) {
+  return new QChartView(new QChart(), parent);
 }
 
-QString QChartsPlugin::whatsThis() const
-{
-    return tr("This widget is presents QChartView widget");
-}
-
-bool QChartsPlugin::isContainer() const
-{
-    return false;
-}
-
-QWidget *QChartsPlugin::createWidget(QWidget *parent)
-{
-    return new QChartView(new QChart(), parent);
-}
-
-QString QChartsPlugin::domXml() const
-{
-    return QStringLiteral("\
+QString QChartsPlugin::domXml() const {
+  return QStringLiteral("\
     <ui language=\"c++\">\
         <widget class=\"QtCharts::QChartView\" name=\"chartview\">\
             <property name=\"geometry\">\
@@ -108,4 +88,3 @@ QString QChartsPlugin::domXml() const
         </widget>\
     </ui>");
 }
-

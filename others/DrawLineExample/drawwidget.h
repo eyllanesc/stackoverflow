@@ -3,25 +3,23 @@
 
 #include <QWidget>
 
-class DrawWidget : public QWidget
-{
-    Q_OBJECT
+class DrawWidget : public QWidget {
+  Q_OBJECT
 public:
-    explicit DrawWidget(QWidget *parent = nullptr);
+  explicit DrawWidget(QWidget *parent = nullptr);
 
-    void addWidgets(const QWidget *from, const QWidget *to);
+  void addWidgets(const QWidget *from, const QWidget *to);
 
 protected:
-    void paintEvent(QPaintEvent *);
+  void paintEvent(QPaintEvent *);
 
 private:
-    struct WidgetsConnected {
-        const QWidget* from;
-        const QWidget* to;
-    };
+  struct WidgetsConnected {
+    const QWidget *from;
+    const QWidget *to;
+  };
 
-    QList<WidgetsConnected> list;
-
+  QList<WidgetsConnected> list;
 };
 
 #endif // DRAWWIDGET_H

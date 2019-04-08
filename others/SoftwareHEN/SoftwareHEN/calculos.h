@@ -2,11 +2,9 @@
 #define CALCULOS_H
 #include <QVector>
 
-
-class calculos
-{
+class calculos {
 public:
-    calculos();
+  calculos();
 };
 
 #endif // CALCULOS_H

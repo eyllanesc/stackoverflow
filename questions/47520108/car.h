@@ -5,19 +5,17 @@
 #include <iostream>
 using namespace std;
 
-class Car: public Vehicle {
+class Car : public Vehicle {
 public:
-    Car();
+  Car();
 
-    Car(TwoVector position, double velocity);
+  Car(TwoVector position, double velocity);
 
-    ~Car();
+  ~Car();
 
 private:
-
-    TwoVector fPositioncar;
-    double fVelocitycar;
-
+  TwoVector fPositioncar;
+  double fVelocitycar;
 };
 
 #endif // CAR_H

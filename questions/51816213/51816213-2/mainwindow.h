@@ -8,21 +8,20 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
-    void onManagerFinished(QNetworkReply *reply);
+  void on_pushButton_clicked();
+  void onManagerFinished(QNetworkReply *reply);
 
 private:
-    Ui::MainWindow *ui;
-    QNetworkAccessManager manager;
+  Ui::MainWindow *ui;
+  QNetworkAccessManager manager;
 };
 
 #endif // MAINWINDOW_H

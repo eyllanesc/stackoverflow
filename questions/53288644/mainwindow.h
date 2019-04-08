@@ -5,29 +5,28 @@
 #include <QThread>
 #include <QTimer>
 
-class Worker : public QObject
-{
-    Q_OBJECT
+class Worker : public QObject {
+  Q_OBJECT
 public:
-    Worker();
+  Worker();
+
 private:
-    QTimer t;
+  QTimer t;
 public slots:
-    void process();
-    void startWorker();
-    void stopProcess();
+  void process();
+  void startWorker();
+  void stopProcess();
 };
 
-
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+  MainWindow(QWidget *parent = nullptr);
+  ~MainWindow();
+
 private:
-    QThread workerThread;
-    Worker wt;
+  QThread workerThread;
+  Worker wt;
 };
 
 #endif // MAINWINDOW_H

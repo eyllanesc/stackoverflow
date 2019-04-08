@@ -1,39 +1,38 @@
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 
-#include <QDialog>
 #include <QColor>
+#include <QDialog>
 //#include "mainwindow.h"
 
 namespace Ui {
 class ColorPicker;
 }
 
-class ColorPicker : public QDialog
-{
-    Q_OBJECT
+class ColorPicker : public QDialog {
+  Q_OBJECT
 public:
-    explicit ColorPicker(QWidget *parent = 0);
-    ~ColorPicker();
+  explicit ColorPicker(QWidget *parent = 0);
+  ~ColorPicker();
 
-    QPalette palete;
+  QPalette palete;
 
-    QColor color() const;
+  QColor color() const;
 
 private slots:
-    void onColorChanged();
-    void onCMYKChanged();
+  void onColorChanged();
+  void onCMYKChanged();
 
 private:
-    Ui::ColorPicker *ui;
-    double min(double a,double b,double c);
+  Ui::ColorPicker *ui;
+  double min(double a, double b, double c);
 
-    QColor mColor;
-    double k,c,m,y;
-    int r,g,b;
+  QColor mColor;
+  double k, c, m, y;
+  int r, g, b;
 
 signals:
-    void colorChanged(QColor arg);
+  void colorChanged(QColor arg);
 };
 
 #endif // COLORPICKER_H

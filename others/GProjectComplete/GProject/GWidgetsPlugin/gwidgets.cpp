@@ -1,16 +1,12 @@
-#include "glineeditplugin.h"
 #include "gwidgets.h"
+#include "glineeditplugin.h"
 
-GWidgets::GWidgets(QObject *parent)
-    : QObject(parent)
-{
-    m_widgets.append(new GLineEditPlugin(this));
-
+GWidgets::GWidgets(QObject *parent) : QObject(parent) {
+  m_widgets.append(new GLineEditPlugin(this));
 }
 
-QList<QDesignerCustomWidgetInterface*> GWidgets::customWidgets() const
-{
-    return m_widgets;
+QList<QDesignerCustomWidgetInterface *> GWidgets::customWidgets() const {
+  return m_widgets;
 }
 
 #if QT_VERSION < 0x050000

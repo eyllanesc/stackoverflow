@@ -9,25 +9,24 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    bool eventFilter(QObject *watched, QEvent *event) override;
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+  bool eventFilter(QObject *watched, QEvent *event) override;
 public slots:
-    void rubberZoomAdapt(QPointF fp, QPointF tp);
+  void rubberZoomAdapt(QPointF fp, QPointF tp);
 
 signals:
-    void rubberBandChanged(QPointF fp, QPointF tp);
+  void rubberBandChanged(QPointF fp, QPointF tp);
 
 private:
-    Ui::MainWindow *ui;
-    QChartView* qcvChart;
-    QChart* chart;
-    QRubberBand *rubberBand;
+  Ui::MainWindow *ui;
+  QChartView *qcvChart;
+  QChart *chart;
+  QRubberBand *rubberBand;
 };
 
 #endif // MAINWINDOW_H

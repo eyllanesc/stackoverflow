@@ -3,12 +3,12 @@
 
 #include <QListWidget>
 
-class OptionList: public QListWidget{
+class OptionList : public QListWidget {
 public:
-    OptionList(QWidget* parent=nullptr);
+  OptionList(QWidget *parent = nullptr);
 
 protected:
-    void startDrag(Qt::DropActions supportedActions);
+  void startDrag(Qt::DropActions supportedActions);
 };
 
 #endif // OPTIONLIST_H

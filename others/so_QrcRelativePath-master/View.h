@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include <QMainWindow>
 
 #include <QVBoxLayout>
@@ -8,53 +7,46 @@
 
 #include <memory>
 
-namespace Ui
-{
+namespace Ui {
 
-class View
-{
+class View {
 public:
-    void setupUi(QMainWindow *aMainWindow)
-    {
-        aMainWindow->setFixedSize(520, 700);
+  void setupUi(QMainWindow *aMainWindow) {
+    aMainWindow->setFixedSize(520, 700);
 
-        centralwidget = new QWidget(aMainWindow);
-        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+    centralwidget = new QWidget(aMainWindow);
+    centralwidget->setObjectName(QStringLiteral("centralwidget"));
 
-        verticalLayout = new QVBoxLayout(centralwidget);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-    
-        webview = new QWebEngineView();
-        webview->setObjectName("webview");
+    verticalLayout = new QVBoxLayout(centralwidget);
+    verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+    verticalLayout->setContentsMargins(0, 0, 0, 0);
 
-        verticalLayout->addWidget(webview);
+    webview = new QWebEngineView();
+    webview->setObjectName("webview");
 
-        aMainWindow->setCentralWidget(centralwidget);
-    }
+    verticalLayout->addWidget(webview);
 
-    QWidget *centralwidget;
-    QVBoxLayout *verticalLayout;
-    QWebEngineView *webview;
+    aMainWindow->setCentralWidget(centralwidget);
+  }
+
+  QWidget *centralwidget;
+  QVBoxLayout *verticalLayout;
+  QWebEngineView *webview;
 };
 
 } // namespace Ui
 
-class View : public QMainWindow
-{
-    Q_OBJECT
+class View : public QMainWindow {
+  Q_OBJECT
 
 public:
-    View() :
-            mUi(new Ui::View)
-    {
-        mUi->setupUi(this);
-        mUi->webview->load(QUrl("qrc:/home.html"));
-    }
+  View() : mUi(new Ui::View) {
+    mUi->setupUi(this);
+    mUi->webview->load(QUrl("qrc:/home.html"));
+  }
 
-    ~View()
-    {}
+  ~View() {}
 
 private:
-    std::unique_ptr<Ui::View> mUi;
+  std::unique_ptr<Ui::View> mUi;
 };

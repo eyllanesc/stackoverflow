@@ -9,20 +9,21 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 private slots:
-    void Drive();
+  void Drive();
+
 protected:
-    void paintEvent(QPaintEvent *);
+  void paintEvent(QPaintEvent *);
+
 private:
-    Ui::MainWindow *ui;
-    Car *fCar;
+  Ui::MainWindow *ui;
+  Car *fCar;
 };
 
 #endif // MAINWINDOW_H

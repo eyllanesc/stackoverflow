@@ -1,6 +1,3 @@
 #include "doubleclickedwidget.h"
 
-DoubleClickedWidget::DoubleClickedWidget(QWidget *parent) : QWidget(parent)
-{
-
-}
+DoubleClickedWidget::DoubleClickedWidget(QWidget *parent) : QWidget(parent) {}

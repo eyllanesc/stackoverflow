@@ -9,22 +9,20 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+  Ui::MainWindow *ui;
 
-    DataExchange *de;
+  DataExchange *de;
 
 public slots:
-    void mySlot(bool value);
-
+  void mySlot(bool value);
 };
 
 #endif // MAINWINDOW_H

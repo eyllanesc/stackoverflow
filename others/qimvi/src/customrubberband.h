@@ -3,13 +3,12 @@
 
 #include <QRubberBand>
 
-class CustomRubberBand : public QRubberBand
-{
+class CustomRubberBand : public QRubberBand {
 public:
-    CustomRubberBand(Shape s, QWidget * p = 0);
+  CustomRubberBand(Shape s, QWidget *p = 0);
 
 protected:
-    void paintEvent(QPaintEvent *);
+  void paintEvent(QPaintEvent *);
 };
 
 #endif // CUSTOMRUBBERBAND_H

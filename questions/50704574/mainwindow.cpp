@@ -1,32 +1,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QGraphicsPixmapItem>
 #include "customrect.h"
 #include "myarrow.h"
+#include <QGraphicsPixmapItem>
 
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainWindow) {
+  scene = new QGraphicsScene(this);
+  view = new QGraphicsView(this);
+  view->setFixedSize(600, 500);
+  view->setScene(scene);
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
-    scene = new QGraphicsScene(this);
-    view = new QGraphicsView(this);
-    view->setFixedSize(600,500);
-    view->setScene(scene);
+  CustomRect *rect = new CustomRect(QRectF(50, 50, 100, 100));
+  scene->addItem(rect);
 
-    CustomRect *rect = new CustomRect(QRectF(50,50,100,100));
-    scene->addItem(rect);
+  MyArrow *arrow = new MyArrow(rect);
 
-    MyArrow *arrow = new MyArrow(rect);
-
-    rect->addLine(arrow);
-    scene->addItem(arrow);
-    rect->addLine(arrow);
+  rect->addLine(arrow);
+  scene->addItem(arrow);
+  rect->addLine(arrow);
 }
 
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() { delete ui; }

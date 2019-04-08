@@ -6,29 +6,29 @@
 #include <QStandardPaths>
 #include <QtWebView>
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 #if defined(Q_OS_WIN)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-    QGuiApplication app(argc, argv);
-    QtWebView::initialize();
+  QGuiApplication app(argc, argv);
+  QtWebView::initialize();
 
-    QQmlApplicationEngine engine;
+  QQmlApplicationEngine engine;
 
-    /*QString html;
-    QFile mFile(":/index.html");
+  /*QString html;
+  QFile mFile(":/index.html");
 
-    if(mFile.open(QFile::ReadOnly | QFile::Text)){
-        html = QString(mFile.readAll());
-    }
-    mFile.close();
-    engine.rootContext()->setContextProperty("htmlText", QVariant::fromValue(html));*/
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+  if(mFile.open(QFile::ReadOnly | QFile::Text)){
+      html = QString(mFile.readAll());
+  }
+  mFile.close();
+  engine.rootContext()->setContextProperty("htmlText",
+  QVariant::fromValue(html));*/
+  engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
-    if (engine.rootObjects().isEmpty())
-        return -1;
+  if (engine.rootObjects().isEmpty())
+    return -1;
 
-    return app.exec();
+  return app.exec();
 }

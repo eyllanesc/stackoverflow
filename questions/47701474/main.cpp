@@ -54,19 +54,18 @@
 #include "dragwidget.h"
 #include "glwidget.h"
 
-int main(int argc, char *argv[])
-{
-    Q_INIT_RESOURCE(draggableicons);
+int main(int argc, char *argv[]) {
+  Q_INIT_RESOURCE(draggableicons);
 
-    QApplication app(argc, argv);
+  QApplication app(argc, argv);
 
-    QWidget mainWidget;
-    QHBoxLayout *horizontalLayout = new QHBoxLayout(&mainWidget);
-    horizontalLayout->addWidget(new GLWidget);
-    horizontalLayout->addWidget(new DragWidget);
+  QWidget mainWidget;
+  QHBoxLayout *horizontalLayout = new QHBoxLayout(&mainWidget);
+  horizontalLayout->addWidget(new GLWidget);
+  horizontalLayout->addWidget(new DragWidget);
 
-    mainWidget.setWindowTitle(QObject::tr("Draggable Icons"));
-    mainWidget.show();
+  mainWidget.setWindowTitle(QObject::tr("Draggable Icons"));
+  mainWidget.show();
 
-    return app.exec();
+  return app.exec();
 }

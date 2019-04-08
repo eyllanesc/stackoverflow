@@ -3,11 +3,10 @@
 
 #include <QGraphicsScene>
 
-class GraphicsScene : public QGraphicsScene
-{
-    Q_OBJECT
+class GraphicsScene : public QGraphicsScene {
+  Q_OBJECT
 public:
-    GraphicsScene(QObject *parent=0);
+  GraphicsScene(QObject *parent = 0);
 };
 
 #endif // GRAPHICSSCENE_H

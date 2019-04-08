@@ -60,11 +60,11 @@ var FontInspector = (function FontInspectorClosure() {
   }
   return {
     // Properties/functions needed by PDFBug.
-    id: 'FontInspector',
-    name: 'Font Inspector',
-    panel: null,
-    manager: null,
-    init: function init(pdfjsLib) {
+    id : 'FontInspector',
+    name : 'Font Inspector',
+    panel : null,
+    manager : null,
+    init : function init(pdfjsLib) {
       var panel = this.panel;
       panel.setAttribute('style', 'padding: 5px;');
       var tmp = document.createElement('button');
@@ -75,13 +75,9 @@ var FontInspector = (function FontInspectorClosure() {
       fonts = document.createElement('div');
       panel.appendChild(fonts);
     },
-    cleanup: function cleanup() {
-      fonts.textContent = '';
-    },
-    enabled: false,
-    get active() {
-      return active;
-    },
+    cleanup : function cleanup() { fonts.textContent = ''; },
+    enabled : false,
+    get active() { return active; },
     set active(value) {
       active = value;
       if (active) {
@@ -93,7 +89,7 @@ var FontInspector = (function FontInspectorClosure() {
       }
     },
     // FontInspector specific functions.
-    fontAdded: function fontAdded(fontObj, url) {
+    fontAdded : function fontAdded(fontObj, url) {
       function properties(obj, list) {
         var moreInfo = document.createElement('table');
         for (var i = 0; i < list.length; i++) {
@@ -108,7 +104,7 @@ var FontInspector = (function FontInspectorClosure() {
         }
         return moreInfo;
       }
-      var moreInfo = properties(fontObj, ['name', 'type']);
+      var moreInfo = properties(fontObj, [ 'name', 'type' ]);
       var fontName = fontObj.loadedName;
       var font = document.createElement('div');
       var name = document.createElement('span');
@@ -118,9 +114,8 @@ var FontInspector = (function FontInspectorClosure() {
         url = /url\(['"]?([^\)"']+)/.exec(url);
         download.href = url[1];
       } else if (fontObj.data) {
-        url = URL.createObjectURL(new Blob([fontObj.data], {
-          type: fontObj.mimeType
-        }));
+        url = URL.createObjectURL(
+            new Blob([ fontObj.data ], {type : fontObj.mimeType}));
         download.href = url;
       }
       download.textContent = 'Download';
@@ -134,11 +129,10 @@ var FontInspector = (function FontInspectorClosure() {
       var select = document.createElement('input');
       select.setAttribute('type', 'checkbox');
       select.dataset.fontName = fontName;
-      select.addEventListener('click', (function(select, fontName) {
-        return (function() {
-           selectFont(fontName, select.checked);
-        });
-      })(select, fontName));
+      select.addEventListener(
+          'click', (function(select, fontName) {
+            return (function() { selectFont(fontName, select.checked); });
+          })(select, fontName));
       font.appendChild(select);
       font.appendChild(name);
       font.appendChild(document.createTextNode(' '));
@@ -169,18 +163,17 @@ var StepperManager = (function StepperManagerClosure() {
   var breakPoints = Object.create(null);
   return {
     // Properties/functions needed by PDFBug.
-    id: 'Stepper',
-    name: 'Stepper',
-    panel: null,
-    manager: null,
-    init: function init(pdfjsLib) {
+    id : 'Stepper',
+    name : 'Stepper',
+    panel : null,
+    manager : null,
+    init : function init(pdfjsLib) {
       var self = this;
       this.panel.setAttribute('style', 'padding: 5px;');
       stepperControls = document.createElement('div');
       stepperChooser = document.createElement('select');
-      stepperChooser.addEventListener('change', function(event) {
-        self.selectStepper(this.value);
-      });
+      stepperChooser.addEventListener(
+          'change', function(event) { self.selectStepper(this.value); });
       stepperControls.appendChild(stepperChooser);
       stepperDiv = document.createElement('div');
       this.panel.appendChild(stepperControls);
@@ -194,15 +187,15 @@ var StepperManager = (function StepperManagerClosure() {
         opMap[pdfjsLib.OPS[key]] = key;
       }
     },
-    cleanup: function cleanup() {
+    cleanup : function cleanup() {
       stepperChooser.textContent = '';
       stepperDiv.textContent = '';
       steppers = [];
     },
-    enabled: false,
-    active: false,
+    enabled : false,
+    active : false,
     // Stepper specific functions.
-    create: function create(pageIndex) {
+    create : function create(pageIndex) {
       var debug = document.createElement('div');
       debug.id = 'stepper' + pageIndex;
       debug.setAttribute('hidden', true);
@@ -220,7 +213,7 @@ var StepperManager = (function StepperManagerClosure() {
       }
       return stepper;
     },
-    selectStepper: function selectStepper(pageIndex, selectPanel) {
+    selectStepper : function selectStepper(pageIndex, selectPanel) {
       var i;
       pageIndex = pageIndex | 0;
       if (selectPanel) {
@@ -240,7 +233,7 @@ var StepperManager = (function StepperManagerClosure() {
         option.selected = (option.value | 0) === pageIndex;
       }
     },
-    saveBreakPoints: function saveBreakPoints(pageIndex, bps) {
+    saveBreakPoints : function saveBreakPoints(pageIndex, bps) {
       breakPoints[pageIndex] = bps;
       sessionStorage.setItem('pdfjsBreakPoints', JSON.stringify(breakPoints));
     }
@@ -261,8 +254,9 @@ var Stepper = (function StepperClosure() {
   function simplifyArgs(args) {
     if (typeof args === 'string') {
       var MAX_STRING_LENGTH = 75;
-      return args.length <= MAX_STRING_LENGTH ? args :
-        args.substr(0, MAX_STRING_LENGTH) + '...';
+      return args.length <= MAX_STRING_LENGTH
+                 ? args
+                 : args.substr(0, MAX_STRING_LENGTH) + '...';
     }
     if (typeof args !== 'object' || args === null) {
       return args;
@@ -295,7 +289,7 @@ var Stepper = (function StepperClosure() {
     this.operatorListIdx = 0;
   }
   Stepper.prototype = {
-    init: function init(operatorList) {
+    init : function init(operatorList) {
       var panel = this.panel;
       var content = c('div', 'c=continue, s=step');
       var table = c('table');
@@ -311,7 +305,7 @@ var Stepper = (function StepperClosure() {
       this.table = table;
       this.updateOperatorList(operatorList);
     },
-    updateOperatorList: function updateOperatorList(operatorList) {
+    updateOperatorList : function updateOperatorList(operatorList) {
       var self = this;
 
       function cboxOnClick() {
@@ -330,8 +324,8 @@ var Stepper = (function StepperClosure() {
       }
 
       var chunk = document.createDocumentFragment();
-      var operatorsToDisplay = Math.min(MAX_OPERATORS_COUNT,
-                                        operatorList.fnArray.length);
+      var operatorsToDisplay =
+          Math.min(MAX_OPERATORS_COUNT, operatorList.fnArray.length);
       for (var i = this.operatorListIdx; i < operatorsToDisplay; i++) {
         var line = c('tr');
         line.className = 'line';
@@ -372,7 +366,7 @@ var Stepper = (function StepperClosure() {
           if (str.length > 0) {
             newArgs.push(str.join(''));
           }
-          decArgs = [newArgs];
+          decArgs = [ newArgs ];
         }
         line.appendChild(c('td', fn));
         line.appendChild(c('td', JSON.stringify(simplifyArgs(decArgs))));
@@ -386,7 +380,7 @@ var Stepper = (function StepperClosure() {
       this.operatorListIdx = operatorList.fnArray.length;
       this.table.appendChild(chunk);
     },
-    getNextBreakPoint: function getNextBreakPoint() {
+    getNextBreakPoint : function getNextBreakPoint() {
       this.breakPoints.sort(function(a, b) { return a - b; });
       for (var i = 0; i < this.breakPoints.length; i++) {
         if (this.breakPoints[i] > this.currentIdx) {
@@ -395,32 +389,32 @@ var Stepper = (function StepperClosure() {
       }
       return null;
     },
-    breakIt: function breakIt(idx, callback) {
+    breakIt : function breakIt(idx, callback) {
       StepperManager.selectStepper(this.pageIndex, true);
       var self = this;
       var dom = document;
       self.currentIdx = idx;
       var listener = function(e) {
         switch (e.keyCode) {
-          case 83: // step
-            dom.removeEventListener('keydown', listener);
-            self.nextBreakPoint = self.currentIdx + 1;
-            self.goTo(-1);
-            callback();
-            break;
-          case 67: // continue
-            dom.removeEventListener('keydown', listener);
-            var breakPoint = self.getNextBreakPoint();
-            self.nextBreakPoint = breakPoint;
-            self.goTo(-1);
-            callback();
-            break;
+        case 83: // step
+          dom.removeEventListener('keydown', listener);
+          self.nextBreakPoint = self.currentIdx + 1;
+          self.goTo(-1);
+          callback();
+          break;
+        case 67: // continue
+          dom.removeEventListener('keydown', listener);
+          var breakPoint = self.getNextBreakPoint();
+          self.nextBreakPoint = breakPoint;
+          self.goTo(-1);
+          callback();
+          break;
         }
       };
       dom.addEventListener('keydown', listener);
       self.goTo(idx);
     },
-    goTo: function goTo(idx) {
+    goTo : function goTo(idx) {
       var allRows = this.panel.getElementsByClassName('line');
       for (var x = 0, xx = allRows.length; x < xx; ++x) {
         var row = allRows[x];
@@ -453,18 +447,18 @@ var Stats = (function Stats() {
   }
   return {
     // Properties/functions needed by PDFBug.
-    id: 'Stats',
-    name: 'Stats',
-    panel: null,
-    manager: null,
-    init: function init(pdfjsLib) {
+    id : 'Stats',
+    name : 'Stats',
+    panel : null,
+    manager : null,
+    init : function init(pdfjsLib) {
       this.panel.setAttribute('style', 'padding: 5px;');
       pdfjsLib.PDFJS.enableStats = true;
     },
-    enabled: false,
-    active: false,
+    enabled : false,
+    active : false,
     // Stats specific functions.
-    add: function(pageNumber, stat) {
+    add : function(pageNumber, stat) {
       if (!stat) {
         return;
       }
@@ -483,14 +477,14 @@ var Stats = (function Stats() {
       statsDiv.textContent = stat.toString();
       wrapper.appendChild(title);
       wrapper.appendChild(statsDiv);
-      stats.push({ pageNumber: pageNumber, div: wrapper });
+      stats.push({pageNumber : pageNumber, div : wrapper});
       stats.sort(function(a, b) { return a.pageNumber - b.pageNumber; });
       clear(this.panel);
       for (var i = 0, ii = stats.length; i < ii; ++i) {
         this.panel.appendChild(stats[i].div);
       }
     },
-    cleanup: function () {
+    cleanup : function() {
       stats = [];
       clear(this.panel);
     }
@@ -504,12 +498,8 @@ var PDFBug = (function PDFBugClosure() {
   var activePanel = null;
 
   return {
-    tools: [
-      FontInspector,
-      StepperManager,
-      Stats
-    ],
-    enable: function(ids) {
+    tools : [ FontInspector, StepperManager, Stats ],
+    enable : function(ids) {
       var all = false, tools = this.tools;
       if (ids.length === 1 && ids[0] === 'all') {
         all = true;
@@ -531,7 +521,7 @@ var PDFBug = (function PDFBugClosure() {
         });
       }
     },
-    init: function init(pdfjsLib, container) {
+    init : function init(pdfjsLib, container) {
       /*
        * Basic Layout:
        * PDFBug
@@ -564,11 +554,11 @@ var PDFBug = (function PDFBugClosure() {
         var panelButton = document.createElement('button');
         panelButton.textContent = tool.name;
         panelButton.addEventListener('click', (function(selected) {
-          return function(event) {
-            event.preventDefault();
-            self.selectPanel(selected);
-          };
-        })(i));
+                                       return function(event) {
+                                         event.preventDefault();
+                                         self.selectPanel(selected);
+                                       };
+                                     })(i));
         controls.appendChild(panelButton);
         panels.appendChild(panel);
         tool.panel = panel;
@@ -584,14 +574,14 @@ var PDFBug = (function PDFBugClosure() {
       }
       this.selectPanel(0);
     },
-    cleanup: function cleanup() {
+    cleanup : function cleanup() {
       for (var i = 0, ii = this.tools.length; i < ii; i++) {
         if (this.tools[i].enabled) {
           this.tools[i].cleanup();
         }
       }
     },
-    selectPanel: function selectPanel(index) {
+    selectPanel : function selectPanel(index) {
       if (typeof index !== 'number') {
         index = this.tools.indexOf(index);
       }

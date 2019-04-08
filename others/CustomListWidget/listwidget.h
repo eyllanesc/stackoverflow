@@ -3,18 +3,16 @@
 
 #include <QListWidget>
 
-class ListWidget : public QListWidget
-{
-    Q_OBJECT
+class ListWidget : public QListWidget {
+  Q_OBJECT
 public:
-    explicit ListWidget(QWidget *parent = 0);
+  explicit ListWidget(QWidget *parent = 0);
 
 signals:
-    void blankSpaceClicked();
+  void blankSpaceClicked();
 
 protected:
-    void mouseReleaseEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
-
+  void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 };
 
 #endif // LISTWIDGET_H

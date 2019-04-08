@@ -4,29 +4,27 @@
 #include <iostream>
 using namespace std;
 
-class Vehicle
-{
+class Vehicle {
 public:
-    Vehicle();
+  Vehicle();
 
-    Vehicle(TwoVector position, double velocity);
+  Vehicle(TwoVector position, double velocity);
 
-    ~Vehicle();
+  ~Vehicle();
 
-    inline TwoVector GetPosition() {return fPosition;}
+  inline TwoVector GetPosition() { return fPosition; }
 
-    inline double GetVelocity() {return fVelocity;}
+  inline double GetVelocity() { return fVelocity; }
 
-    inline void SetPosition(TwoVector position) {fPosition = position;}
+  inline void SetPosition(TwoVector position) { fPosition = position; }
 
-    void SetValue(string ValueName, double Value);
+  void SetValue(string ValueName, double Value);
 
-    void Drive(double velocity);
+  void Drive(double velocity);
 
 private:
-
-    TwoVector fPosition;
-    double fVelocity;
+  TwoVector fPosition;
+  double fVelocity;
 };
 
 #endif // VEHICLE_H

@@ -1,57 +1,54 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "graphicsscene.h"
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include "graphicsscene.h"
+#include <QMainWindow>
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
-    bool eventFilter(QObject *obj, QEvent *event);
+  bool eventFilter(QObject *obj, QEvent *event);
 
-    void eraseScreen(void);
+  void eraseScreen(void);
 
-    QTimer *timer;
-    QPointF mousePoint;
+  QTimer *timer;
+  QPointF mousePoint;
 
-    int Count;
+  int Count;
 
-//    GraphicsScene graphicsScene;
+  //    GraphicsScene graphicsScene;
 
 public slots:
-    void MyTimerSlot();
-    void onChangedMousePosition(QPointF mousePoint);
-    void onChangedNumber(int Number);
-
+  void MyTimerSlot();
+  void onChangedMousePosition(QPointF mousePoint);
+  void onChangedNumber(int Number);
 
 private slots:
-    void resizeEvent(QResizeEvent* event);
+  void resizeEvent(QResizeEvent *event);
 
-    void on_toolButtonDraw_clicked();
+  void on_toolButtonDraw_clicked();
 
-    void on_toolButtonErase_clicked();
+  void on_toolButtonErase_clicked();
 
-    void on_actionQuit_triggered();
+  void on_actionQuit_triggered();
 
 private:
-    Ui::MainWindow *ui;
-    GraphicsScene *scene;
+  Ui::MainWindow *ui;
+  GraphicsScene *scene;
 
-    int timerId;
+  int timerId;
 
 protected:
-
 };
 
 #endif // MAINWINDOW_H

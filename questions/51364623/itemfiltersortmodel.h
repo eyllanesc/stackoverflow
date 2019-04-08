@@ -3,35 +3,32 @@
 
 #include "item.h"
 
-#include <QSortFilterProxyModel>
 #include <QDebug>
+#include <QSortFilterProxyModel>
 
-class ItemFilterProxyModel : public QSortFilterProxyModel
-{
-    Q_OBJECT
-    Q_PROPERTY(Item* currentItem READ currentItem WRITE setCurrentItem NOTIFY currentItemChanged)
+class ItemFilterProxyModel : public QSortFilterProxyModel {
+  Q_OBJECT
+  Q_PROPERTY(Item *currentItem READ currentItem WRITE setCurrentItem NOTIFY
+                 currentItemChanged)
 public:
-    using QSortFilterProxyModel::QSortFilterProxyModel;
-    Item *currentItem() const
-    {
-        return mCurrentItem;
-    }
-    void setCurrentItem(Item *currentItem)
-    {
-        qDebug()<<currentItem->getVar();
-        if(mCurrentItem == currentItem)
-            return;
-        mCurrentItem = currentItem;
-        emit currentItemChanged();
-    }
-    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
-    {
-        return true;
-    }
+  using QSortFilterProxyModel::QSortFilterProxyModel;
+  Item *currentItem() const { return mCurrentItem; }
+  void setCurrentItem(Item *currentItem) {
+    qDebug() << currentItem->getVar();
+    if (mCurrentItem == currentItem)
+      return;
+    mCurrentItem = currentItem;
+    emit currentItemChanged();
+  }
+  bool filterAcceptsRow(int source_row,
+                        const QModelIndex &source_parent) const {
+    return true;
+  }
 signals:
-    void currentItemChanged();
+  void currentItemChanged();
+
 private:
-    Item *mCurrentItem;
+  Item *mCurrentItem;
 };
 
 #endif // FILTERPROXYMODEL_H

@@ -51,8 +51,8 @@
 #ifndef CODEEDITOR_H
 #define CODEEDITOR_H
 
-#include <QPlainTextEdit>
 #include <QObject>
+#include <QPlainTextEdit>
 
 QT_BEGIN_NAMESPACE
 class QPaintEvent;
@@ -63,57 +63,49 @@ QT_END_NAMESPACE
 
 class LineNumberArea;
 
-
-class CodeEditor : public QPlainTextEdit
-{
-    Q_OBJECT
+class CodeEditor : public QPlainTextEdit {
+  Q_OBJECT
 
 public:
-    CodeEditor(QWidget *parent = 0);
+  CodeEditor(QWidget *parent = 0);
 
-    void lineNumberAreaPaintEvent(QPaintEvent *event);
-    int lineNumberAreaWidth();
+  void lineNumberAreaPaintEvent(QPaintEvent *event);
+  int lineNumberAreaWidth();
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
+  void resizeEvent(QResizeEvent *event) override;
 
 private slots:
-    void updateLineNumberAreaWidth(int newBlockCount);
-    void highlightCurrentLine();
-    void updateLineNumberArea(const QRect &, int);
-    void onClicked(int h);
+  void updateLineNumberAreaWidth(int newBlockCount);
+  void highlightCurrentLine();
+  void updateLineNumberArea(const QRect &, int);
+  void onClicked(int h);
 
 private:
-    LineNumberArea *lineNumberArea;
-    QVector<int> breakpoints;
+  LineNumberArea *lineNumberArea;
+  QVector<int> breakpoints;
 };
 
-
-class LineNumberArea : public QWidget
-{
-    Q_OBJECT
+class LineNumberArea : public QWidget {
+  Q_OBJECT
 public:
-    LineNumberArea(CodeEditor *editor) : QWidget(editor) {
-        codeEditor = editor;
-    }
+  LineNumberArea(CodeEditor *editor) : QWidget(editor) { codeEditor = editor; }
 
-    QSize sizeHint() const override {
-        return QSize(codeEditor->lineNumberAreaWidth(), 0);
-    }
+  QSize sizeHint() const override {
+    return QSize(codeEditor->lineNumberAreaWidth(), 0);
+  }
 
 protected:
-    void paintEvent(QPaintEvent *event) override {
-        codeEditor->lineNumberAreaPaintEvent(event);
-    }
+  void paintEvent(QPaintEvent *event) override {
+    codeEditor->lineNumberAreaPaintEvent(event);
+  }
 
-    void mousePressEvent(QMouseEvent *event){
-        emit clicked(event->pos().y());
-    }
+  void mousePressEvent(QMouseEvent *event) { emit clicked(event->pos().y()); }
 signals:
-    void clicked(int y);
-private:
-    CodeEditor *codeEditor;
-};
+  void clicked(int y);
 
+private:
+  CodeEditor *codeEditor;
+};
 
 #endif

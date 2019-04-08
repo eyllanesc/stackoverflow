@@ -1,27 +1,28 @@
+#include "data.h"
+#include "mymodel.h"
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-#include "data.h"
-#include "mymodel.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 #if defined(Q_OS_WIN)
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
 
-    QGuiApplication app(argc, argv);
+  QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
-    qmlRegisterType<MyModel>("Model",1,0,"MyModel");
-    qmlRegisterUncreatableType<Data>("Model",1,0,"Data",QStringLiteral("Data should not be created in QML"));
+  QQmlApplicationEngine engine;
+  qmlRegisterType<MyModel>("Model", 1, 0, "MyModel");
+  qmlRegisterUncreatableType<Data>(
+      "Model", 1, 0, "Data",
+      QStringLiteral("Data should not be created in QML"));
 
-    Data data;
-    engine.rootContext()->setContextProperty(QStringLiteral("info"), &data);
+  Data data;
+  engine.rootContext()->setContextProperty(QStringLiteral("info"), &data);
 
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+  engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+  if (engine.rootObjects().isEmpty())
+    return -1;
 
-    return app.exec();
+  return app.exec();
 }

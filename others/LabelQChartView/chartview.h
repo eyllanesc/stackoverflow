@@ -1,23 +1,22 @@
 #ifndef CHARTVIEW_H
 #define CHARTVIEW_H
 
-#include <QtCharts>
 #include <QChartView>
+#include <QtCharts>
 
-class ChartView : public QChartView
-{
+class ChartView : public QChartView {
 public:
-    ChartView(QWidget *parent = Q_NULLPTR);
-    ChartView(QChart *chart, QWidget *parent = Q_NULLPTR);
+  ChartView(QWidget *parent = Q_NULLPTR);
+  ChartView(QChart *chart, QWidget *parent = Q_NULLPTR);
 
 protected:
-    void showEvent(QShowEvent * event);
-    void resizeEvent(QResizeEvent *event);
+  void showEvent(QShowEvent *event);
+  void resizeEvent(QResizeEvent *event);
 
-    QList<QGraphicsTextItem*> textItems;
+  QList<QGraphicsTextItem *> textItems;
 
 private:
-    void drawLabels();
+  void drawLabels();
 };
 
 #endif // CHARTVIEW_H

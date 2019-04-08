@@ -5,15 +5,15 @@
 
 #include <vector>
 
-class Library
-{
+class Library {
 public:
-    Library();
-    void addBook(const Book &book);
-    Book getBook(int index);
-    int numOfBooks();
+  Library();
+  void addBook(const Book &book);
+  Book getBook(int index);
+  int numOfBooks();
+
 private:
-    std::vector<Book> books;
+  std::vector<Book> books;
 };
 
 #endif // LIBRARY_H

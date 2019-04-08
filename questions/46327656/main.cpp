@@ -52,14 +52,12 @@
 
 #include "codeeditor.h"
 
-int main(int argv, char **args)
-{
-    QApplication app(argv, args);
+int main(int argv, char **args) {
+  QApplication app(argv, args);
 
-    CodeEditor editor;
-    editor.setWindowTitle(QObject::tr("Code Editor Example"));
-    editor.show();
+  CodeEditor editor;
+  editor.setWindowTitle(QObject::tr("Code Editor Example"));
+  editor.show();
 
-    return app.exec();
+  return app.exec();
 }
-

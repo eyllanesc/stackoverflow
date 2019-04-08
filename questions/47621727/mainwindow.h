@@ -9,24 +9,25 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 signals:
-    void Logout();
+  void Logout();
+
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-    void setUser(const User &user);
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+  void setUser(const User &user);
+
 protected:
-    void closeEvent(QCloseEvent *);
+  void closeEvent(QCloseEvent *);
 private slots:
-    void on_pushButton_clicked();
+  void on_pushButton_clicked();
 
 private:
-    Ui::MainWindow *ui;
-    User mUser;
+  Ui::MainWindow *ui;
+  User mUser;
 };
 
 #endif // MAINWINDOW_H

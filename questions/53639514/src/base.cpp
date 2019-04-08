@@ -1,12 +1,5 @@
 #include "base.h"
 
-Base::Base(QObject *parent) : QObject(parent)
-{
+Base::Base(QObject *parent) : QObject(parent) {}
 
-}
-
-QString Base::doStuff()
-{
-    return "Base";
-}
-
+QString Base::doStuff() { return "Base"; }

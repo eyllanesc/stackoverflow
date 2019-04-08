@@ -3,16 +3,15 @@
 
 #include <QGLWidget>
 
-class GLWidget : public QGLWidget
-{
+class GLWidget : public QGLWidget {
 public:
-    GLWidget(QWidget *parent=nullptr);
+  GLWidget(QWidget *parent = nullptr);
 
 protected:
-    void initializeGL();
-    void resizeGL(int w, int h);
-    void paintGL();
-    void mousePressEvent(QMouseEvent *event);
+  void initializeGL();
+  void resizeGL(int w, int h);
+  void paintGL();
+  void mousePressEvent(QMouseEvent *event);
 };
 
 #endif // GLWIDGET_H

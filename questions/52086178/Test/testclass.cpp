@@ -1,6 +1,3 @@
 #include "testclass.h"
 
-TestClass::TestClass(QWidget *parent) :
-    QWidget(parent)
-{
-}
+TestClass::TestClass(QWidget *parent) : QWidget(parent) {}

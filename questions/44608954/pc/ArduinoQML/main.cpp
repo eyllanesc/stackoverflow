@@ -4,17 +4,15 @@
 
 #include "serialport.h"
 
-int main(int argc, char *argv[])
-{
-    QGuiApplication app(argc, argv);
+int main(int argc, char *argv[]) {
+  QGuiApplication app(argc, argv);
 
-    QQmlApplicationEngine engine;
+  QQmlApplicationEngine engine;
 
-    qmlRegisterType<SerialPort>("SerialPortLib", 1, 0, "SerialPort");
+  qmlRegisterType<SerialPort>("SerialPortLib", 1, 0, "SerialPort");
 
-
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
-    return app.exec();
+  engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+  if (engine.rootObjects().isEmpty())
+    return -1;
+  return app.exec();
 }

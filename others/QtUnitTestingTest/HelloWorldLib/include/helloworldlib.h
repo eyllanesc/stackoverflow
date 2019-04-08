@@ -3,25 +3,15 @@
 
 #include <QDebug>
 
-class HelloWorldLib: public QObject
-{
-    Q_OBJECT
+class HelloWorldLib : public QObject {
+  Q_OBJECT
 
 public:
-    HelloWorldLib(){
-
-    }
-    static bool returnTrue()
-    {
-        return true;
-    }
+  HelloWorldLib() {}
+  static bool returnTrue() { return true; }
 
 public slots:
-    void someSlot()
-    {
-        qDebug() << "test";
-    }
-
+  void someSlot() { qDebug() << "test"; }
 };
 
 #endif // HELLOWORLDLIB_H

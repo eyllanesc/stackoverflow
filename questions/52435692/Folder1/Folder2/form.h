@@ -7,16 +7,15 @@ namespace Ui {
 class Form;
 }
 
-class Form : public QWidget
-{
-    Q_OBJECT
+class Form : public QWidget {
+  Q_OBJECT
 
 public:
-    explicit Form(QWidget *parent = nullptr);
-    ~Form();
+  explicit Form(QWidget *parent = nullptr);
+  ~Form();
 
 private:
-    Ui::Form *ui;
+  Ui::Form *ui;
 };
 
 #endif // FORM_H

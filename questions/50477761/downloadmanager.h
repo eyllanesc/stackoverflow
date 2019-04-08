@@ -1,21 +1,21 @@
 #ifndef DOWNLOADMANAGER_H
 #define DOWNLOADMANAGER_H
 
-#include <QWidget>
 #include <QVBoxLayout>
+#include <QWidget>
 class DownloadItem;
 class QWebEngineDownloadItem;
 
-class DownloadManager : public QWidget
-{
-    Q_OBJECT
+class DownloadManager : public QWidget {
+  Q_OBJECT
 public:
-    explicit DownloadManager(QWidget *parent = nullptr);
+  explicit DownloadManager(QWidget *parent = nullptr);
 
 public slots:
-    void downloadItem(QWebEngineDownloadItem *download);
+  void downloadItem(QWebEngineDownloadItem *download);
+
 private:
-    QList<DownloadItem *> m_downloads;
+  QList<DownloadItem *> m_downloads;
 };
 
 #endif // DOWNLOADMANAGER_H

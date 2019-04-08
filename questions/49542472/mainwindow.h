@@ -8,21 +8,21 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 protected:
-    void resizeEvent(QResizeEvent *event) override;
-    void showEvent(QShowEvent *event) override;
+  void resizeEvent(QResizeEvent *event) override;
+  void showEvent(QShowEvent *event) override;
+
 private:
-    void moveButtonFromCoord();
-    Ui::MainWindow *ui;
-    QPushButton *button;
+  void moveButtonFromCoord();
+  Ui::MainWindow *ui;
+  QPushButton *button;
 };
 
 #endif // MAINWINDOW_H

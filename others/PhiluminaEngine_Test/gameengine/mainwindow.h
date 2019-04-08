@@ -11,25 +11,24 @@ class MainWindow;
  * @brief
  *
  */
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    /**
-     * @brief
-     *
-     * @param parent
-     */
-    explicit MainWindow(QWidget *parent = 0);
-    /**
-     * @brief
-     *
-     */
-    ~MainWindow();
+  /**
+   * @brief
+   *
+   * @param parent
+   */
+  explicit MainWindow(QWidget *parent = 0);
+  /**
+   * @brief
+   *
+   */
+  ~MainWindow();
 
 private:
-    Ui::MainWindow *ui; /**< TODO: describe */
+  Ui::MainWindow *ui; /**< TODO: describe */
 };
 
 #endif // MAINWINDOW_H

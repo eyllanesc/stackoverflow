@@ -6,12 +6,13 @@
 class QLabel;
 class GraphicsProxyWidget;
 
-class DiagramItem: public QGraphicsPolygonItem{
-    QLabel *label;
-    GraphicsProxyWidget *pMyProxy ;
+class DiagramItem : public QGraphicsPolygonItem {
+  QLabel *label;
+  GraphicsProxyWidget *pMyProxy;
+
 public:
-    explicit DiagramItem(QGraphicsItem *parent=nullptr);
-    void setText(const QString & text);
+  explicit DiagramItem(QGraphicsItem *parent = nullptr);
+  void setText(const QString &text);
 };
 
 #endif // QGRAPHICSPOLYGONITEM_H

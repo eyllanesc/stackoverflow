@@ -2,16 +2,13 @@
 #define MYCOMBOBOX_H
 #include <QComboBox>
 
-class MyComboBox:public QComboBox
-{
-    Q_OBJECT
+class MyComboBox : public QComboBox {
+  Q_OBJECT
 public:
-    MyComboBox(QWidget* parent=nullptr):QComboBox(parent)
-    {
-        addItem("My ComboBox");
-    }
+  MyComboBox(QWidget *parent = nullptr) : QComboBox(parent) {
+    addItem("My ComboBox");
+  }
 
-    virtual ~MyComboBox() {}
-
+  virtual ~MyComboBox() {}
 };
 #endif // MYCOMBOBOX_H

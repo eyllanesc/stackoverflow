@@ -1,22 +1,21 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
-#include <vector>
-#include <QString>
 #include "book.h"
+#include <QString>
+#include <vector>
 
 using namespace std;
 
-class library
-{
+class library {
 public:
-    library();
+  library();
 
-    void addBook(const book & b);
-    book getBook(int index);
-    int numOfBooks();
+  void addBook(const book &b);
+  book getBook(int index);
+  int numOfBooks();
 
 private:
-    vector<book> arr;
+  vector<book> arr;
 };
 
 #endif // LIBRARY_H

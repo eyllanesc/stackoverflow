@@ -6,8 +6,8 @@
 #include <vector>
 
 namespace DrawApp {
-    std::vector<QPoint>
-    floodFill(QImage* image, const QPoint& pos, const QRgb& newColor);
+std::vector<QPoint> floodFill(QImage *image, const QPoint &pos,
+                              const QRgb &newColor);
 }
 
 #endif

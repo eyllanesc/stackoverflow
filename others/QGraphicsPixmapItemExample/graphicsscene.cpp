@@ -2,8 +2,6 @@
 
 #include <QGraphicsSceneMouseEvent>
 
-GraphicsScene::GraphicsScene(QObject *parent):QGraphicsScene(parent)
-{
-    setBackgroundBrush(Qt::gray);
-
+GraphicsScene::GraphicsScene(QObject *parent) : QGraphicsScene(parent) {
+  setBackgroundBrush(Qt::gray);
 }

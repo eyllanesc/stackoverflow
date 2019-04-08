@@ -4,14 +4,14 @@
 #include <QLabel>
 #include <QWidget>
 
-class PopUp : public QWidget
-{
-    Q_OBJECT
+class PopUp : public QWidget {
+  Q_OBJECT
 public:
-    explicit PopUp(QWidget *parent = nullptr);
+  explicit PopUp(QWidget *parent = nullptr);
+
 protected:
-    void paintEvent(QPaintEvent *);
-    QLabel *label;
+  void paintEvent(QPaintEvent *);
+  QLabel *label;
 };
 
 #endif // POPUP_H

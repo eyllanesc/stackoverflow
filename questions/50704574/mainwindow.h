@@ -1,37 +1,34 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include <QApplication>
+#include <QBoxLayout>
+#include <QGraphicsItem>
+#include <QGraphicsProxyWidget>
+#include <QGraphicsRectItem>
 #include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QGraphicsItem>
-#include <QGraphicsRectItem>
-#include <QApplication>
-#include <QGraphicsProxyWidget>
 #include <QLabel>
+#include <QMainWindow>
 #include <QTimer>
 #include <QWidget>
-#include <QBoxLayout>
 
 namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-
-
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsScene *scene;
-    QGraphicsView *view;
-    QGraphicsRectItem *boundRec;
+  Ui::MainWindow *ui;
+  QGraphicsScene *scene;
+  QGraphicsView *view;
+  QGraphicsRectItem *boundRec;
 };
 
 #endif // MAINWINDOW_H

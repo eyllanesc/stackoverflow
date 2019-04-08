@@ -56,17 +56,16 @@
 
 #include "event.h"
 
-class SqlEventModel : public QObject
-{
-    Q_OBJECT
+class SqlEventModel : public QObject {
+  Q_OBJECT
 
 public:
-    SqlEventModel();
+  SqlEventModel();
 
-    Q_INVOKABLE QList<QObject*> eventsForDate(const QDate &date);
+  Q_INVOKABLE QList<QObject *> eventsForDate(const QDate &date);
 
 private:
-    static void createConnection();
+  static void createConnection();
 };
 
 #endif

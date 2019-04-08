@@ -4,68 +4,69 @@
 #include "shape.h"
 
 #include <QImage>
-#include <QWidget>
 #include <QUndoCommand>
+#include <QWidget>
 
 #include <memory>
 #include <vector>
 
 namespace DrawApp {
-    class DrawCommand : public QUndoCommand {
-        QWidget* _drawArea;
-        QImage* _image;
-        QImage _undoImage;
-        std::unique_ptr<Shape> _shape;
-    public:
-        explicit DrawCommand(QWidget*, QImage*, std::unique_ptr<Shape>&&);
+class DrawCommand : public QUndoCommand {
+  QWidget *_drawArea;
+  QImage *_image;
+  QImage _undoImage;
+  std::unique_ptr<Shape> _shape;
 
-        virtual void undo() override;
-        virtual void redo() override;
-    };
-    class FlipCommand : public QUndoCommand {
-    public:
-        explicit FlipCommand(QWidget*, QImage*, bool, bool);
+public:
+  explicit DrawCommand(QWidget *, QImage *, std::unique_ptr<Shape> &&);
 
-        virtual void undo() override;
-        virtual void redo() override;
+  virtual void undo() override;
+  virtual void redo() override;
+};
+class FlipCommand : public QUndoCommand {
+public:
+  explicit FlipCommand(QWidget *, QImage *, bool, bool);
 
-    private:
-        QWidget* _drawArea;
-        QImage* _image;
+  virtual void undo() override;
+  virtual void redo() override;
 
-        bool _horizontal, _vertical;
-    };
-    class ResizeCommand : public QUndoCommand {
-    public:
-        explicit ResizeCommand(QWidget*, QImage*, const QSize&);
+private:
+  QWidget *_drawArea;
+  QImage *_image;
 
-        virtual int id() const override;
-        virtual bool mergeWith(const QUndoCommand*) override;
+  bool _horizontal, _vertical;
+};
+class ResizeCommand : public QUndoCommand {
+public:
+  explicit ResizeCommand(QWidget *, QImage *, const QSize &);
 
-        virtual void undo() override;
-        virtual void redo() override;
+  virtual int id() const override;
+  virtual bool mergeWith(const QUndoCommand *) override;
 
-    private:
-        QWidget* _drawArea;
-        QImage* _image;
+  virtual void undo() override;
+  virtual void redo() override;
 
-        QSize _oldSize, _newSize;
-    };
-    class RotateCommand : public QUndoCommand {
-    public:
-        explicit RotateCommand(QWidget*, QImage*, qreal);
+private:
+  QWidget *_drawArea;
+  QImage *_image;
 
-        virtual void undo() override;
-        virtual void redo() override;
+  QSize _oldSize, _newSize;
+};
+class RotateCommand : public QUndoCommand {
+public:
+  explicit RotateCommand(QWidget *, QImage *, qreal);
 
-    private:
-        void rotate(qreal);
+  virtual void undo() override;
+  virtual void redo() override;
 
-        QWidget* _drawArea;
-        QImage* _image;
+private:
+  void rotate(qreal);
 
-        qreal _deg;
-    };
-}
+  QWidget *_drawArea;
+  QImage *_image;
+
+  qreal _deg;
+};
+} // namespace DrawApp
 
 #endif

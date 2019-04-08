@@ -9,18 +9,17 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
+class MainWindow : public QMainWindow {
+  Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+  explicit MainWindow(QWidget *parent = 0);
+  ~MainWindow();
 private slots:
-    void onRightClicked();
+  void onRightClicked();
 
 private:
-    QVector<MyButton *> mButtons;
+  QVector<MyButton *> mButtons;
 };
 
 #endif // MAINWINDOW_H

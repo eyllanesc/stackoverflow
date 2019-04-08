@@ -3,16 +3,16 @@
 
 #include <QWidget>
 
-class TestClass : public QWidget
-{
-    Q_OBJECT
-    Q_PROPERTY(QColor color MEMBER m_color NOTIFY colorChanged)
+class TestClass : public QWidget {
+  Q_OBJECT
+  Q_PROPERTY(QColor color MEMBER m_color NOTIFY colorChanged)
 public:
-    TestClass(QWidget *parent = nullptr);
+  TestClass(QWidget *parent = nullptr);
 signals:
-    void colorChanged();
+  void colorChanged();
+
 private:
-    QColor m_color;
+  QColor m_color;
 };
 
 #endif

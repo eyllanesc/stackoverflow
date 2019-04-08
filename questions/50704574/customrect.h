@@ -5,16 +5,15 @@
 
 class MyArrow;
 
-class CustomRect : public QGraphicsRectItem
-{
+class CustomRect : public QGraphicsRectItem {
 public:
-    CustomRect (const QRectF& rect);
-    void addLine(MyArrow *line);
-    QVariant itemChange(GraphicsItemChange change, const QVariant &value);
+  CustomRect(const QRectF &rect);
+  void addLine(MyArrow *line);
+  QVariant itemChange(GraphicsItemChange change, const QVariant &value);
 
-    void moveLineToCenter(QPointF newPos);
+  void moveLineToCenter(QPointF newPos);
 
 private:
-    QList<MyArrow *> arrows;
+  QList<MyArrow *> arrows;
 };
 #endif // CUSTOMRECT_H

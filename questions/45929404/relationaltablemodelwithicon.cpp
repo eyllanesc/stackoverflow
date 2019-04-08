@@ -1,6 +1,3 @@
 #include "relationaltablemodelwithicon.h"
 
-RelationalTableModelWithIcon::RelationalTableModelWithIcon()
-{
-
-}
+RelationalTableModelWithIcon::RelationalTableModelWithIcon() {}
