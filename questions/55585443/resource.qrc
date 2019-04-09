@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Roboto/Roboto-Black.ttf</file>
+        <file>Roboto/Roboto-BlackItalic.ttf</file>
+        <file>Roboto/Roboto-Bold.ttf</file>
+        <file>Roboto/Roboto-BoldItalic.ttf</file>
+        <file>Roboto/Roboto-Italic.ttf</file>
+        <file>Roboto/Roboto-Light.ttf</file>
+        <file>Roboto/Roboto-LightItalic.ttf</file>
+        <file>Roboto/Roboto-Medium.ttf</file>
+        <file>Roboto/Roboto-MediumItalic.ttf</file>
+        <file>Roboto/Roboto-Regular.ttf</file>
+        <file>Roboto/Roboto-Thin.ttf</file>
+        <file>Roboto/Roboto-ThinItalic.ttf</file>
+    </qresource>
+</RCC>
