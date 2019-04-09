@@ -14,16 +14,10 @@ class ShortcutCollection: public QObject
 public:
     ShortcutCollection(QObject *parent=nullptr);
     QQmlListProperty<ShortcutItem> items();
-    void appendItem(ShortcutItem*);
     int itemsCount() const;
     ShortcutItem *item(int) const;
-    void clearItems();
 private:
-    static void appendItem(QQmlListProperty<ShortcutItem>*, ShortcutItem*);
-    static int itemsCount(QQmlListProperty<ShortcutItem>*);
-    static ShortcutItem* item(QQmlListProperty<ShortcutItem>*, int);
-    static void clearItems(QQmlListProperty<ShortcutItem>*);
-    QVector<ShortcutItem*> m_items;
+    QList<ShortcutItem*> m_items;
 };
 
 #endif // SHORTCUTCOLLECTION_H
