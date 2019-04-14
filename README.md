@@ -12,3 +12,8 @@ Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/ma
 If this project help you reduce time to develop, you can give me a cup of :coffee: :smile:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/eyllanesc)
+
+[![GitHub forks](https://img.shields.io/github/forks/eyllanesc/stackoverflow.svg?style=social&label=Fork)](https://github.com/eyllanesc/stackoverflow)
+[![GitHub stars](https://img.shields.io/github/stars/eyllanesc/stackoverflow.svg?style=social&label=Star)](https://github.com/eyllanesc/stackoverflow)
+[![GitHub watchers](https://img.shields.io/github/watchers/eyllanesc/stackoverflow.svg?style=social&label=Watch)](https://github.com/eyllanesc/stackoverflow)
+[![GitHub followers](https://img.shields.io/github/followers/eyllanesc.svg?style=social&label=Follow)](https://github.com/eyllanesc/stackoverflow)
