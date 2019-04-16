@@ -120,6 +120,5 @@ if __name__ == "__main__":
 
     app = QtGui.QApplication(sys.argv)
     w = MaterialCheckBox()
-    w.resize(640, 480)
     w.show()
     sys.exit(app.exec_())
