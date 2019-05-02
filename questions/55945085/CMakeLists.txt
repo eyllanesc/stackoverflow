@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.5)
+project(pybind-qt-example)
+find_package(pybind11)
+pybind11_add_module(pyslam slam.cpp)
+message("${pybind11_VERSION}")
+message("${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}")
