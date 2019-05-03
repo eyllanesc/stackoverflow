@@ -12,7 +12,7 @@ MyComboBox::MyComboBox( QWidget *p_parent ) :
 {
     setEditable( true );
 
-    m_sourceModel->setCompleterData( createTestData() );
+    //m_sourceModel->setCompleterData( createTestData() );
     m_proxyModel->setSourceModel(m_sourceModel);
     setModel( m_proxyModel );
     // setModel(m_sourceModel);
@@ -22,7 +22,7 @@ MyComboBox::MyComboBox( QWidget *p_parent ) :
 
 void MyComboBox::setDataForCompleter( const CompleterData &p_data )
    {
-      if ( !p_data.data().isEmpty() )
+      if ( !p_data.data().isEmpty() )  // this may not relate to the problem
       {
          setProperty( "hasData", true );
       }
