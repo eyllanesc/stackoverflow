@@ -20,6 +20,15 @@ MyComboBox::MyComboBox( QWidget *p_parent ) :
     m_view->setSortingEnabled(true);
 }
 
+void MyComboBox::setDataForCompleter( const CompleterData &p_data )
+   {
+      if ( !p_data.data().isEmpty() )
+      {
+         setProperty( "hasData", true );
+      }
+      m_sourceModel->setCompleterData( p_data );
+   }
+
 CompleterData MyComboBox::createTestData()
 {
     CompleterData data;
