@@ -14,6 +14,7 @@ class MyComboBox : public QComboBox
 public:
     MyComboBox( QWidget *p_parent = nullptr );
     CompleterData createTestData();
+    void setDataForCompleter(const CompleterData &p_data);
 
 private:
     QTreeView *m_view = nullptr;
