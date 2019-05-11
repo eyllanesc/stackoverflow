@@ -675,7 +675,7 @@
 			- [ ] 5_edit
 			- [ ] 6_treeview
 			- [ ] 7_selections
-		- [] notepad
+		- [ ] notepad
 		- widgets
 			- [ ] childwidget
 			- [ ] nestedlayouts
