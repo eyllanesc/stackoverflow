@@ -1,11 +1,92 @@
 # Examples
 
 - activeqt
-- aggregate
+	- [ ] comapp
+	- dotnet
+		- [ ] walkthrough
+		- [ ] wrapper
+	- [ ] hierachy
+	- [ ] mediaplayer
+	- [ ] menus
+	- [ ] multiple
+	- [ ] opengl
+	- [ ] qutlook
+	- [ ] simple
+	- [ ] simpleqml
+	- [ ] wrapper
+- androidextras
+	- [ ] notification
 - assistant
+	- [ ] remotecontrol
+	- [ ] simpletextviewer
 - bluetooth
+	- [ ] btchat
+	- [ ] btfiletransfer
+	- [ ] btscanner
+	- [ ] chat
+	- [ ] heartrate-game
+	- [ ] heartrate-server
+	- [ ] lowerenergyscanner
+	- [ ] picturetransfer
+	- [ ] pingpong
+	- [ ] scanner
 - canvas3d
+	- [ ] framebuffer
+	- [ ] interaction
+	- [ ] jsonmodels
+	- [ ] quickitemtexture
+	- [ ] textureandlight
+	- [ ] threejs
 - charts
+	- [ ] areachart
+	- [ ] audio
+	- [ ] barchart
+	- [ ] barmodelmapper
+	- [ ] boxplotchart
+	- [ ] callout
+	- [ ] candlestickchart
+	- [ ] chartinteractions
+	- [ ] chartthemes
+	- [ ] customchart
+	- [ ] datetimeaxis
+	- [ ] donutbreakdown
+	- [ ] donuchart
+	- [ ] dynamicspline
+	- [ ] horizontalbarchart
+	- [ ] horizontalpercentchart
+	- [ ] horizontalstackedchart
+	- [ ] legend
+	- [ ] legendmarkers
+	- [ ] lineandbar
+	- [ ] linechart
+	- [ ] logvalueaxis
+	- [ ] modeldata
+	- [ ] multiaxis
+	- [ ] nesteddonuts
+	- [ ] openglseries
+	- [ ] percentbarchart
+	- [ ] piechart
+	- [ ] piechartcustomization
+	- [ ] piechartdrilldown
+	- [ ] polarchart
+	- [ ] qmlaxes
+	- [ ] qmlboxplot
+	- [ ] qmlcandlestick
+	- [ ] qmlchart
+	- [ ] qmlcustomization
+	- [ ] qmlcustomlegend
+	- [ ] qmlf1legends
+	- [ ] qmloscilloscope
+	- [ ] qmlpiechart
+	- [ ] qmlpolarchart
+	- [ ] qmlweather
+	- [ ] scatterchart
+	- [ ] scatterinteraction
+	- [ ] splinechart
+	- [ ] stackedbarchart
+	- [ ] stackedbarchartdrilldown
+	- [ ] temperaturerecords
+	- [ ] zoomlinechart
 - corelib
     - ipc
         - [ ] localfortuneclient
@@ -19,10 +100,632 @@
         - [ ] savegame
      - threads
         - [ ] mandelbrot
-        - [x] queuedcustomtype
+        - [x] [queuedcustomtype](https://github.com/eyllanesc/stackoverflow/tree/master/examples/corelib/threads/queuedcustomtype)
         - [ ] semaphores
         - [ ] waitconditions
     - tools
         - [ ] contiguouscache
         - [ ] customtype
         - [ ] customtypesending
+- datavisualization
+	- [ ] audiolevels
+	- [ ] bars
+	- [ ] custominput
+	- [ ] customitems
+	- [ ] customproxy
+	- [ ] draggablesaxes
+	- [ ] itemmodel
+	- [ ] qmlaxisdrag
+	- [ ] qmlaxisformatter
+	- [ ] qmlbars
+	- [ ] qmlcustominput
+	- [ ] qmllegend
+	- [ ] qmlmultigraph
+	- [ ] qmloscilloscope
+	- [ ] qmlscatter
+	- [ ] qmlspectrogram
+	- [ ] qmlsurface
+	- [ ] qmlsurfacelayers
+	- [ ] rotations
+	- [ ] scatter
+	- [ ] surface
+	- [ ] texturesurface
+	- [ ] volumetric
+- dbus
+	- [ ] chat
+	- [ ] complexpingpong
+	- [ ] listnames
+	- [ ] pingpong
+	- [ ] remotecontrolledcar
+- demos
+	- [ ] calqlatr
+	- [ ] clocks
+	- [ ] coffee
+	- [ ] maroon
+	- [ ] photosurface
+	- [ ] photoviewer
+	- [ ] rssnews
+	- [ ] samegame
+	- [ ] stocqt
+	- [ ] tweetsearch
+- designer
+	- [ ] calculatorbuilder
+	- [ ] calculatorform
+	- [ ] containerextension
+	- [ ] customwidgetplugin
+	- [ ] taskmenuextension
+	- [ ] worldtimeclockbuilder
+	- [ ] worldtimeclockplugin
+- embedded
+	- [ ] digiflip
+	- [ ] flickable
+	- [ ] fligtinfo
+	- [ ] lightmaps
+	- [ ] raycasting
+	- [ ] styleexample
+- gamepad
+	- [ ] configureButtons
+	- [ ] keyNavigation
+	- [ ] mouseItem
+	- [ ] quickGamepad
+	- [ ] simple
+- gui
+	- [ ] analogclock
+	- [ ] openglwindow
+	- [ ] rasterwindow
+- help
+	- [ ] contextsensitivehelp
+- linguist
+	- [ ] arrowpad
+	- [ ] hellotr
+	- [ ] trollprint
+- location
+	- [ ] itemview-transitions
+	- [ ] mapviewer
+	- [ ] minimal_map
+	- [ ] places
+	- [ ] places_list
+	- [ ] places_map
+	- [ ] planespotter
+- macextras
+	- [ ] embeddedqwindow
+	- [ ] macfunctions
+	- [ ] macpasteboardmime
+	- [ ] mactoolbar
+- multimedia
+	- [ ] audiodecoder
+	- [ ] audiodevices
+	- [ ] audioengine
+	- [ ] audioinput
+	- [ ] audiooutput
+	- [ ] audiorecorder
+	- [ ] declarative-camera
+	- [ ] declarative-radio
+	- [ ] radio
+	- [ ] spectrum
+	- [ ] videos
+- multimediawidgets
+	- [ ] camera
+	- [ ] customvideosurface
+	- [ ] player
+	- [ ] videographicsitem
+	- [ ] videowidget
+- network
+	- [ ] bearermonitor
+	- [ ] blockingfortuneclient
+	- [ ] broadcastreceiver
+	- [ ] broadcastsender
+	- [ ] dnslookup
+	- [ ] download
+	- [ ] downloadmanager
+	- [ ] fortuneclient
+	- [ ] fortuneserver
+	- [ ] googlesuggest
+	- [ ] http
+	- [ ] loopback
+	- [ ] multicastreceiver
+	- [ ] multicastsender
+	- [ ] multistreamclient
+	- [ ] multistreamserver
+	- [ ] network-chat
+	- [ ] securesocketclient
+	- [ ] secureudpclient
+	- [ ] secureudpserver
+	- [ ] treadedfortuneserver
+	- [ ] torrent
+- nfc
+	- [ ] annotatedurl
+	- [ ] corkboard
+	- [ ] ndefeditor
+	- [ ] poster
+- oauth
+	- [ ] redditclient
+	- [ ] twittertimeline
+- opengl
+	- [ ] 2dpainting
+	- [ ] computegles31
+	- [ ] contextinfo
+	- [ ] cube
+	- [ ] hellogl2
+	- [ ] hellogl3
+	- [ ] hellowindow
+	- legacy
+		- [ ] framebufferobject2
+		- [ ] grabber
+		- [ ] hellogl
+		- [ ] overpainting
+		- [ ] pbuffers
+		- [ ] pbuffers2
+		- [ ] samplebuffers
+	- [ ] paintedwindow
+	- [ ] qopenglwidget
+	- [ ] qopenglwindow
+	- [ ] textures
+	- [ ] threadedopenglwidget
+- positioning
+	- [ ] geoflickr
+	- [ ] logfilepositionsource
+	- [ ] satelliteinfo
+	- [ ] weatherinfo
+- purchasing
+	- [ ] qthangman
+-  qml
+	- [ ] dynamicscene
+	- [ ] locale
+	- [ ] networkaccessmanagerfactory
+	- [ ] qml-18n
+	- [ ] qmlextensionplugins
+	- [ ] shell
+	- tutorials
+		- [ ] extending-qml
+	- [ ] xmlhttprequest
+- qpa
+	- [ ] qrasterwindow
+	- [ ] windows
+- qt3d
+	- [ ] 3d-text
+	- [ ] advancedcustommaterial
+	- [ ] anaglyph-rendering 
+	- [ ] audio-visulizer-qml
+	- [ ] basicshapes-cpp
+	- [ ] compute-particles
+	- [ ] controls
+	- [ ] exampleresources
+	- [ ] instancedd-arrays-qml
+	- [ ] lights
+	- [ ] multiviewport
+	- [ ] pbr-materiasl
+	- [ ] phong-cubes
+	- [ ] planets-qml
+	- [ ] qardboard
+	- [ ] qgltf
+	- [ ] scene2d
+	- [ ] scene3d
+	- [ ] shadow-map-qml
+	- [ ] simple-cpp
+	- [ ] simple-qml
+	- [ ] simplecustommaterial
+	- [ ] torus-qml
+	- [ ] wave
+	- [ ] widgets-scene3d
+	- [ ] wireframe
+- qtconcurrent
+	- [ ] imagescaling
+	- [ ] map
+	- [ ] progressdialog
+	- [ ] runfuncion
+	- [ ] wordcount
+- quick
+	- [ ] animation
+	- [ ] canvas
+	- [ ] customitems
+	- [ ] delegatechooser
+	- [ ] draganddrop
+	- [ ] embeddedwidgets
+	- [ ] externaldraganddrop
+	- [ ] imageelements
+	- [ ] imageprovider
+	- [ ] imageresponseprovider
+	- [ ] keyinteraction
+	- [ ] layouts
+	- [ ] localstorage
+	- [ ] models
+	- [ ] mousearea
+	- [ ] particles
+	- [ ] positioners
+	- [ ] quick-accessibility
+	- [ ] quickwidgets
+	- [ ] rendercontrol
+	- [ ] righttoleft
+	- [ ] scenegraph
+	- [ ] shadereffects
+	- [ ] shapes
+	- [ ] tableview
+	- [ ] text
+	- [ ] textureprovider
+	- [ ] threading
+	- [ ] touchinteraction
+	- tutorials
+		- [ ] dynamicview
+		- [ ] helloworld
+		- [ ] samegame 
+	- [ ] views
+	- [ ] window
+- quickcontrols
+	- controls
+		- [ ] basiclayouts
+		- [ ] calendar
+		- [ ] filesystembrowser
+		- [ ] gallery
+		- [ ] styles
+		- [ ] tableview
+		- [ ] texteditor
+		- [ ] touch
+		- [ ] uiforms
+	- dialogs
+		- [ ] systemdialogs
+
+	- extras
+		- [ ] dashboard
+		- [ ] flat
+		- [ ] gallery
+
+- quickcontrols2
+	- [ ] chattutorial
+	- [ ] contactlist
+	- [ ] flatstyle
+	- [ ] gallery
+	- [ ] imagine
+	- [ ] sidepanel
+	- [ ] swipetoremove
+	- [ ] texteditor
+	- [ ] wearable
+- remoteobjects
+	- [ ] clientapp
+	- [ ] cppclient
+	- [ ] modelviewclient
+	- [ ] modelviewserver
+	- [ ] plugins
+	- [ ] qmlmodelviewclient
+	- [ ] server
+	- [ ] simpleswitch
+	- [ ] ssl
+- script
+	- [ ] calculator
+	- [ ] context2d
+	- [ ] customclass
+	- [ ] defaultprototype
+	- [ ] helloscript
+	- [ ] marshal
+	- [ ] qscript
+	- [ ] qsdbg
+	- [ ] qstetrix
+- scxml
+	- [ ] calculator-qml
+	- [ ] calculator-widgets
+	- [ ] ftpclient
+	- [ ] invoke-common
+	- [ ] mediaplayer-qml-cppdatamodel
+	- [ ] mediaplayer-qml-dynamic
+	- [ ] mediaplayer-qml-static
+	- [ ] mediaplayer-widgets-dynamic
+	- [ ] mediaplayer-widgets-static
+	- [ ] pintball
+	- [ ] sudoku
+	- [ ] trafficlight-qml-dynamic
+	- [ ] trafficlight-qml-static
+	- [ ] trafficlight-widgets-dynamic
+	- [ ] trafficlight-widgets-static
+- sensors
+	- [ ] accelbubble
+	- [ ] grue
+	- [ ] maze
+	- [ ] qmlsensors
+	- [ ] qmlsensorgesture
+	- [ ] sensor_explorer
+	- [ ] sensorgestures
+	- [ ] shakeit
+- serialbus
+	- [ ] can
+	- [ ] modbus
+- serialport
+	- [ ] blockingmaster
+	- [ ] blockingslave
+	- [ ] cenumerator
+	- [ ] creaderasync
+	- [ ] creadersync
+	- [ ] cwriterasync
+	- [ ] cwritersync
+	- [ ] enumerator
+	- [ ] master
+	- [ ] slave
+	- [ ] terminal
+- speach
+	- [ ] hello_speak
+- sql
+	- [ ] books
+	- [ ] cachedtable
+	- [ ] drilldown
+	- [ ] masterdetail
+	- [ ] querymodel
+	- [ ] relationaltablemodel
+	- [ ] sqlbrowser
+	- [ ] sqlwidgetmapper
+	- [ ] tablemodel
+- svg
+	- draganddrop
+		- [ ] delayedencoding
+	- embedded
+		- [ ] desktopservices
+		- [ ] fluidlauncher
+		- [ ] weatherinfo
+	- [ ] embeddedsvgviewer
+	- network
+		- [ ] bearercloud
+	- opengl
+		- [ ] framebufferobject
+	- richtext
+		- [ ] textobject
+	- [ ] svggenerator
+	- [ ] svgviewer
+- tutorials
+	- [ ] alarms
+	- [ ] 
+- uitools
+	- [ ] multipleinherintance
+	- [ ] textfinder
+- virtualkeyboard
+	- [ ] basic
+- vulkan
+	- [ ] hellovulkancubes
+	- [ ] hellovulkantexture
+	- [ ] hellovulkantriangle
+	- [ ] hellovulkanwidget
+	- [ ] hellovulkanwindow
+- wayland
+	- [ ] custom-extension
+	- [ ] hwlayer
+	- [ ] ivi-compositor
+	- [ ] minimal-cpp
+	- [ ] minimal-qml
+	- [ ] multi-output
+	- [ ] multi-screen
+	- [ ] overview-compositor
+	- [ ] pure-qml
+	- [ ] qwindow-compositor
+	- [ ] server-buffer
+	- [ ] server-side-decoration
+	- [ ] spanning-screens
+- webchannel
+	- [ ] chaclient-qml
+	- [ ] chaclient-cpp
+	- [ ] nodejs
+	- [ ] qwclient
+	- [ ] standalone
+- webengine
+	- [ ] customdialogs
+	- [ ] minimal
+	- [ ] quicknanobrowser
+	- [ ] recipebrowser
+- webenginewidgets
+	- [ ] content-manipulation
+	- [ ] cookiebrowser
+	- [ ] html2pdf
+	- [ ] maps
+	- [ ] markdowneditor
+	- [ ] minimal
+	- [ ] simplebrowser
+	- [ ] spellchecker
+	- [ ] stylesheetbrowser
+	- [ ] videoplayer
+	- [ ] webui
+- websockets
+	- [ ] echoclient
+	- [ ] echoserver
+	- [ ] qmlwebsocketclient
+	- [ ] qmlwebsocketserver
+	- [ ] simplechat
+	- [ ] sslechoclient
+	- [ ] sslechoserver
+- webview
+	- [ ] minibrowser
+- widgets
+	- animation
+		- [ ] animatedtiles
+		- [ ] easing
+		- [ ] moveblocks
+		- [ ] states
+		- [ ] stickman
+		- [ ] sub-attaq
+	- desktop
+		- [ ] screenshot
+		- [ ] systray
+	- dialogs
+		- [ ] classwizard
+		- [ ] extension
+		- [ ] findfiles
+		- [ ] licensewizard
+		- [ ] standarddialogs
+		- [ ] tabdialog
+		- [ ] trivialwizard
+	- draganddrop
+		- [ ] draggableicons
+		- [ ] draggabletext
+		- [ ] dropsite
+		- [ ] fridgemagnets
+		- [ ] puzzle
+	- effects
+		- [ ] blurpicker
+		- [ ] fademessage
+	- gestures
+		- [ ] imagegestures
+	- graphicsview
+		- [ ] anchorlayout
+		- [ ] basicgraphicslayouts
+		- [ ] boxes
+		- [ ] chip
+		- [ ] collidingmice
+		- [ ] diagramscene
+		- [ ] dragdroprobot
+		- [ ] elasticnodes
+		- [ ] embeddeddialogs
+		- [ ] flowlayout
+		- [ ] padnavigator
+		- [ ] simpleanchorlayout
+		- [ ] weatheranchorlayout
+	- itemviews
+		- [ ] addressbook
+		- [ ] basicsortfiltermodel
+		- [ ] chart
+		- [ ] coloreditorfactory
+		- [ ] combowidgetmapper
+		- [ ] customsortfiltermodel
+		- [ ] dirview
+		- [ ] editabletreemodel
+		- [ ] fetchmore
+		- [ ] flattreeview
+		- [ ] frozencolumn
+		- [ ] interview
+		- [ ] pixelator
+		- [ ] puzzle
+		- [ ] simpledommodel
+		- [ ] simpletreemodel
+		- [ ] simplewidgetmapper
+		- [ ] spinboxdelegate
+		- [ ] spreadsheet
+		- [ ] stardelegate
+		- [ ] storageview
+	- layouts 
+		- [ ] basiclayouts
+		- [ ] borderlayout
+		- [ ] dynamiclayouts
+		- [ ] flowlayout
+	- mac
+		- [ ] qmaccocoaviewcontainer
+		- [ ] qmacnativewidget
+	- mainwindows
+		- [ ] application
+		- [ ] dockwidgets
+		- [ ] mainwindow
+		- [ ] mdi
+		- [ ] menus
+		- [ ] sdi
+	- painting
+		- [ ] affine
+		- [ ] basicdrawing
+		- [ ] composition
+		- [ ] concentriccircles
+		- [ ] deform
+		- [ ] fontsampler
+		- [ ] gradients
+		- [ ] imagecomposition
+		- [ ] painterpaths
+		- [ ] pathstroke
+		- [ ] shared
+		- [ ] thransformations
+	- richtext
+		- [ ] calendar
+		- [ ] orderform
+		- [ ] syntaxhighlighter
+		- [ ] textedit
+	- scroller
+		- [ ] graphicsview
+	- statemachine
+		- [ ] eventtransitions
+		- [ ] factorial
+		- [ ] pingpong
+		- [ ] rogue
+		- [ ] trafficlight
+		- [ ] twowaybutton
+	- tools
+		- [ ] codecs
+		- [ ] completer
+		- [ ] customcompleter
+		- [ ] echoplugin
+		- [ ] i18n
+		- [ ] plugandpaint
+		- [ ] regexp
+		- [ ] regularexpression
+		- [ ] settingseditor
+		- [ ] styledplugin
+		- [ ] treemodelcompleter
+		- [ ] undo
+		- [ ] undoframework
+	- touch
+		- [ ] dials
+		- [ ] fingerpaint
+		- [ ] knobs
+		- [ ] pinchzoom
+	- tutorials
+		- addressbook
+			- [ ] part1
+			- [ ] part2
+			- [ ] part3
+			- [ ] part4
+			- [ ] part5
+			- [ ] part6
+			- [ ] part7
+		- gettingStarted
+			- [ ] gsQt
+		- modelview
+			- [ ] 1_readonly
+			- [ ] 2_formatting
+			- [ ] 3_changingmodel
+			- [ ] 4_headers
+			- [ ] 5_edit
+			- [ ] 6_treeview
+			- [ ] 7_selections
+		- [] notepad
+		- widgets
+			- [ ] childwidget
+			- [ ] nestedlayouts
+			- [ ] toplevel
+			- [ ] windowlayout
+- winextras
+	- [ ] iconextractor
+	- [ ] musicplayer
+	- [ ] quickplayer		
+- xml
+	- [ ] dombookmarks
+	- [ ] htmlinfo
+	- [ ] rsslisting
+	- [ ] saxbookmarks
+	- [ ] streambookmarks
+	- [ ] xmlstreamlint
+- xmlpatterns
+	- [ ] filetree
+	- [ ] recipes
+	- [ ] schema
+	- [ ] xquery
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
