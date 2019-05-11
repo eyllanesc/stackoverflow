@@ -19,7 +19,7 @@
         - [ ] savegame
      - threads
         - [ ] mandelbrot
-        - [x] [queuedcustomtype](corelib/threads/queuedcustomtype)
+        - [x] [queuedcustomtype](https://github.com/eyllanesc/stackoverflow/tree/master/examples/corelib/threads/queuedcustomtype)
         - [ ] semaphores
         - [ ] waitconditions
     - tools
