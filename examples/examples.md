@@ -12,17 +12,17 @@
         - [ ] localfortuneserver
         - [ ] sharedmemory
     - mimetypes
-         - [] mimetypebrowser
+        - [ ] mimetypebrowser
      - serialization
-         - [] cbordump
-         - [] convert
-         - [] savegame
+        - [ ] cbordump
+        - [ ] convert
+        - [ ] savegame
      - threads
-        - [] mandelbrot
+        - [ ] mandelbrot
         - [x] queuedcustomtype
-        - [] semaphores
-        - [] waitconditions
+        - [ ] semaphores
+        - [ ] waitconditions
     - tools
-        - [] contiguouscache
-        - [] customtype
-        - [] customtypesending
+        - [ ] contiguouscache
+        - [ ] customtype
+        - [ ] customtypesending
