@@ -18,7 +18,7 @@
 	- [ ] notification
 - assistant
 	- [ ] remotecontrol
-	- [x] simpletextviewer
+	- [x] [simpletextviewer](assistant/simpletextviewer)
 - bluetooth
 	- [ ] btchat
 	- [ ] btfiletransfer
@@ -100,7 +100,7 @@
         - [ ] savegame
      - threads
         - [ ] mandelbrot
-        - [x] [queuedcustomtype](https://github.com/eyllanesc/stackoverflow/tree/master/examples/corelib/threads/queuedcustomtype)
+        - [x] [queuedcustomtype](corelib/threads/queuedcustomtype)
         - [ ] semaphores
         - [ ] waitconditions
     - tools
