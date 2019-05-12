@@ -18,7 +18,7 @@
 	- [ ] notification
 - assistant
 	- [ ] remotecontrol
-	- [ ] simpletextviewer
+	- [x] simpletextviewer
 - bluetooth
 	- [ ] btchat
 	- [ ] btfiletransfer
