@@ -1,4 +1,4 @@
-from Qt import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 from assistant import Assistant
 from textedit import TextEdit
@@ -25,7 +25,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def _showDocumentation(self):
         self.assistant.showDocumentation("index.html")
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def _about(self):
         QtWidgets.QMessageBox.about(
             self,
@@ -37,7 +37,7 @@ class MainWindow(QtWidgets.QMainWindow):
             ),
         )
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def _open(self):
         dialog = FindFileDialog(self.textViewer, self.assistant)
         dialog.exec_()

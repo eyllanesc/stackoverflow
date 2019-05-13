@@ -1,11 +1,11 @@
-from Qt import QtCore, QtGui
+from PyQt5 import QtCore, QtGui
 import random
 
 from block import Block
 
 
 class RenderThread(QtCore.QThread):
-    sendBlock = QtCore.Signal(Block)
+    sendBlock = QtCore.pyqtSignal(Block)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -54,7 +54,7 @@ class RenderThread(QtCore.QThread):
                     return
                 QtCore.QThread.msleep(10)
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def stopProcess(self):
         self.mutex.lock()
         self.m_abort = True

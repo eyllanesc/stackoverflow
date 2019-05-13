@@ -1,4 +1,4 @@
-from Qt import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class FindFileDialog(QtWidgets.QDialog):
@@ -21,7 +21,7 @@ class FindFileDialog(QtWidgets.QDialog):
 
         self.setWindowTitle(self.tr("Find File"))
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def browse(self):
         currentDirectory = self.directoryComboBox.currentText()
         newDirectory = QtWidgets.QFileDialog.getExistingDirectory(
@@ -36,11 +36,12 @@ class FindFileDialog(QtWidgets.QDialog):
             )
             self.update()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def help(self):
         self.currentAssistant.showDocumentation("filedialog.html")
 
-    @QtCore.Slot("QTreeWidgetItem*")
+    @QtCore.pyqtSlot("QTreeWidgetItem*")
+    @QtCore.pyqtSlot()
     def openFile(self, item=None):
         if item is None:
             item = self.foundFilesTree.currentItem()
@@ -51,7 +52,7 @@ class FindFileDialog(QtWidgets.QDialog):
         self.currentEditor.setContents(path + fileName)
         self.close()
 
-    @QtCore.Slot()
+    @QtCore.pyqtSlot()
     def update(self):
         self.findFiles()
         self.buttonBox.button(QtWidgets.QDialogButtonBox.Open).setEnabled(
@@ -125,7 +126,7 @@ class FindFileDialog(QtWidgets.QDialog):
             selectionMode=QtWidgets.QAbstractItemView.SingleSelection,
         )
         self.foundFilesTree.itemActivated.connect(self.openFile)
-        self.foundFilesTree.setHeaderLabels(self.tr("Matching Files"))
+        self.foundFilesTree.setHeaderLabels([self.tr("Matching Files")])
 
     def createLabels(self):
         self.directoryLabel = QtWidgets.QLabel(self.tr("Search in:"))

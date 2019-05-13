@@ -1,6 +1,6 @@
 import platform
 
-from Qt import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 
 class Assistant:

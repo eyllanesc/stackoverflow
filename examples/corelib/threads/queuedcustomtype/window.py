@@ -1,4 +1,4 @@
-from Qt import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 from renderthread import RenderThread
 from block import Block
@@ -67,13 +67,13 @@ class Window(QtWidgets.QWidget):
         else:
             useImage = image
         self.m_pixmap = QtGui.QPixmap(useImage.width(), useImage.height())
-        self.m_pixmap.fill(QtGui.qRgb(255, 255, 255))
+        self.m_pixmap.fill(QtGui.QColor(255, 255, 255))
         self.label.setPixmap(self.m_pixmap)
         self.loadButton.setEnabled(False)
         self.resetButton.setEnabled(True)
         self.m_thread.processImage(useImage)
 
-    @QtCore.Slot(Block)
+    @QtCore.pyqtSlot(Block)
     def addBlock(self, block):
         color = block.color
         color.setAlpha(64)
