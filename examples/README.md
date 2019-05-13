@@ -470,7 +470,6 @@
 	- [ ] svgviewer
 - tutorials
 	- [ ] alarms
-	- [ ] 
 - uitools
 	- [ ] multipleinherintance
 	- [ ] textfinder
@@ -555,7 +554,7 @@
 		- [ ] fridgemagnets
 		- [ ] puzzle
 	- effects
-		- [ ] blurpicker
+		- [x] [blurpicker](widgets/effects/blurpicker)
 		- [ ] fademessage
 	- gestures
 		- [ ] imagegestures
