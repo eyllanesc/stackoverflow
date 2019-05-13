@@ -511,7 +511,7 @@
 	- [x] [content-manipulation](webenginewidgets/content-manipulation)
 	- [ ] cookiebrowser
 	- [ ] html2pdf
-	- [ ] maps
+	- [x] [maps](webenginewidgets/maps)
 	- [ ] markdowneditor
 	- [ ] minimal
 	- [ ] simplebrowser
