@@ -508,7 +508,7 @@
 	- [ ] quicknanobrowser
 	- [ ] recipebrowser
 - webenginewidgets
-	- [ ] content-manipulation
+	- [x] [content-manipulation](webenginewidgets/content-manipulation)
 	- [ ] cookiebrowser
 	- [ ] html2pdf
 	- [ ] maps
