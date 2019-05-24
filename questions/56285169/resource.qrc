@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>marker.png</file>
+    </qresource>
+</RCC>
