@@ -166,7 +166,7 @@ from PySide2 import ...
 	- [ ] worldtimeclockbuilder
 	- [ ] worldtimeclockplugin
 - embedded
-	- [ ] digiflip
+	- [x] digiflip [[Python]](embedded/digiflip) [[C++]](https://code.qt.io/cgit/qt/qtbase.git/tree/examples/embedded/digiflip)
 	- [ ] flickable
 	- [ ] fligtinfo
 	- [ ] lightmaps
