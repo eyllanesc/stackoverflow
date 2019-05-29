@@ -171,7 +171,7 @@ from PySide2 import ...
 	- [ ] fligtinfo
 	- [ ] lightmaps
 	- [ ] raycasting
-	- [ ] styleexample
+	- [x] styleexample [[Python]](embedded/styleexample) [[C++]](https://code.qt.io/cgit/qt/qtbase.git/tree/examples/embedded/styleexample)
 - gamepad
 	- [ ] configureButtons
 	- [ ] keyNavigation
