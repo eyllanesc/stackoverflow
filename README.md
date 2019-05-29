@@ -5,7 +5,11 @@
 
 ## Questions:
 
-Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/master/questions) questions folder are the projects with an `<id>`, if you want to find the post you should use the link: ` https://stackoverflow.com/questions/<id> `
+Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/master/questions) questions folder are the projects with an `<id>`, if you want to find the post you should use the link: ` https://stackoverflow.com/questions/<id> `.
+
+## Examples:
+
+I am trying to translate the examples offered by Qt from C++ to python, you can find it [here](examples/README.md).
 
 ## Donation
 
