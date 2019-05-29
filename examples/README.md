@@ -18,7 +18,7 @@
 	- [ ] notification
 - assistant
 	- [ ] remotecontrol
-	- [x] [simpletextviewer](assistant/simpletextviewer)
+	- [x] Simple Text Viewer [Python](assistant/simpletextviewer) [C++](https://doc.qt.io/qt-5/qtassistant-simpletextviewer-example.html)
 - bluetooth
 	- [ ] btchat
 	- [ ] btfiletransfer
@@ -100,7 +100,7 @@
         - [ ] savegame
      - threads
         - [ ] mandelbrot
-        - [x] [queuedcustomtype](corelib/threads/queuedcustomtype)
+        - [x] Queued Custom Type [Python](corelib/threads/queuedcustomtype) [C++](https://doc.qt.io/qt-5/qtcore-threads-queuedcustomtype-example.html)
         - [ ] semaphores
         - [ ] waitconditions
     - tools
@@ -507,10 +507,10 @@
 	- [ ] quicknanobrowser
 	- [ ] recipebrowser
 - webenginewidgets
-	- [x] [content-manipulation](webenginewidgets/content-manipulation)
+	- [x] WebEngine Content Manipulation [Python](webenginewidgets/content-manipulation) [C++](https://doc.qt.io/qt-5/qtwebengine-webenginewidgets-contentmanipulation-example.html)
 	- [ ] cookiebrowser
 	- [ ] html2pdf
-	- [x] [maps](webenginewidgets/maps)
+	- [x] WebEngine Widgets Maps [Python](webenginewidgets/maps) [C++](https://doc.qt.io/qt-5/qtwebengine-webenginewidgets-maps-example.html)
 	- [ ] markdowneditor
 	- [ ] minimal
 	- [ ] simplebrowser
@@ -554,7 +554,7 @@
 		- [ ] fridgemagnets
 		- [ ] puzzle
 	- effects
-		- [x] [blurpicker](widgets/effects/blurpicker)
+		- [x] Blur Picker Effect [Python](widgets/effects/blurpicker) [C++](https://doc.qt.io/qt-5.11/qtwidgets-effects-blurpicker-example.html)
 		- [ ] fademessage
 	- gestures
 		- [ ] imagegestures
@@ -696,35 +696,4 @@
 	- [ ] recipes
 	- [ ] schema
 	- [ ] xquery
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
