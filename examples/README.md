@@ -1,5 +1,14 @@
 # Examples
 
+The codes are written using PyQt5, if you want to run it with PySide2 you just have to change:
+```python
+from PyQt5 import ...
+```
+to:
+```python
+from PySide2 import ...
+```
+
 - activeqt
 	- [ ] comapp
 	- dotnet
