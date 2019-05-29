@@ -11,7 +11,7 @@ Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/ma
 
 I am trying to translate the examples offered by Qt from C++ to python, you can find it [here](examples).
 
-## LICENSE
+## License
 
 Free software: [MIT license](LICENSE)
 
