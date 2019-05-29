@@ -9,7 +9,7 @@ Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/ma
 
 ## Examples:
 
-I am trying to translate the examples offered by Qt from C++ to python, you can find it [here](examples/README.md).
+I am trying to translate the examples offered by Qt from C++ to python, you can find it [here](examples).
 
 ## Donation
 
