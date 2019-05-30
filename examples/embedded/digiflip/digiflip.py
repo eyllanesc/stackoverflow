@@ -34,13 +34,13 @@ class Digits(QtWidgets.QWidget):
 
     def setNumber(self, n):
         if self.m_number != n:
-            self.m_number = max(min(0, n), 99)
+            self.m_number = min(max(0, n), 99)
             self.preparePixmap()
             self.update()
 
     def flipTo(self, n):
         if self.m_number != n:
-            self.m_number = max(min(0, n), 99)
+            self.m_number = min(max(0, n), 99)
             self.preparePixmap()
             self.m_animator.stop()
             self.m_animator.start()
@@ -288,16 +288,19 @@ class DigiFlip(QtWidgets.QMainWindow):
     def chooseSlide(self):
         self.m_hour.setTransition(0)
         self.m_minute.setTransition(0)
+        self.updateTime()
 
     @QtCore.pyqtSlot()
     def chooseFlip(self):
         self.m_hour.setTransition(1)
         self.m_minute.setTransition(1)
+        self.updateTime()
 
     @QtCore.pyqtSlot()
     def chooseRotate(self):
         self.m_hour.setTransition(2)
         self.m_minute.setTransition(2)
+        self.updateTime()
 
 
 if __name__ == "__main__":
