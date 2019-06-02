@@ -536,7 +536,7 @@ from PySide2 import ...
 	- [ ] sslechoclient
 	- [ ] sslechoserver
 - webview
-	- [ ] Minibrowser [[Python]](webview/minibrowser) [[C++]](https://doc.qt.io/qt-5/qtwebview-minibrowser-example.html)
+	- [x] Minibrowser [[Python]](webview/minibrowser) [[C++]](https://doc.qt.io/qt-5/qtwebview-minibrowser-example.html)
 - widgets
 	- animation
 		- [ ] animatedtiles
