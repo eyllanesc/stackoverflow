@@ -560,7 +560,7 @@ from PySide2 import ...
 		- [ ] draggableicons
 		- [ ] draggabletext
 		- [x] Drop Site [[Python]](widgets/draganddrop/dropsite) [[C++]](https://doc.qt.io/qt-5/qtwidgets-draganddrop-dropsite-example.html)
-		- [x] Fridge Magnets [[Python]](widgets/draganddrop/fridgemagnets) [[C++]](https://doc.qt.io/qt-5/qtwidgets-draganddrop-fridgemagnets-example.html)]
+		- [x] Fridge Magnets [[Python]](widgets/draganddrop/fridgemagnets) [[C++]](https://doc.qt.io/qt-5/qtwidgets-draganddrop-fridgemagnets-example.html)
 		- [ ] puzzle
 	- effects
 		- [x] Blur Picker Effect [[Python]](widgets/effects/blurpicker) [[C++]](https://doc.qt.io/qt-5.11/qtwidgets-effects-blurpicker-example.html)
