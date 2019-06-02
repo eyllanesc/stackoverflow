@@ -564,7 +564,8 @@ from PySide2 import ...
 		- [ ] puzzle
 	- effects
 		- [x] Blur Picker Effect [[Python]](widgets/effects/blurpicker) [[C++]](https://doc.qt.io/qt-5.11/qtwidgets-effects-blurpicker-example.html)
-		- [ ] fademessage
+		- [x] Fade Message Effect [[Python]](widgets/effects/fademessage
+) [[C++]](https://doc.qt.io/qt-5/qtwidgets-effects-fademessage-example.html)
 	- gestures
 		- [ ] imagegestures
 	- graphicsview
