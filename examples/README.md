@@ -26,7 +26,7 @@ from PySide2 import ...
 - androidextras
 	- [ ] notification
 - assistant
-	- [ ] remotecontrol
+	- [x] Remote Control [[Python]](assistant/remotecontrol) [[C++]](https://doc.qt.io/qt-5/qtassistant-remotecontrol-example.html)
 	- [x] Simple Text Viewer [[Python]](assistant/simpletextviewer) [[C++]](https://doc.qt.io/qt-5/qtassistant-simpletextviewer-example.html)
 - bluetooth
 	- [ ] btchat
