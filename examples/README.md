@@ -569,7 +569,7 @@ from PySide2 import ...
 	- gestures
 		- [ ] imagegestures
 	- graphicsview
-		- [ ] anchorlayout
+		- [x] Anchor Layout [[Python]](widgets/graphicsview/anchorlayout) [[C++]](https://doc.qt.io/qt-5/qtwidgets-graphicsview-anchorlayout-example.html)
 		- [ ] basicgraphicslayouts
 		- [ ] boxes
 		- [ ] chip
