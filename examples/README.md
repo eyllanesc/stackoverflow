@@ -559,7 +559,7 @@ from PySide2 import ...
 	- draganddrop
 		- [ ] draggableicons
 		- [ ] draggabletext
-		- [ ] dropsite
+		- [x] Drop Site [[Python]](widgets/draganddrop/dropsite) [[C++]](https://doc.qt.io/qt-5/qtwidgets-draganddrop-dropsite-example.html)
 		- [x] Fridge Magnets [[Python]](widgets/draganddrop/fridgemagnets) [[C++](https://doc.qt.io/qt-5/qtwidgets-draganddrop-fridgemagnets-example.html)]
 		- [ ] puzzle
 	- effects
