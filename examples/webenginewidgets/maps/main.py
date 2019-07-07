@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtWidgets, QtWebEngineWidgets
+from PySide2 import QtCore, QtWidgets, QtWebEngineWidgets
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -13,7 +13,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         page.load(QtCore.QUrl("https://maps.google.com"))
 
-    @QtCore.pyqtSlot(QtCore.QUrl, QtWebEngineWidgets.QWebEnginePage.Feature)
+    @QtCore.Slot(QtCore.QUrl, QtWebEngineWidgets.QWebEnginePage.Feature)
     def on_featurePermissionRequested(self, securityOrigin, feature):
         if feature != QtWebEngineWidgets.QWebEnginePage.Geolocation:
             return
@@ -53,6 +53,7 @@ class MainWindow(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     import sys
 
+    QtCore.QCoreApplication.setApplicationName("qt-example")
     QtCore.QCoreApplication.setOrganizationName("QtExamples")
     QtCore.QCoreApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling)
     app = QtWidgets.QApplication(sys.argv)

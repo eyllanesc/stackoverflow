@@ -1,5 +1,6 @@
 # stack overflow
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/eyllanesc) [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/eyllanesc/stackoverflow/blob/master/LICENSE)
+
+[![Stack Exchange reputation](https://img.shields.io/stackexchange/stackoverflow/r/6622587.svg)](https://stackoverflow.com/users/6622587) [![GitHub](https://img.shields.io/github/license/eyllanesc/stackoverflow.svg)](https://github.com/eyllanesc/stackoverflow/blob/master/LICENSE) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/eyllanesc)
 
 <a href="https://stackoverflow.com/users/6622587/eyllanesc"><img src="https://stackoverflow.com/users/flair/6622587.png" width="208" height="58" alt="profile for eyllanesc at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for eyllanesc at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
 
@@ -15,7 +16,7 @@ I am trying to translate the examples offered by Qt from C++ to python, you can 
 
 Free software: [MIT license](LICENSE)
 
-## Donation
+## Donate
 
 If this project help you reduce time to develop, you can give me a cup of :coffee: :smile:
 
