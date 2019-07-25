@@ -1,0 +1,19 @@
+<RCC>
+  <qresource prefix="/">
+    <file>wizardUI/1.welcomePage.ui</file>
+    <file>wizardUI/2.graphicsScene.ui</file>
+    <file>wizardUI/3.graphicsSceneText.ui</file>
+    <file>wizardUI/4.textDialog.ui</file>
+    <file>wizardUI/5.codeDialog.ui</file>
+    <file>wizardUI/6.graphicsSceneBox.ui</file>
+    <file>wizardUI/7.graphicsScenePixmap.ui</file>
+    <file>wizardUI/8.graphicsSceneShrCt.ui</file>
+    <file>wizardUI/9.toolbox.ui</file>
+    <file>wizardUI/10.toolBoxBtns.ui</file>
+    <file>wizardUI/11.toolBoxShrCt.ui</file>
+    <file>wizardUI/12.propertyBox.ui</file>
+    <file>wizardUI/13.printing.ui</file>
+    <file>wizardUI/14.settings.ui</file>
+    <file>wizardUI/15.coclusion.ui</file>
+  </qresource>
+</RCC>
