@@ -12,5 +12,5 @@ docker run -it \
 
 **Build**
 ```
-docker build --tag=python-qt-ubuntu.
+docker build --tag=python-qt-ubuntu .
 ```
