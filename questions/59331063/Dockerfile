@@ -12,18 +12,20 @@ RUN apt-get update && apt-get install \
   build-essential \ 
   qt5-default \
   qtdeclarative5-dev \
+  qml-module-qtquick-controls \
+  qml-module-qtquick-controls2 \
+  qml-module-qtquick-window2  \
   liboscpack-dev
 
 COPY app app
-RUN mkdir app/3rdPartyLibs
 
-RUN cd app/3rdPartyLibs && git clone https://github.com/eyllanesc/qml-osc.git
-RUN mkdir app/build && cd app/build && qmake .. && make
+RUN mkdir app/3rdPartyLibs && \
+	cd app/3rdPartyLibs && \
+	git clone https://github.com/eyllanesc/qml-osc.git
 
-RUN apt-get update && apt-get install \
-  -y --no-install-recommends \
-  qml-module-qtquick-controls \
-  qml-module-qtquick-controls2 \
-  qml-module-qtquick-window2 
+RUN mkdir app/build && \
+	cd app/build && \
+	qmake .. && \
+	make
 
 CMD app/build/59331063
