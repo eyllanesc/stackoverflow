@@ -1,6 +1,3 @@
-# python-qt-docker
-Dockerfile for development of GUI applications with Python 3 + PyQt5
-
 Tested on Ubuntu 18.04
 
 ## How to use it
