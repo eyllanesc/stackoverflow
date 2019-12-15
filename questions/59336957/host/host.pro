@@ -12,5 +12,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    org.eyllanesc.qt_listener.json
+    org.eyllanesc.qt_host.json
 

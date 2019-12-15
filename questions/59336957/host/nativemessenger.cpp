@@ -20,10 +20,11 @@ NativeMessenger::NativeMessenger(QObject *parent) : QObject(parent)
 
 #ifdef Q_OS_WIN
     QWinEventNotifier *m_notifier = new QWinEventNotifier(GetStdHandle(STD_INPUT_HANDLE));
+    connect(m_notifier, &QWinEventNotifier::activated, this, &NativeMessenger::readyRead);
 #else
     QSocketNotifier *m_notifier = new QSocketNotifier(fileno(stdin), QSocketNotifier::Read, this);
-#endif
     connect(m_notifier, &QSocketNotifier::activated, this, &NativeMessenger::readyRead);
+#endif
 }
 
 void NativeMessenger::sendMessage(const QByteArray &message){
