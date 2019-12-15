@@ -3,13 +3,10 @@
 #include <QCoreApplication>
 #include <QSocketNotifier>
 
-#include <unistd.h>
-#include <poll.h>
-
 NativeMessenger::NativeMessenger(QObject *parent) : QObject(parent)
 {
-    m_qin.open(STDIN_FILENO, QIODevice::ReadOnly | QIODevice::Unbuffered);
-    m_qout.open(STDOUT_FILENO, QIODevice::WriteOnly);
+    m_qin.open(stdin, QIODevice::ReadOnly | QIODevice::Unbuffered);
+    m_qout.open(stdout, QIODevice::WriteOnly);
 
     QSocketNotifier *m_notifier = new QSocketNotifier(fileno(stdin), QSocketNotifier::Read, this);
     connect(m_notifier, &QSocketNotifier::activated, this, &NativeMessenger::readyRead);

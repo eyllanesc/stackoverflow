@@ -3,5 +3,5 @@
   	"description": "description",
   	"path": "/opt/QtListener/bin/QtListener",
   	"type": "stdio",
-  	"allowed_origins": ["chrome-extension://gkbefjaobpkkdmfinajgmpieocelajbc/"]
+  	"allowed_origins": ["chrome-extension://hpmhgkbanpaohnhaanoknlncgdackekc/"]
 }
