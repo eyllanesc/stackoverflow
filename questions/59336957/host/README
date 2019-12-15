@@ -1,1 +1,1 @@
-cp org.eyllanesc.qt_listener.json ~/.config/google-chrome/NativeMessagingHosts
+cp org.eyllanesc.qt_host.json ~/.config/google-chrome/NativeMessagingHosts

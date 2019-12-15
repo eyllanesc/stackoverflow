@@ -3,7 +3,7 @@ var port = null;
 tryConnectagain();
 
 function tryConnectagain() {
-    port = chrome.runtime.connectNative('org.eyllanesc.qt_listener');
+    port = chrome.runtime.connectNative('org.eyllanesc.qt_host');
     port.onMessage.addListener(onReceived);
     port.onDisconnect.addListener(onDisconnect);
 }

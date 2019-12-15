@@ -1,14 +1,28 @@
 #include "nativemessenger.h"
 
 #include <QCoreApplication>
+#ifdef Q_OS_WIN
+#include <QWinEventNotifier>
+#include <windows.h>
+#else
 #include <QSocketNotifier>
-
+#endif
 NativeMessenger::NativeMessenger(QObject *parent) : QObject(parent)
 {
+#ifdef Q_OS_WIN
+    // https://developer.chrome.com/apps/nativeMessaging#native-messaging-debugging
+    _setmode(_fileno(stdin), _O_BINARY);
+    _setmode(_fileno(stdout), _O_BINARY);
+#endif
+
     m_qin.open(stdin, QIODevice::ReadOnly | QIODevice::Unbuffered);
     m_qout.open(stdout, QIODevice::WriteOnly);
 
+#ifdef Q_OS_WIN
+    QWinEventNotifier *m_notifier = new QWinEventNotifier(GetStdHandle(STD_INPUT_HANDLE));
+#else
     QSocketNotifier *m_notifier = new QSocketNotifier(fileno(stdin), QSocketNotifier::Read, this);
+#endif
     connect(m_notifier, &QSocketNotifier::activated, this, &NativeMessenger::readyRead);
 }
 
