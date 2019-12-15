@@ -1,0 +1,7 @@
+{
+  	"name": "org.eyllanesc.qt_listener",
+  	"description": "description",
+  	"path": "/opt/QtListener/bin/QtListener",
+  	"type": "stdio",
+  	"allowed_origins": ["chrome-extension://gkbefjaobpkkdmfinajgmpieocelajbc/"]
+}

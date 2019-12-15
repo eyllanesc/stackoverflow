@@ -1,0 +1,17 @@
+{
+    "name": "Test Chrome addon",
+    "version": "0.1",
+    "description": "description",
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs",
+        "nativeMessaging",
+        "background"
+    ],
+    "manifest_version": 2
+}
