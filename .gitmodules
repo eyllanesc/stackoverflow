@@ -1,3 +1,6 @@
 [submodule "questions/55200746/SortFilterProxyModel"]
 	path = questions/55200746/SortFilterProxyModel
 	url = git@github.com:oKcerG/SortFilterProxyModel.git
+[submodule "questions/59405296/3rdParty/QR-Code-generator"]
+	path = questions/59405296/3rdParty/QR-Code-generator
+	url = https://github.com/nayuki/QR-Code-generator.git
