@@ -13,6 +13,7 @@ Window {
         anchors.fill: parent
         RowLayout{
             Button{
+                id: btn
                 text: "Create serie"
                 Layout.fillWidth: true
                 onClicked: helper.createSerie(chartview)

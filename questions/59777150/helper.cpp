@@ -6,6 +6,7 @@
 #include <QMetaObject>
 #include <QQuickItem>
 #include <random>
+#include <cstring>
 
 QT_CHARTS_USE_NAMESPACE
 
@@ -13,6 +14,8 @@ void Helper::createSerie(QQuickItem *chartview){
     if(!chartview)
         return;
     const QMetaObject *mo = chartview->metaObject();
+    if(std::strcmp(mo->className(), "QtCharts::DeclarativeChart") != 0)
+        return;
     int ix = mo->indexOfEnumerator("SeriesType");
     QMetaEnum me = mo->enumerator(ix);
     int type = me.keyToValue("SeriesTypeLine");
