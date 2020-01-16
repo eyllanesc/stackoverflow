@@ -44,5 +44,8 @@ void Helper::createSerie(QQuickItem *chartview){
 void Helper::removeAllSeries(QQuickItem *chartview){
     if(!chartview)
         return;
+    const QMetaObject *mo = chartview->metaObject();
+    if(std::strcmp(mo->className(), "QtCharts::DeclarativeChart") != 0)
+        return;
     QMetaObject::invokeMethod(chartview, "removeAllSeries", Qt::DirectConnection);
 }
