@@ -26,8 +26,6 @@ RUN python3 -m pip install --upgrade pip && python3 -m pip install conan
 
 RUN conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
 
-RUN conan install qt/5.14.1@bincrafters/stable
-
 RUN git clone https://github.com/eyllanesc/Qt-CMake-HelloWorld.git
 
 RUN cd  Qt-CMake-HelloWorld  && mkdir build && cd build && conan install .. && cmake .. && make
