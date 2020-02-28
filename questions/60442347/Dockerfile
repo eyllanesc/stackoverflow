@@ -9,22 +9,18 @@ RUN apt-get update && apt-get install \
     python3-setuptools \
     build-essential \
     cmake \
-    libegl1-mesa \
-    libgl1-mesa-dri \
-    x11-xserver-utils \
-    libxkbcommon-x11-0 \
-    x11-utils \
-    libxcb-xinput-dev \
-    libxcb-shm0 \
-    libxcb-randr0 \
-    libxcb-render-util0 \
-    libxcb-xinerama0 \
     git \
-    ca-certificates 
+    ca-certificates \
+    libgl1-mesa-dev \
+    libxcb-xinerama0 \
+    libxcb-shm0 \
+    libxcb-xinput0
 
 RUN python3 -m pip install --upgrade pip && python3 -m pip install conan
 
 RUN conan remote add bincrafters "https://api.bintray.com/conan/bincrafters/public-conan"
+
+RUN conan install qt/5.14.1@bincrafters/stable
 
 RUN git clone https://github.com/eyllanesc/Qt-CMake-HelloWorld.git
 
