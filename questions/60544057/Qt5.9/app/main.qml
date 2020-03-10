@@ -10,7 +10,7 @@ Window {
     Plugin {
         id: mapPlugin
         name: "here"
-        PluginParameter { name: "here.apiKey"; value: "uPqdYegHjaEnZNaqOkTbwKHclsoTj6Nk6vKvxEBEGus" }
+        PluginParameter { name: "here.apiKey"; value: "{YOUR_API_KEY}" }
     }
     Map {
         anchors.fill: parent
