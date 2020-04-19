@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Hello WebSocket</title>
+  <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+  <table>
+    <tr>
+      <td>
+        <button id="connect" type="button" onclick="connect();">Connect</button>
+        <button id="disconnect" type="button" disabled="disabled" onclick="disconnect();">Disconnect</button>
+      </td>
+      <td>
+        <label for="name">What is your name?</label>
+        <input type="text" id="name" placeholder="Your name here...">
+        <button id="send" type="button" onclick="send();">Send</button>
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+
+  <table id="conversation" border="2">
+      <thead>
+      <tr>
+          <th>Greetings</th>
+      </tr>
+      </thead>
+      <tbody id="greetings">
+      </tbody>
+  </table>
+
+  <script src="/app.js"></script>
+</body>
+</html>
