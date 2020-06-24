@@ -1,0 +1,12 @@
+PyQt5
+PyQt3D
+PyQtChart
+PyQtDataVisualization
+PyQtPurchasing
+PyQtWebEngine
+
+PySide2
+
+Qt.Py
+
+aqtinstall
