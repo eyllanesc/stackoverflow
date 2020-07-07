@@ -21,11 +21,19 @@ class MainWindow(QtWidgets.QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
 
+        self.scene = QtWidgets.QGraphicsScene()
+        self.scene.setSceneRect(0, 0, 400, 200)
+        self.view = QtWidgets.QGraphicsView(self.scene)
+        self.view.setDragMode(QtWidgets.QGraphicsView.RubberBandDrag)
+        self.view.setRenderHints(QtGui.QPainter.Antialiasing)
+        self.setCentralWidget(self.view)
+
         self.createHelpWindow()
         self.createActions()
         self.createMenus()
         self.createConnections()
 
+        self.setWindowTitle(self.tr("QGraphicsScene Help Example"))
         self.resize(640, 480)
 
     def createHelpWindow(self):
@@ -57,10 +65,6 @@ class MainWindow(QtWidgets.QMainWindow):
         self.helpWindow.setWidget(horizSplitter)
         self.helpWindow.hide()
         self.addDockWidget(QtCore.Qt.BottomDockWidgetArea, self.helpWindow)
-
-        self.scene = QtWidgets.QGraphicsScene()
-        self.view = QtWidgets.QGraphicsView(self.scene)
-        self.setCentralWidget(self.view)
 
     def createActions(self):
 
@@ -123,7 +127,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.aboutAction.triggered.connect(self.about)
 
     def keyPressEvent(self, event):
-        pass
+        if event.key() == QtCore.Qt.Key_A:
+            for item in self.scene.selectedItems():
+                self.scene.removeItem(item)
+        else:
+            super().keyPressEvent(event)
 
 
 if __name__ == "__main__":
