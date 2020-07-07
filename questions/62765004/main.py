@@ -1,6 +1,8 @@
 import os
+
 from PyQt5 import QtCore, QtGui, QtWidgets, QtHelp
 
+import qgraphicshelpexample_rc
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
