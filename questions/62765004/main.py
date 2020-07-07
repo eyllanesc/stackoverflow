@@ -44,8 +44,8 @@ class MainWindow(QtWidgets.QMainWindow):
             QtCore.QUrl("qthelp://walletfox.qt.helpexample/doc/index.html")
         )
 
+        self.helpEngine.setUsesFilterEngine(True)
         self.helpEngine.contentWidget().linkActivated.connect(textViewer.setSource)
-
         self.helpEngine.indexWidget().linkActivated.connect(textViewer.setSource)
 
         horizSplitter = QtWidgets.QSplitter(QtCore.Qt.Horizontal)
