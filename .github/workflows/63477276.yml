@@ -1,0 +1,76 @@
+name: CI
+
+on: [push]
+
+jobs:
+  ci:
+    name: ${{ matrix.os.name }} Python-${{ matrix.python }} Qt-${{ matrix.qt }}
+    runs-on: ${{ matrix.os.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - name: Windows
+            extension: "*.dll"
+            runs-on: windows-latest
+          - name: Linux
+            extension: "*.so"
+            runs-on: ubuntu-latest
+          - name: MacOS
+            extension: "*.dylib"
+            runs-on: macos-latest
+        python: [3.6, 3.7, 3.8]
+        qt: [5.15.0]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Linux dependencies
+        if: matrix.os.name == 'Linux'
+        run: |
+          sudo apt-get install '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+      - name: install pyqt5
+        run: pip install pyqt5
+      - name: before
+        uses: GabrielBB/xvfb-action@v1.2
+        with:
+          run: python questions/63477276/main.py
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ matrix.qt }}
+          dir: ${{ github.workspace }}/qt/
+      - name: clone qtstyleplugins
+        run: git clone https://code.qt.io/qt/qtstyleplugins.git
+      - name: compile qtstyleplugins in Windows
+        if: matrix.os.name == 'Windows'
+        shell: cmd
+        run: |
+          call "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          cd qtstyleplugins
+          qmake
+          nmake
+          nmake install
+      - name: compile qtstyleplugins in Linux or MacOS
+        if: matrix.os.name == 'Linux' || matrix.os.name == 'MacOS'
+        run: |
+          cd qtstyleplugins
+          qmake
+          make
+          make install
+      - name: copy binaries
+        run: python questions/63477276/search_binaries.py qtstyleplugins/plugins/styles/
+      - name: after
+        uses: GabrielBB/xvfb-action@v1.2
+        with:
+          run: python questions/63477276/main.py
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          path: qtstyleplugins/plugins/styles/${{ matrix.os.extension }}
+          name: qtstyleplugins-${{ matrix.os.name }}-Python${{ matrix.python }}-Qt${{ matrix.qt }}
