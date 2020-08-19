@@ -39,7 +39,7 @@ jobs:
       - name: before
         uses: GabrielBB/xvfb-action@v1.2
         with:
-          run: python questions/63477276/main.py
+          run: python -c "from PyQt5 import QtWidgets; app = QtWidgets.QApplication([]); print(QtWidgets.QStyleFactory.keys())"
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
@@ -68,7 +68,7 @@ jobs:
       - name: after
         uses: GabrielBB/xvfb-action@v1.2
         with:
-          run: python questions/63477276/main.py
+          run: python -c "from PyQt5 import QtWidgets; app = QtWidgets.QApplication([]); print(QtWidgets.QStyleFactory.keys())"
       - name: upload
         uses: actions/upload-artifact@v2
         with:
