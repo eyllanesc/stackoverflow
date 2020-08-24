@@ -87,7 +87,7 @@ jobs:
       - name: Install pyqt5
         run: pip install pyqt5==${{ matrix.qt.pyqt_version }}
       - name: copy binaries
-        run: python question/63489592/search_binaries.py qtbase/src/plugins/sqldrivers/plugins/sqldrivers
+        run: python questions/63489592/search_binaries.py qtbase/src/plugins/sqldrivers/plugins/sqldrivers
       - name: test
         env: 
           QT_PLUGIN_PATH: ""
@@ -96,7 +96,7 @@ jobs:
           MYSQL_USERNAME: ${{ secrets.MYSQL_USERNAME }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
         run: |
-          python question/63489592/main.py  
+          python questions/63489592/main.py  
       - name: upload
         uses: actions/upload-artifact@v2
         with:
