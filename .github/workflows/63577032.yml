@@ -1,0 +1,48 @@
+name: question_63577032
+
+on: [push]
+
+jobs:
+  ci:
+    name: ${{ matrix.os.name }}
+    runs-on: ${{ matrix.os.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - name: Windows
+            runs-on: windows-latest
+          - name: Linux
+            runs-on: ubuntu-latest
+          - name: MacOS
+            runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.0
+          dir: ${{ github.workspace }}/qt/
+      - name: Compile on Windows
+        if: matrix.os.name == 'Windows'
+        shell: cmd
+        run: |
+          cd questions/63577032
+          call "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          qmake .
+          nmake
+          cd release
+          test_63577032.exe > "${{ github.workspace }}\log.txt" 2>&1
+      - name: Compile on Unix
+        if: matrix.os.name != 'Windows'
+        run: |
+          cd questions/63577032
+          qmake .
+          make
+          ./test_63577032 > "${{ github.workspace }}/log.txt" 2>&1
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          path: log.txt
+          name: log-${{ matrix.os.name }}
