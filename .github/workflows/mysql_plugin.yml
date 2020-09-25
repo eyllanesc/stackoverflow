@@ -1,10 +1,10 @@
-name: compile mysql plugin
+name: generate_mysql_plugin
 
 on: [push]
 
 jobs:
   ci:
-    name: ${{ matrix.os.name }} Python-${{ matrix.python }} Qt-${{ matrix.qt.qt_version }}
+    name: ${{ matrix.os.name }} Qt-${{ matrix.qt.qt_version }}
     runs-on: ${{ matrix.os.runs-on }}
     strategy:
       fail-fast: false
@@ -19,14 +19,9 @@ jobs:
           - name: MacOS
             extension: "dylib"
             runs-on: macos-10.15
-        python: [3.6]
         qt:
-          - name: 5.9
-            qt_version: 5.9.8
-            pyqt_version: 5.9.0
           - name: 5.15
             qt_version: 5.15.0
-            pyqt_version: 5.15.0
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -78,11 +73,6 @@ jobs:
           make sub-mysql
           cd mysql
           make install
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python }}
-          architecture: x64
       - name: upload
         uses: actions/upload-artifact@v2
         with:
