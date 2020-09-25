@@ -1,0 +1,90 @@
+name: compile mysql plugin
+
+on: [push]
+
+jobs:
+  ci:
+    name: ${{ matrix.os.name }} Python-${{ matrix.python }} Qt-${{ matrix.qt.qt_version }}
+    runs-on: ${{ matrix.os.runs-on }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - name: Windows
+            extension: "dll"
+            runs-on: windows-2019
+          - name: Linux
+            extension: "so"
+            runs-on: ubuntu-20.04
+          - name: MacOS
+            extension: "dylib"
+            runs-on: macos-10.15
+        python: [3.6]
+        qt:
+          - name: 5.9
+            qt_version: 5.9.8
+            pyqt_version: 5.9.0
+          - name: 5.15
+            qt_version: 5.15.0
+            pyqt_version: 5.15.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ matrix.qt.qt_version }}
+          dir: ${{ github.workspace }}/qt/
+      - name: clone qtbase
+        run: git clone -b ${{ matrix.qt.qt_version }} https://code.qt.io/qt/qtbase.git
+      - name: Compile mysql plugin on Windows
+        if: matrix.os.name == 'Windows'
+        shell: cmd
+        run: |
+          choco install wget
+          wget https://downloads.mysql.com/archives/get/p/19/file/mysql-connector-c-6.1.11-winx64.zip
+          unzip mysql-connector-c-6.1.11-winx64.zip
+          copy /y "mysql-connector-c-6.1.11-winx64\lib\libmysql.dll" .
+          call "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
+          cd qtbase/src/plugins/sqldrivers
+          qmake -- MYSQL_INCDIR="${{ github.workspace }}\mysql-connector-c-6.1.11-winx64\include" MYSQL_LIBDIR="${{ github.workspace }}\mysql-connector-c-6.1.11-winx64\lib"
+          nmake sub-mysql
+          nmake install
+      - name: Compile mysql plugin on Linux
+        if: matrix.os.name == 'Linux'
+        run: |
+          wget https://downloads.mysql.com/archives/get/p/19/file/mysql-connector-c-6.1.11-linux-glibc2.12-x86_64.tar.gz
+          tar zxvf mysql-connector-c-6.1.11-linux-glibc2.12-x86_64.tar.gz
+          sudo cp mysql-connector-c-6.1.11-linux-glibc2.12-x86_64/lib/*.so /usr/lib/x86_64-linux-gnu
+          sudo apt-get install freetds-dev
+          cd qtbase/src/plugins/sqldrivers
+          qmake
+          cd mysql
+          qmake
+          make
+          make install
+      - name: Compile mysql plugin on MacOS
+        if: matrix.os.name == 'MacOs'
+        run: |
+          brew install wget
+          wget https://cdn.mysql.com/archives/mysql-connector-c/mysql-connector-c-6.1.11-macos10.12-x86_64.tar.gz
+          tar zxvf mysql-connector-c-6.1.11-macos10.12-x86_64.tar.gz
+          sudo cp mysql-connector-c-6.1.11-macos10.12-x86_64/lib/libmysqlclient.dylib mysql-connector-c-6.1.11-macos10.12-x86_64/lib/libmysqlclient_r.dylib
+          sudo cp mysql-connector-c-6.1.11-macos10.12-x86_64/lib/libmysqlclient.18.dylib mysql-connector-c-6.1.11-macos10.12-x86_64/lib/libmysqlclient_r.18.dylib
+
+          sudo cp mysql-connector-c-6.1.11-macos10.12-x86_64/lib/*.dylib /usr/local/lib
+          cd qtbase/src/plugins/sqldrivers
+          qmake -- MYSQL_PREFIX="${{ github.workspace }}/mysql-connector-c-6.1.11-macos10.12-x86_64"
+          make sub-mysql
+          cd mysql
+          make install
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+          architecture: x64
+      - name: upload
+        uses: actions/upload-artifact@v2
+        with:
+          path: qtbase/src/plugins/sqldrivers/plugins/sqldrivers/*qsqlmysql.${{ matrix.os.extension }}
+          name: mysqlplugin-${{ matrix.os.name }}-Qt${{ matrix.qt.name }}
