@@ -1,0 +1,23 @@
+diff --git a/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp b/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
+index 22c32342..d4747a0a 100644
+--- a/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
++++ b/src/plugins/geoservices/osm/qgeotiledmappingmanagerengineosm.cpp
+@@ -217,11 +217,16 @@ QGeoTiledMappingManagerEngineOsm::QGeoTiledMappingManagerEngineOsm(const QVarian
+         if (parameters.contains(QStringLiteral("osm.mapping.copyright")))
+             m_customCopyright = parameters.value(QStringLiteral("osm.mapping.copyright")).toString();
+ 
++        QString format = "png";
++        if(parameters.contains(QStringLiteral("osm.mapping.custom.format"))){
++            format = parameters.value(QStringLiteral("osm.mapping.custom.format")).toString();
++        }
++
+         m_providers.push_back(
+             new QGeoTileProviderOsm( nmCached,
+                 QGeoMapType(QGeoMapType::CustomMap, tr("Custom URL Map"), tr("Custom url map view set via urlprefix parameter"), false, false, 8, pluginName, cameraCaps),
+-                { new TileProvider(tmsServer + QStringLiteral("%z/%x/%y.png"),
+-                    QStringLiteral("png"),
++                { new TileProvider(tmsServer + QStringLiteral("%z/%x/%y.") + format,
++                    format,
+                     mapCopyright,
+                     dataCopyright) }, cameraCaps
+                 ));
