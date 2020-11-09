@@ -4,3 +4,6 @@
 [submodule "questions/59405296/3rdParty/QR-Code-generator"]
 	path = questions/59405296/3rdParty/QR-Code-generator
 	url = https://github.com/nayuki/QR-Code-generator.git
+[submodule "questions/64746801/3rdParty/QConsole"]
+	path = questions/64746801/3rdParty/QConsole
+	url = git@github.com:Skycoder42/QConsole.git
