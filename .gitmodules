@@ -7,3 +7,6 @@
 [submodule "questions/64746801/3rdParty/QConsole"]
 	path = questions/64746801/3rdParty/QConsole
 	url = git@github.com:Skycoder42/QConsole.git
+[submodule "questions/65231036/3rdParty/CuteLogger"]
+	path = questions/65231036/3rdParty/CuteLogger
+	url = https://github.com/dept2/CuteLogger.git
