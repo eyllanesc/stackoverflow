@@ -63,12 +63,12 @@ jobs:
           qmake
           make
           make install
-      - name: copy binaries
-        run: python questions/63477276/search_binaries.py qtstyleplugins/plugins/styles/
-      - name: after
-        uses: GabrielBB/xvfb-action@v1.2
-        with:
-          run: python -c "from PyQt5 import QtWidgets; app = QtWidgets.QApplication([]); print(QtWidgets.QStyleFactory.keys())"
+      #- name: copy binaries
+      #  run: python questions/63477276/search_binaries.py qtstyleplugins/plugins/styles/
+      #- name: after
+      #  uses: GabrielBB/xvfb-action@v1.2
+      #  with:
+      #    run: python -c "from PyQt5 import QtWidgets; app = QtWidgets.QApplication([]); print(QtWidgets.QStyleFactory.keys())"
       - name: upload
         uses: actions/upload-artifact@v2
         with:
