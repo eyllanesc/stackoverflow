@@ -35,7 +35,7 @@ jobs:
           python-version: ${{ matrix.python }}
           architecture: x64
       - name: install pyqt5
-        run: pip install pyqt5
+        run: pip install pyqt5==5.15.0
       - name: before
         uses: GabrielBB/xvfb-action@v1.2
         with:
