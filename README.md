@@ -8,6 +8,13 @@
 
 Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/master/questions) questions folder are the projects with an `<id>`, if you want to find the post you should use the link: ` https://stackoverflow.com/questions/<id> `.
 
+## Issues
+
+You should only report problems with the codes hosted in this repository, please:
+
+- Do not request applications or code.
+- Do not claim for any action of mine in any of the forums that I participate (such as [StackOverflow](https://stackoverflow.com/users/6622587), [forum.qt.io](https://forum.qt.io/user/eyllanesc)). For these types of claims I use the means provided by those sites.
+
 ## License
 
 Free software: [MIT license](LICENSE)
@@ -17,6 +24,10 @@ Free software: [MIT license](LICENSE)
 If this project help you reduce time to develop, you can give me a cup of :coffee: :smile:
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/eyllanesc)
+
+[![buymeacoffee](https://cdn.buymeacoffee.com/buttons/arial-red.png)](https://www.buymeacoffee.com/eyllanesc)
+
+![bitcoin](assets/coinbase.png)
 
 [![GitHub forks](https://img.shields.io/github/forks/eyllanesc/stackoverflow.svg?style=social&label=Fork)](https://github.com/eyllanesc/stackoverflow)
 [![GitHub stars](https://img.shields.io/github/stars/eyllanesc/stackoverflow.svg?style=social&label=Star)](https://github.com/eyllanesc/stackoverflow)
