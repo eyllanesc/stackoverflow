@@ -12,7 +12,8 @@ Inside the [questions folder](https://github.com/eyllanesc/stackoverflow/tree/ma
 
 You should only report problems with the codes hosted in this repository, please:
 
-- Do not request applications or code.
+- Do not request applications or code. If you want me to implement any functionality then you can write to my email <a href="mailto:e.yllanescucho@gmail.com">e.yllanescucho@gmail.com</a>
+ where we can coordinate everything related to that work.
 - Do not claim for any action of mine in any of the forums that I participate (such as [StackOverflow](https://stackoverflow.com/users/6622587), [forum.qt.io](https://forum.qt.io/user/eyllanesc)). For these types of claims I use the means provided by those sites.
 
 ## License
