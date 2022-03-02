@@ -1,2 +1,2 @@
-Scrapy==1.8.1
+Scrapy==1.8.2
 PyQt5==5.12
